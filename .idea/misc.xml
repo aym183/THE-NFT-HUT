@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/comaa/nftapp3/app/src/main/res/drawable/ic_chart.xml" value="0.15885416666666666" />
+        <entry key="..\:/Users/comaa/nftapp3/app/src/main/res/layout/activity_account.xml" value="0.14270833333333333" />
+        <entry key="..\:/Users/comaa/nftapp3/app/src/main/res/layout/activity_analytics.xml" value="0.14270833333333333" />
+        <entry key="..\:/Users/comaa/nftapp3/app/src/main/res/layout/activity_bookmark.xml" value="0.14270833333333333" />
+        <entry key="..\:/Users/comaa/nftapp3/app/src/main/res/layout/activity_bottom_nav.xml" value="0.14270833333333333" />
+        <entry key="..\:/Users/comaa/nftapp3/app/src/main/res/layout/activity_home.xml" value="0.14270833333333333" />
+        <entry key="..\:/Users/comaa/nftapp3/app/src/main/res/layout/activity_main.xml" value="0.14990942028985507" />
+        <entry key="..\:/Users/comaa/nftapp3/app/src/main/res/layout/activity_second.xml" value="0.18" />
+        <entry key="..\:/Users/comaa/nftapp3/app/src/main/res/layout/activity_second2.xml" value="0.14270833333333333" />
+        <entry key="..\:/Users/comaa/nftapp3/app/src/main/res/layout/analytics_fragment.xml" value="0.14270833333333333" />
+        <entry key="..\:/Users/comaa/nftapp3/app/src/main/res/layout/explore_fragment.xml" value="0.14270833333333333" />
+        <entry key="..\:/Users/comaa/nftapp3/app/src/main/res/layout/fragment_account.xml" value="0.40746500777604977" />
+        <entry key="..\:/Users/comaa/nftapp3/app/src/main/res/layout/fragment_analytics.xml" value="0.19202898550724637" />
+        <entry key="..\:/Users/comaa/nftapp3/app/src/main/res/layout/fragment_dashboard.xml" value="0.14270833333333333" />
+        <entry key="..\:/Users/comaa/nftapp3/app/src/main/res/layout/fragment_explore.xml" value="0.19202898550724637" />
+        <entry key="..\:/Users/comaa/nftapp3/app/src/main/res/layout/fragment_first.xml" value="0.25" />
+        <entry key="..\:/Users/comaa/nftapp3/app/src/main/res/layout/fragment_home.xml" value="0.19202898550724637" />
+        <entry key="..\:/Users/comaa/nftapp3/app/src/main/res/layout/fragment_profile.xml" value="0.1" />
+        <entry key="..\:/Users/comaa/nftapp3/app/src/main/res/menu/bottom_nav_menu.xml" value="0.14270833333333333" />
+        <entry key="..\:/Users/comaa/nftapp3/app/src/main/res/menu/menu_main.xml" value="0.21" />
+        <entry key="..\:/Users/comaa/nftapp3/app/src/main/res/menu/nav_menu.xml" value="0.14" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
