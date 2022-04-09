@@ -8,9 +8,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.widget.EditText;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.IOException;
 import java.util.List;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+import okhttp3.ResponseBody;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -28,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
 //        View myView = findViewById(R.id.loginButton);
 //        myView.setEnabled(false);
 
+
+
         EditText username = findViewById(R.id.usernameText);
         EditText password = findViewById(R.id.passwordText);
         String usernameInput = username.getText().toString();
@@ -44,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         DataBaseHelper dataBaseHelper = new DataBaseHelper(MainActivity.this);
         List<UserDetails> loginCredentials = dataBaseHelper.getEveryone(usernameInput, passwordInput);
 
-        //boolean success = dataBaseHelper.addOne(userDetails);
+        // boolean success = dataBaseHelper.addOne(userDetails);
         if(loginCredentials.size() >= 1){
             System.out.println("RedirectNow");
             Intent intent = new Intent(MainActivity.this, NavbarRedirect.class);
@@ -53,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
         else{
             System.out.println("Don't Redirect");
         }
+
         Log.d("success", loginCredentials.toString());
         Toast.makeText(MainActivity.this, "Success = " + loginCredentials.size(), Toast.LENGTH_LONG).show();
     }
