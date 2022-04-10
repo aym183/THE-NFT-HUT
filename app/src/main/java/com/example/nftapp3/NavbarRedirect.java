@@ -37,7 +37,7 @@ public class NavbarRedirect extends AppCompatActivity {
 
         //String url = "https://opensea13.p.rapidapi.com/assets?collection_slug=cryptopunks&order_direction=desc&limit=20&include_orders=false";
         Request request = new Request.Builder()
-                .url("https://opensea13.p.rapidapi.com/assets?collection_slug=cryptopunks&order_direction=desc&limit=20&include_orders=false")
+                .url("https://opensea13.p.rapidapi.com/assets?collection_slug=cryptopunks&order_direction=desc&limit=10&include_orders=false")
                 .get()
                 .addHeader("X-RapidAPI-Host", "opensea13.p.rapidapi.com")
                 .addHeader("X-RapidAPI-Key", "3b11ee2336msh5791c275fc5dbc6p11fa37jsn3cafb1ed4e82")
@@ -59,8 +59,16 @@ public class NavbarRedirect extends AppCompatActivity {
 //                    String jsonData = myResponse.body().string();
                     try {
                         JSONObject json = new JSONObject(myResponse);
+
                         Log.d("WHAT WORKS", "YOU DO");
                         Log.d("WHAT WORKS2", "YOU DO2");
+                        JSONArray arr = json.getJSONArray("assets");
+                        for (int i = 1; i < arr.length(); i++)
+                        {
+                            String post_id = arr.getJSONObject(i).getString("image_preview_url");
+                            Log.d("DATAbyme"+i, post_id);
+
+                        }
 
                         Log.d("DATA", String.valueOf(json.get("assets")));
                     } catch (JSONException e) {
