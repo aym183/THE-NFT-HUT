@@ -1,50 +1,38 @@
 package com.example.nftapp3;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.MenuItem;
-import android.widget.TextView;
-
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
-import java.io.IOException;
+public class ExploreActivity extends AppCompatActivity {
 
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
 
-public class NavbarRedirect extends AppCompatActivity {
-
-    BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_second);
+        setContentView(R.layout.activity_explore);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
-        bottomNavigationView.setSelectedItemId(R.id.home);
+        bottomNavigationView.setSelectedItemId(R.id.explore);
 
 
-//        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
-//        bottomNavigationView = findViewById(R.id.bottomNavigationView);
-//
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                Fragment fragment = null;
+
 
                 switch(item.getItemId()){
 
@@ -57,9 +45,8 @@ public class NavbarRedirect extends AppCompatActivity {
 
                     case R.id.explore:
 
-                        startActivity(new Intent(getApplicationContext(), ExploreActivity.class));
-                        overridePendingTransition(0, 0);
                         return true;
+
 
                     case R.id.chart:
 
@@ -79,6 +66,5 @@ public class NavbarRedirect extends AppCompatActivity {
             }
         });
     }
-
 
 }

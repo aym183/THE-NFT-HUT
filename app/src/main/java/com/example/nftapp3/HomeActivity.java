@@ -1,30 +1,17 @@
 package com.example.nftapp3;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.MenuItem;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.MenuItem;
-import android.widget.TextView;
-
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
-import java.io.IOException;
-
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
-
-public class NavbarRedirect extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity {
 
     BottomNavigationView bottomNavigationView;
 
@@ -32,7 +19,7 @@ public class NavbarRedirect extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_second);
+        setContentView(R.layout.activity_home);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setSelectedItemId(R.id.home);
@@ -50,8 +37,6 @@ public class NavbarRedirect extends AppCompatActivity {
 
                     case R.id.home:
 
-                        startActivity(new Intent(getApplicationContext(), HomeActivity.class));
-                        overridePendingTransition(0, 0);
                         return true;
 
 
@@ -60,6 +45,7 @@ public class NavbarRedirect extends AppCompatActivity {
                         startActivity(new Intent(getApplicationContext(), ExploreActivity.class));
                         overridePendingTransition(0, 0);
                         return true;
+
 
                     case R.id.chart:
 
@@ -75,10 +61,14 @@ public class NavbarRedirect extends AppCompatActivity {
                         return true;
                 }
 
+
                 return false;
             }
         });
     }
+
+
+
 
 
 }

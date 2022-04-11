@@ -1,30 +1,20 @@
 package com.example.nftapp3;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.MenuItem;
-import android.widget.TextView;
-
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.IOException;
-
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
-
-public class NavbarRedirect extends AppCompatActivity {
+public class AnalyticsActivity extends AppCompatActivity {
 
     BottomNavigationView bottomNavigationView;
 
@@ -32,15 +22,12 @@ public class NavbarRedirect extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_second);
+        setContentView(R.layout.activity_analytics);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
-        bottomNavigationView.setSelectedItemId(R.id.home);
+        bottomNavigationView.setSelectedItemId(R.id.chart);
 
 
-//        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
-//        bottomNavigationView = findViewById(R.id.bottomNavigationView);
-//
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -61,10 +48,10 @@ public class NavbarRedirect extends AppCompatActivity {
                         overridePendingTransition(0, 0);
                         return true;
 
+
                     case R.id.chart:
 
-                        startActivity(new Intent(getApplicationContext(), AnalyticsActivity.class));
-                        overridePendingTransition(0, 0);
+
                         return true;
 
 
@@ -81,4 +68,8 @@ public class NavbarRedirect extends AppCompatActivity {
     }
 
 
+
+
+
 }
+
