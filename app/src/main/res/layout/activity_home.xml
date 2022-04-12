@@ -88,27 +88,15 @@
         app:layout_constraintVertical_bias="1.0"
         app:menu="@menu/bottom_nav_menu" />
 
-    <Button
-        android:id="@+id/fetch_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="296dp"
-        android:text="Fetch Image"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.461"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/image_URL"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="104dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
+    <GridView
+        android:layout_width="match_parent"
+        android:layout_height="569dp"
+        app:layout_constraintBottom_toBottomOf="@+id/bottomNavigationView"
+        android:id = "@+id/gridView"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        android:numColumns="2"
+        app:layout_constraintVertical_bias="0.641"
+        tools:layout_editor_absoluteX="35dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

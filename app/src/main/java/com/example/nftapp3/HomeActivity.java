@@ -8,8 +8,11 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,6 +28,10 @@ public class HomeActivity extends AppCompatActivity {
 
     BottomNavigationView bottomNavigationView;
     ImageView ivResult;
+    GridView gridView;
+    String[] numberWord = {"One", "Two", "One", "One", "Two", "One"};
+    int[] images = {R.drawable.ic_bookmark, R.drawable.ic_chart, R.drawable.ic_home, R.drawable.ic_person,
+    R.drawable.ic_home, R.drawable.ic_bookmark};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,19 +39,35 @@ public class HomeActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_home);
 
-        Button btnFetch = findViewById(R.id.fetch_image);
-        ivResult = findViewById(R.id.image_URL);
+        gridView = findViewById(R.id.gridView);
+        GridAdapter adapter =  new GridAdapter(HomeActivity.this, numberWord, images);
+        gridView.setAdapter(adapter);
 
-        btnFetch.setOnClickListener(new View.OnClickListener() {
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
-            public void onClick(View v){
-                String urlLink = "https://lh3.googleusercontent.com/I5rFdPt-FPsGsjF7oaoPGhdLq22jW6JCOTMUB5yvdF7JK9xdUQZxZp1_fwlZGApBjEploJXkr_k4b0nc_hWDeEqqrQ=s250";
-                LoadImage newImage = new LoadImage(ivResult);
-                newImage.execute(urlLink);
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id){
+                Toast.makeText(getApplicationContext(), "You clicked " + numberWord[position],
+                        Toast.LENGTH_SHORT).show();
             }
-
         });
+//        Button btnFetch = findViewById(R.id.fetch_image);
+//        ivResult = findViewById(R.id.image_URL);
 
+//        btnFetch.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v){
+//                String urlLink = "https://lh3.googleusercontent.com/I5rFdPt-FPsGsjF7oaoPGhdLq22jW6JCOTMUB5yvdF7JK9xdUQZxZp1_fwlZGApBjEploJXkr_k4b0nc_hWDeEqqrQ=s250";
+//                LoadImage newImage = new LoadImage(ivResult);
+//                newImage.execute(urlLink);
+//            }
+//
+//        });
+
+
+
+        String urlLink = "https://lh3.googleusercontent.com/I5rFdPt-FPsGsjF7oaoPGhdLq22jW6JCOTMUB5yvdF7JK9xdUQZxZp1_fwlZGApBjEploJXkr_k4b0nc_hWDeEqqrQ=s250";
+        LoadImage newImage = new LoadImage(ivResult);
+        newImage.execute(urlLink);
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setSelectedItemId(R.id.home);
 
