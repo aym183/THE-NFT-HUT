@@ -7,6 +7,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.Arrays;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -18,6 +19,29 @@ public class ImageDetails {
 
     private String WalletAddress;
 
+    public String[] getTitles2() {
+        return titles2;
+    }
+
+    public void setTitles2(String[] titles2) {
+        this.titles2 = titles2;
+    }
+
+    String[] titles2 = new String[10];
+    String[] copy_titles2 = new String[10];
+
+    public String[] getImageDetails2() {
+        return imageDetails2;
+    }
+
+    public void setImageDetails2(String[] imageDetails2) {
+        this.imageDetails2 = imageDetails2;
+    }
+
+    String[] imageDetails2 = new String[10];
+
+
+
     // Might be needed later when integrating wallet address
     public ImageDetails(String WalletAddress){
         this.WalletAddress = WalletAddress;
@@ -28,7 +52,7 @@ public class ImageDetails {
 
         //String url = "https://opensea13.p.rapidapi.com/assets?collection_slug=cryptopunks&order_direction=desc&limit=20&include_orders=false";
         Request request = new Request.Builder()
-                .url("https://opensea13.p.rapidapi.com/assets?collection_slug=cryptopunks&order_direction=desc&limit=10&include_orders=false")
+                .url("https://opensea13.p.rapidapi.com/assets?collection_slug=cryptopunks&order_direction=desc&limit=11&include_orders=false")
                 .get()
                 .addHeader("X-RapidAPI-Host", "opensea13.p.rapidapi.com")
                 .addHeader("X-RapidAPI-Key", "3b11ee2336msh5791c275fc5dbc6p11fa37jsn3cafb1ed4e82")
@@ -51,17 +75,25 @@ public class ImageDetails {
                     try {
                         JSONObject json = new JSONObject(myResponse);
 
-                        Log.d("WHAT WORKS", "YOU DO");
-                        Log.d("WHAT WORKS2", "YOU DO2");
                         JSONArray arr = json.getJSONArray("assets");
                         for (int i = 1; i < arr.length(); i++)
                         {
+                            System.out.println("I am here");
                             String post_id = arr.getJSONObject(i).getString("image_preview_url");
-                            Log.d("DATAbyme"+i, post_id);
+                            String post_name = arr.getJSONObject(i).getString("name");
+                            copy_titles2[i-1] = post_name;
+                            imageDetails2[i-1] = post_id;
+
+//                            Log.d("DATAbyme"+i, post_id);
+//                            Log.d("DATAbyme"+i, post_name);
+//                            Log.d("DATAbyme"+i, "--------");
 
                         }
+                        setTitles2(copy_titles2);
+                        Log.d("titles", Arrays.deepToString(titles2));
+                        Log.d("Details", Arrays.deepToString(imageDetails2));
 
-                        Log.d("DATA", String.valueOf(json.get("assets")));
+
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -71,5 +103,13 @@ public class ImageDetails {
 
             }
         });
+
+
+
     }
+
+
+
 }
+
+
