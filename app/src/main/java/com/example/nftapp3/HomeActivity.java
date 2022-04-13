@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -54,6 +55,7 @@ public class HomeActivity extends AppCompatActivity {
         String[] imageDetails2 = new String[10];
 
 
+
         OkHttpClient client = new OkHttpClient();
 
         //String url = "https://opensea13.p.rapidapi.com/assets?collection_slug=cryptopunks&order_direction=desc&limit=20&include_orders=false";
@@ -82,11 +84,29 @@ public class HomeActivity extends AppCompatActivity {
                         JSONObject json = new JSONObject(myResponse);
 
                         JSONArray arr = json.getJSONArray("assets");
+                        int sale_details = 0;
+
                         for (int i = 1; i < arr.length(); i++)
                         {
-                            System.out.println("I am here");
+
                             String post_id = arr.getJSONObject(i).getString("image_preview_url");
                             String post_name = arr.getJSONObject(i).getString("name");
+                            String sale_name = arr.getJSONObject(i).getString("last_sale");
+
+
+                            if(sale_name.length() == 4){
+                                ;
+                            }
+                            else{
+                                JSONObject real_sale_name = arr.getJSONObject(i).getJSONObject("last_sale");
+//                                JSONObject json2 = new JSONObject(sale_name);
+//                                JSONArray arr2 = json.getJSONArray("payment_token");
+                                //String sale_price = arr.getJSONObject(i).getString("eth_price");
+                                sale_details += real_sale_name.getJSONObject("payment_token").getInt("eth_price");
+//                                Log.d("SUCCESS", String.valueOf(real_sale_name.getJSONObject("payment_token").getString("eth_price")));
+                                Log.d("SUCCESS2", String.valueOf(sale_details));
+                            }
+
                             titles2[i-1] = post_name;
                             imageDetails2[i-1] = post_id;
 
@@ -98,6 +118,8 @@ public class HomeActivity extends AppCompatActivity {
                         //setTitles2(copy_titles2);
                         Log.d("titles", Arrays.deepToString(titles2));
                         Log.d("Details", Arrays.deepToString(imageDetails2));
+                        TextView sales = findViewById(R.id.saleDetails);
+                        sales.setText("TOTAL VALUE: " + sale_details);
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {

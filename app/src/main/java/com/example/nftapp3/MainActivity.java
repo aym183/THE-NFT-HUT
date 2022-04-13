@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         // boolean success = dataBaseHelper.addOne(userDetails);
         if(loginCredentials.size() >= 1){
             System.out.println("RedirectNow");
-            Intent intent = new Intent(MainActivity.this, NavbarRedirect.class);
+            Intent intent = new Intent(MainActivity.this, HomeActivity.class);
             startActivity(intent);
         }
         else{
