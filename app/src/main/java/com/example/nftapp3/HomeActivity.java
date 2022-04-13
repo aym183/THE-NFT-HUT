@@ -7,9 +7,13 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
+
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -60,7 +64,7 @@ public class HomeActivity extends AppCompatActivity {
 
         //String url = "https://opensea13.p.rapidapi.com/assets?collection_slug=cryptopunks&order_direction=desc&limit=20&include_orders=false";
         Request request = new Request.Builder()
-                .url("https://opensea13.p.rapidapi.com/assets?collection_slug=cryptopunks&order_direction=desc&limit=11&include_orders=false")
+                .url("https://opensea13.p.rapidapi.com/assets?collection_slug=cryptopunks&order_direction=desc&limit=13&include_orders=false")
                 .get()
                 .addHeader("X-RapidAPI-Host", "opensea13.p.rapidapi.com")
                 .addHeader("X-RapidAPI-Key", "3b11ee2336msh5791c275fc5dbc6p11fa37jsn3cafb1ed4e82")
@@ -86,7 +90,7 @@ public class HomeActivity extends AppCompatActivity {
                         JSONArray arr = json.getJSONArray("assets");
                         int sale_details = 0;
 
-                        for (int i = 1; i < arr.length(); i++)
+                        for (int i = 3; i < arr.length(); i++)
                         {
 
                             String post_id = arr.getJSONObject(i).getString("image_preview_url");
@@ -107,8 +111,8 @@ public class HomeActivity extends AppCompatActivity {
                                 Log.d("SUCCESS2", String.valueOf(sale_details));
                             }
 
-                            titles2[i-1] = post_name;
-                            imageDetails2[i-1] = post_id;
+                            titles2[i-3] = post_name;
+                            imageDetails2[i-3] = post_id;
 
 //                            Log.d("DATAbyme"+i, post_id);
 //                            Log.d("DATAbyme"+i, post_name);
@@ -119,16 +123,7 @@ public class HomeActivity extends AppCompatActivity {
                         Log.d("titles", Arrays.deepToString(titles2));
                         Log.d("Details", Arrays.deepToString(imageDetails2));
                         TextView sales = findViewById(R.id.saleDetails);
-                        sales.setText("TOTAL VALUE: " + sale_details);
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-
-                                GridAdapter adapter =  new GridAdapter(HomeActivity.this, titles2, imageDetails2);
-                                gridView.setAdapter(adapter);
-
-                            }
-                        });
+                        sales.setText("TOTAL VALUE:      " + sale_details);
 
 
 
@@ -138,6 +133,25 @@ public class HomeActivity extends AppCompatActivity {
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
+
+                    runOnUiThread(new Runnable() {
+
+                        @Override
+                        public void run() {
+
+                            GridAdapter adapter =  new GridAdapter(HomeActivity.this, titles2, imageDetails2);
+                            gridView.setAdapter(adapter);
+                            gridView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+                                @Override
+                                public void onItemClick(AdapterView<?> parent, View view, int position, long id){
+                                    Toast.makeText(getApplicationContext(), "You clicked " + titles2[position],
+                                            Toast.LENGTH_SHORT).show();
+                                }
+                            });
+
+                        }
+                    });
+
 
 
                 }
@@ -149,13 +163,7 @@ public class HomeActivity extends AppCompatActivity {
 
 
 
-//        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id){
-//                Toast.makeText(getApplicationContext(), "You clicked 1",
-//                        Toast.LENGTH_SHORT).show();
-//            }
-//        });
+
 
 //        String urlLink = "https://lh3.googleusercontent.com/I5rFdPt-FPsGsjF7oaoPGhdLq22jW6JCOTMUB5yvdF7JK9xdUQZxZp1_fwlZGApBjEploJXkr_k4b0nc_hWDeEqqrQ=s250";
 

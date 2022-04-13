@@ -3,11 +3,19 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/comaa/StudioProjects/THE-NFT-HUT/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2890625" />
         <entry key="..\:/Users/comaa/StudioProjects/THE-NFT-HUT/app/src/main/res/drawable/ic_bookmark.xml" value="0.2890625" />
+        <entry key="..\:/Users/comaa/StudioProjects/THE-NFT-HUT/app/src/main/res/drawable/ic_chart.xml" value="0.2890625" />
+        <entry key="..\:/Users/comaa/StudioProjects/THE-NFT-HUT/app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.2890625" />
+        <entry key="..\:/Users/comaa/StudioProjects/THE-NFT-HUT/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.2890625" />
+        <entry key="..\:/Users/comaa/StudioProjects/THE-NFT-HUT/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2890625" />
+        <entry key="..\:/Users/comaa/StudioProjects/THE-NFT-HUT/app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.2890625" />
+        <entry key="..\:/Users/comaa/StudioProjects/THE-NFT-HUT/app/src/main/res/drawable/ic_person.xml" value="0.2890625" />
         <entry key="..\:/Users/comaa/StudioProjects/THE-NFT-HUT/app/src/main/res/drawable/selector.xml" value="0.2890625" />
+        <entry key="..\:/Users/comaa/StudioProjects/THE-NFT-HUT/app/src/main/res/drawable/textview_border.xml" value="0.2890625" />
         <entry key="..\:/Users/comaa/StudioProjects/THE-NFT-HUT/app/src/main/res/layout/activity_account.xml" value="0.25" />
         <entry key="..\:/Users/comaa/StudioProjects/THE-NFT-HUT/app/src/main/res/layout/activity_explore.xml" value="0.15670289855072464" />
-        <entry key="..\:/Users/comaa/StudioProjects/THE-NFT-HUT/app/src/main/res/layout/activity_home.xml" value="0.18" />
+        <entry key="..\:/Users/comaa/StudioProjects/THE-NFT-HUT/app/src/main/res/layout/activity_home.xml" value="0.22" />
         <entry key="..\:/Users/comaa/StudioProjects/THE-NFT-HUT/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/comaa/StudioProjects/THE-NFT-HUT/app/src/main/res/layout/activity_second.xml" value="0.15670289855072464" />
         <entry key="..\:/Users/comaa/StudioProjects/THE-NFT-HUT/app/src/main/res/layout/analytics_fragment.xml" value="0.12604166666666666" />

@@ -13,12 +13,14 @@
         android:id="@+id/imageViewGrid"/>
 
     <TextView
+        android:id="@+id/textViewGrid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textViewGrid"
-        android:textSize="25sp"
+        android:layout_marginTop="5dp"
         android:text="Numbers"
-        android:layout_marginTop="5dp"/>
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="15sp" />
 
 
 </LinearLayout>
