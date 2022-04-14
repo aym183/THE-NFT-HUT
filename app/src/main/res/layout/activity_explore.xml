@@ -10,91 +10,14 @@
     <!-- TODO: Update blank fragment layout -->
 
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:background="@color/white"
-        android:gravity="center"
-        android:rotation="90"
-        android:rotationX="0"
-        android:rotationY="0"
-        android:src="@android:drawable/status_bar_item_background"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:background="@color/white"
-        android:backgroundTint="#FFFFFF"
-        android:gravity="center"
-        android:rotation="90"
-        android:rotationX="0"
-        android:rotationY="0"
-        android:src="@android:drawable/status_bar_item_background"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.358"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:background="@color/white"
-        android:gravity="center"
-        android:rotation="90"
-        android:rotationX="0"
-        android:rotationY="0"
-        android:src="@android:drawable/status_bar_item_background"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.646"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:gravity="center"
-        android:text="EXPLORE"
-        android:textColor="@color/white"
-        android:textSize="50dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavigationView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="@color/teal_200"
-        app:itemIconTint="@drawable/selector"
-        app:itemTextColor="@drawable/selector"
-        app:labelVisibilityMode="unlabeled"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_nav_menu" />
-
     <HorizontalScrollView
         android:id="@+id/horizontalScrollView"
         android:layout_width="409dp"
         android:layout_height="150dp"
-        android:layout_marginTop="9dp"
+        android:layout_marginTop="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7">
+        app:layout_constraintTop_toBottomOf="@+id/textView12">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
@@ -220,11 +143,11 @@
     </HorizontalScrollView>
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/textView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="112dp"
         android:text="Recently Added"
         android:textColor="@color/white"
         android:textSize="20dp"
@@ -233,15 +156,250 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView7"
+        android:id="@+id/imageView8"
         android:layout_width="111dp"
         android:layout_height="91dp"
-        android:layout_marginTop="104dp"
+        android:layout_marginTop="80dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.436"
+        app:layout_constraintHorizontal_bias="0.445"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/clock" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:background="@color/white"
+        android:gravity="center"
+        android:rotation="90"
+        android:rotationX="0"
+        android:rotationY="0"
+        android:src="@android:drawable/status_bar_item_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:background="@color/white"
+        android:backgroundTint="#FFFFFF"
+        android:gravity="center"
+        android:rotation="90"
+        android:rotationX="0"
+        android:rotationY="0"
+        android:src="@android:drawable/status_bar_item_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.358"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:background="@color/white"
+        android:gravity="center"
+        android:rotation="90"
+        android:rotationX="0"
+        android:rotationY="0"
+        android:src="@android:drawable/status_bar_item_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.646"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="EXPLORE"
+        android:textColor="@color/white"
+        android:textSize="50dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/teal_200"
+        app:itemIconTint="@drawable/selector"
+        app:itemTextColor="@drawable/selector"
+        app:labelVisibilityMode="unlabeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_nav_menu" />
+
+    <HorizontalScrollView
+        android:id="@+id/SecondhorizontalScrollView"
+        android:layout_width="409dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView13">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/second_nft1"
+                android:layout_width="120dp"
+                android:layout_height="110dp"
+                android:layout_marginStart="15dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/newnft" />
+
+            <TextView
+                android:id="@+id/second_nft1Text"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:text="CRYPTOPUNKS"
+                android:textColor="@color/white"
+                android:textSize="12dp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/second_nft1" />
+
+            <ImageView
+                android:id="@+id/second_nft2"
+                android:layout_width="120dp"
+                android:layout_height="110dp"
+                android:layout_marginStart="30dp"
+                app:layout_constraintStart_toEndOf="@+id/second_nft1"
+                app:layout_constraintTop_toTopOf="@+id/second_nft1"
+                app:srcCompat="@drawable/newnft" />
+
+            <TextView
+                android:id="@+id/second_nft2Text"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="170dp"
+                android:layout_marginTop="8dp"
+                android:text="CRYPTOPUNKS"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="12dp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/second_nft2" />
+
+            <ImageView
+                android:id="@+id/second_nft3"
+                android:layout_width="120dp"
+                android:layout_height="110dp"
+                android:layout_marginStart="30dp"
+                app:layout_constraintStart_toEndOf="@+id/second_nft2"
+                app:layout_constraintTop_toTopOf="@+id/second_nft2"
+                app:srcCompat="@drawable/newnft" />
+
+            <TextView
+                android:id="@+id/second_nft3Text"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="320dp"
+                android:layout_marginTop="8dp"
+                android:text="CRYPTOPUNKS"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="12dp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/second_nft3" />
+
+            <ImageView
+                android:id="@+id/second_nft4"
+                android:layout_width="120dp"
+                android:layout_height="110dp"
+                android:layout_marginStart="30dp"
+                app:layout_constraintStart_toEndOf="@+id/second_nft3"
+                app:layout_constraintTop_toTopOf="@+id/second_nft3"
+                app:srcCompat="@drawable/newnft" />
+
+            <TextView
+                android:id="@+id/second_nft4Text"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="470dp"
+                android:layout_marginTop="8dp"
+                android:text="CRYPTOPUNKS"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="12dp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/second_nft4" />
+
+            <ImageView
+                android:id="@+id/second_nft5"
+                android:layout_width="120dp"
+                android:layout_height="110dp"
+                android:layout_marginStart="30dp"
+                app:layout_constraintStart_toEndOf="@+id/second_nft4"
+                app:layout_constraintTop_toTopOf="@+id/second_nft4"
+                app:srcCompat="@drawable/newnft" />
+
+            <TextView
+                android:id="@+id/second_nft5Text"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="620dp"
+                android:layout_marginTop="8dp"
+                android:text="CRYPTOPUNKS"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:textSize="12dp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/second_nft5" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </HorizontalScrollView>
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="300dp"
+        android:text="Most Viewed"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/second_imageView11"
+        android:layout_width="176dp"
+        android:layout_height="113dp"
+        android:layout_marginTop="256dp"
+        android:layout_marginEnd="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.366"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/lookout" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
