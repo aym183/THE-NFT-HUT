@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,7 +26,12 @@ public class LoadImage extends AsyncTask<String, Void, Bitmap> {
 
         @Override
         protected Bitmap doInBackground(String... strings) {
+            Log.d("ImageView", String.valueOf(this.imageView));
+
+
             String urlLink = strings[0];
+
+
             Bitmap bitmap = null;
             try{
                 InputStream inputStream = new java.net.URL(urlLink).openStream();
@@ -36,13 +42,16 @@ public class LoadImage extends AsyncTask<String, Void, Bitmap> {
                 e.printStackTrace();
 
             }
-//            Log.d("BIT", String.valueOf(bitmap));
+
             return bitmap;
         }
 
         @Override
         protected void onPostExecute(Bitmap bitmap){
-            ivResult.setImageBitmap(bitmap);
+
+            Log.d("Test ImageView", String.valueOf(this.imageView));
+            Log.d("Test ImageView2", String.valueOf(ivResult));
+            this.imageView.setImageBitmap(bitmap);
         }
     }
 

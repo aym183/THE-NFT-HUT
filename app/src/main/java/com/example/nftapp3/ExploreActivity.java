@@ -1,6 +1,7 @@
 package com.example.nftapp3;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.HorizontalScrollView;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,14 +37,25 @@ import okhttp3.Response;
 
 public class ExploreActivity extends AppCompatActivity {
 
-
-
+    ImageView ivResult;
+    int[] imageViews = {R.id.nft1, R.id.nft2, R.id.nft3, R.id.nft4, R.id.nft5};
+    int[] textViews = {R.id.nft1Text, R.id.nft2Text, R.id.nft3Text, R.id.nft4Text, R.id.nft5Text};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_explore);
 
+//        ivResult = findViewById(R.id.nft1);
+//        ivResult.setImageResource(R.id.ic);
+//
+//        String uri = "@drawable/ic_home";  // where myresource (without the extension) is the file
+//
+//        int imageResource = getResources().getIdentifier(uri, null, getPackageName());
+//
+//        ivResult= (ImageView)findViewById(R.id.nft1);
+//        Drawable res = getResources().getDrawable(imageResource);
+//        ivResult.setImageDrawable(res);
 
         String[] titles = new String[5];
         String[] imageDetails = new String[5];
@@ -57,7 +70,7 @@ public class ExploreActivity extends AppCompatActivity {
         for(int i = 0; i<urlLists.length; i++){
 
             Request request = new Request.Builder()
-                    .url(urlLists[i])
+                    .url(urlLists[0])
                     .get()
                     .addHeader("X-RapidAPI-Host", "opensea13.p.rapidapi.com")
                     .addHeader("X-RapidAPI-Key", "3b11ee2336msh5791c275fc5dbc6p11fa37jsn3cafb1ed4e82")
@@ -86,42 +99,41 @@ public class ExploreActivity extends AppCompatActivity {
                             for (int i = 0; i < arr.length(); i++) {
 
                                 String post_id = arr.getJSONObject(i).getString("image_preview_url");
-    //                            String post_name = arr.getJSONObject(i).getString("name");
+                                String post_name = arr.getJSONObject(i).getString("name");
 
 
-    //                            titles[i] = post_name;
+                                titles[i] = post_name;
                                 imageDetails[i] = post_id;
 
-    //                            Log.d("DATAbyme"+i, post_id);
-    //                            Log.d("DATAbyme"+i, post_name);
-    //                            Log.d("DATAbyme"+i, "--------");
 
                             }
-                            //setTitles2(copy_titles2);
-    //                        Log.d("titles", Arrays.deepToString(titles));
+
                             Log.d("Details", Arrays.deepToString(imageDetails));
+                            Log.d("Titles", Arrays.deepToString(titles));
+                            for(int i =0; i<imageDetails.length; i++) {
 
+                                int imageView = imageViews[i];
+                                ivResult = findViewById(imageViews[i]);
+                                String textValue = titles[i];
+                                LoadImage newImage = new LoadImage(ivResult);
+                                newImage.execute(imageDetails[i]);
+                                int position = i;
 
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+
+                                            TextView textView = findViewById(textViews[position]);
+                                            textView.setText(textValue);
+
+                                    }
+                                    });
+
+                              
+                            }
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
-
-    //                    runOnUiThread(new Runnable() {
-    //
-    //                        @Override
-    //                        public void run() {
-    //
-    //                            HorizontalViewAdapter adapter =  new HorizontalViewAdapter(ExploreActivity.this, titles, imageDetails);
-    //                            HorizontalScrollView.setAdapter(adapter);
-    //                            gridView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
-    //                                @Override
-    //                                public void onItemClick(AdapterView<?> parent, View view, int position, long id){
-    //                                    //Toast.makeText(getApplicationContext(), "You clicked " + titles2[position],
-    //                                            Toast.LENGTH_SHORT).show();
-    //                                }
-    //                            });
-    //
-    //                        }
 
 
                     }

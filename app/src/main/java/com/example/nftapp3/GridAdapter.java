@@ -50,12 +50,13 @@ public class GridAdapter extends BaseAdapter {
                 e.printStackTrace();
 
             }
-//            Log.d("BIT", String.valueOf(bitmap));
+            Log.d("BIT", String.valueOf(bitmap));
             return bitmap;
         }
 
         @Override
         protected void onPostExecute(Bitmap bitmap){
+
             ivResult.setImageBitmap(bitmap);
         }
     }
