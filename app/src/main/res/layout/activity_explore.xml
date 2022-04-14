@@ -131,6 +131,15 @@
                 app:layout_constraintTop_toTopOf="@+id/nft3"
                 app:srcCompat="@drawable/newnft" />
 
+            <ImageButton
+                android:id="@+id/nft5"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="15dp"
+                app:layout_constraintStart_toEndOf="@+id/nft4"
+                app:layout_constraintTop_toTopOf="@+id/nft4"
+                app:srcCompat="@drawable/newnft" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </HorizontalScrollView>
 
