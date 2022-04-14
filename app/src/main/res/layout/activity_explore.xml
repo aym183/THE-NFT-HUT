@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,22 +8,131 @@
     tools:context=".ExploreActivity">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+
+    <ImageView
+        android:id="@+id/imageView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text = "Explore"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:rotation="90"
+        android:rotationX="0"
+        android:rotationY="0"
+        android:src="@android:drawable/status_bar_item_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:rotation="90"
+        android:rotationX="0"
+        android:rotationY="0"
+        android:src="@android:drawable/status_bar_item_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.358"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:rotation="90"
+        android:rotationX="0"
+        android:rotationY="0"
+        android:src="@android:drawable/status_bar_item_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.646"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="EXPLORE"
+        android:textColor="@color/black"
         android:textSize="50dp"
         android:textStyle="bold"
-        />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/bottomNavigationView"
-        app:itemTextColor="@drawable/selector"
+        android:layout_alignParentBottom="true"
         app:itemIconTint="@drawable/selector"
+        app:itemTextColor="@drawable/selector"
         app:labelVisibilityMode="unlabeled"
-        app:menu = "@menu/bottom_nav_menu"
-        android:layout_alignParentBottom = "true"/>
+        android:background="@color/teal_200"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_nav_menu" />
+
+    <HorizontalScrollView
+        android:layout_width="409dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="140dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:id="@+id/nft1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="5dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/newnft" />
+
+            <ImageButton
+                android:id="@+id/nft2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="15dp"
+                app:layout_constraintStart_toEndOf="@+id/nft1"
+                app:layout_constraintTop_toTopOf="@+id/nft1"
+                app:srcCompat="@drawable/newnft" />
+
+            <ImageButton
+                android:id="@+id/nft3"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="15dp"
+                app:layout_constraintStart_toEndOf="@+id/nft2"
+                app:layout_constraintTop_toTopOf="@+id/nft2"
+                app:srcCompat="@drawable/newnft" />
+
+            <ImageButton
+                android:id="@+id/nft4"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="15dp"
+                app:layout_constraintStart_toEndOf="@+id/nft3"
+                app:layout_constraintTop_toTopOf="@+id/nft3"
+                app:srcCompat="@drawable/newnft" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </HorizontalScrollView>
 
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

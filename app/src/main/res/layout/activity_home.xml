@@ -13,7 +13,7 @@
         android:id="@+id/imageView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="50dp"
         android:gravity="center"
         android:rotation="90"
         android:rotationX="0"
@@ -28,7 +28,7 @@
         android:id="@+id/imageView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="50dp"
         android:gravity="center"
         android:rotation="90"
         android:rotationX="0"
@@ -43,7 +43,7 @@
         android:id="@+id/imageView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="50dp"
         android:gravity="center"
         android:rotation="90"
         android:rotationX="0"
@@ -63,7 +63,7 @@
         android:gravity="center"
         android:text="USERNAME"
         android:textColor="@color/black"
-        android:textSize="40dp"
+        android:textSize="50dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -74,16 +74,27 @@
         android:id="@+id/saleDetails"
         android:layout_width="match_parent"
         android:layout_height="59dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="112dp"
         android:gravity="center"
         android:text="TOTAL VALUE: "
         android:textColor="@color/black"
         android:textSize="25dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.44"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="191dp"
+        android:layout_height="255dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.836"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/eth" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
@@ -114,13 +125,4 @@
         app:layout_constraintVertical_bias="0.83"
         tools:layout_editor_absoluteX="-2dp" />
 
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="191dp"
-        android:layout_height="255dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.854"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/eth"
-        tools:layout_editor_absoluteY="3dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
