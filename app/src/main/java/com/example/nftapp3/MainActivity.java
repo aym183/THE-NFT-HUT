@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         DataBaseHelper dataBaseHelper = new DataBaseHelper(MainActivity.this);
         List<UserDetails> loginCredentials = dataBaseHelper.getEveryone(usernameInput, passwordInput);
 
-        // boolean success = dataBaseHelper.addOne(userDetails);
+//        dataBaseHelper.addOne(userDetails);
         if(loginCredentials.size() >= 1){
             System.out.println("RedirectNow");
             Intent intent = new Intent(MainActivity.this, HomeActivity.class);

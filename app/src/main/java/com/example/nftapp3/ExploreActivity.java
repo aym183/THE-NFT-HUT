@@ -30,10 +30,12 @@ public class ExploreActivity extends AppCompatActivity {
 
     ImageView ivResult;
     int[][] imageViews = {{R.id.nft1, R.id.nft2, R.id.nft3, R.id.nft4, R.id.nft5},
-            {R.id.second_nft1, R.id.second_nft2, R.id.second_nft3, R.id.second_nft4, R.id.second_nft5}};
+            {R.id.second_nft1, R.id.second_nft2, R.id.second_nft3, R.id.second_nft4, R.id.second_nft5},
+            {R.id.third_nft1, R.id.third_nft2, R.id.third_nft3, R.id.third_nft4, R.id.third_nft5}};
 
     int[][] textViews = {{R.id.nft1Text, R.id.nft2Text, R.id.nft3Text, R.id.nft4Text, R.id.nft5Text},
-            {R.id.second_nft1Text, R.id.second_nft2Text, R.id.second_nft3Text, R.id.second_nft4Text, R.id.second_nft5Text}};
+            {R.id.second_nft1Text, R.id.second_nft2Text, R.id.second_nft3Text, R.id.second_nft4Text, R.id.second_nft5Text},
+            {R.id.third_nft1Text, R.id.third_nft2Text, R.id.third_nft3Text, R.id.third_nft4Text, R.id.third_nft5Text}};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,7 +62,7 @@ public class ExploreActivity extends AppCompatActivity {
         String most_viewedurl = "https://opensea13.p.rapidapi.com/assets?owner=0x276CD56089E7576Fb80d39a763aA0d213B98E948&order_direction=desc&limit=5&include_orders=false";
         String hot_new_itemsurl = "https://opensea13.p.rapidapi.com/assets?owner=0xE21DC18513e3e68a52F9fcDaCfD56948d43a11c6&order_direction=desc&limit=5&include_orders=false";
 
-        String[] urlLists = {recently_addedurl, most_viewedurl};
+        String[] urlLists = {recently_addedurl, most_viewedurl, hot_new_itemsurl};
         for(int i = 0; i<urlLists.length; i++){
 
             int index_position = i;
