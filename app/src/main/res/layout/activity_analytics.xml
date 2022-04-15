@@ -186,7 +186,7 @@
     <HorizontalScrollView
         android:id="@+id/horizontalScrollView"
         android:layout_width="409dp"
-        android:layout_height="150dp"
+        android:layout_height="155dp"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="280dp"
         android:background="@drawable/textview_border"
@@ -199,11 +199,15 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent">
 
-            <ImageButton
+            <ImageView
                 android:id="@+id/stats_nft1"
                 android:layout_width="120dp"
                 android:layout_height="110dp"
                 android:layout_marginStart="15dp"
+                android:layout_marginTop="5dp"
+                android:adjustViewBounds="true"
+                android:maxWidth="120dp"
+                android:maxHeight="110dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/newnft" />
@@ -222,13 +226,17 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/stats_nft1" />
 
-            <ImageButton
+            <ImageView
                 android:id="@+id/stats_nft2"
                 android:layout_width="120dp"
                 android:layout_height="110dp"
                 android:layout_marginStart="30dp"
+                android:layout_marginTop="5dp"
+                android:adjustViewBounds="true"
+                android:maxWidth="120dp"
+                android:maxHeight="110dp"
                 app:layout_constraintStart_toEndOf="@+id/stats_nft1"
-                app:layout_constraintTop_toTopOf="@+id/stats_nft1"
+                app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/newnft" />
 
             <TextView
@@ -245,13 +253,17 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/stats_nft2" />
 
-            <ImageButton
+            <ImageView
                 android:id="@+id/stats_nft3"
                 android:layout_width="120dp"
                 android:layout_height="110dp"
                 android:layout_marginStart="30dp"
+                android:layout_marginTop="5dp"
+                android:adjustViewBounds="true"
+                android:maxWidth="120dp"
+                android:maxHeight="110dp"
                 app:layout_constraintStart_toEndOf="@+id/stats_nft2"
-                app:layout_constraintTop_toTopOf="@+id/stats_nft2"
+                app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/newnft" />
 
             <TextView
@@ -268,13 +280,17 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/stats_nft3" />
 
-            <ImageButton
+            <ImageView
                 android:id="@+id/stats_nft4"
                 android:layout_width="120dp"
                 android:layout_height="110dp"
                 android:layout_marginStart="30dp"
+                android:layout_marginTop="5dp"
+                android:adjustViewBounds="true"
+                android:maxWidth="120dp"
+                android:maxHeight="110dp"
                 app:layout_constraintStart_toEndOf="@+id/stats_nft3"
-                app:layout_constraintTop_toTopOf="@+id/stats_nft3"
+                app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/newnft" />
 
             <TextView
@@ -291,13 +307,17 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/stats_nft4" />
 
-            <ImageButton
+            <ImageView
                 android:id="@+id/stats_nft5"
                 android:layout_width="120dp"
                 android:layout_height="110dp"
                 android:layout_marginStart="30dp"
+                android:layout_marginTop="5dp"
+                android:adjustViewBounds="true"
+                android:maxWidth="120dp"
+                android:maxHeight="110dp"
                 app:layout_constraintStart_toEndOf="@+id/stats_nft4"
-                app:layout_constraintTop_toTopOf="@+id/stats_nft4"
+                app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/newnft" />
 
             <TextView

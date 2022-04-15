@@ -37,7 +37,7 @@ import okhttp3.Response;
 public class AnalyticsActivity extends AppCompatActivity {
 
     BottomNavigationView bottomNavigationView;
-    ImageButton imageButton;
+    ImageView imageView;
     Button rankingsButton;
     private ImageView ivResult;
     private String url;
@@ -49,7 +49,7 @@ public class AnalyticsActivity extends AppCompatActivity {
     "https://opensea13.p.rapidapi.com/collection/mutant-ape-yacht-club",
     "https://opensea13.p.rapidapi.com/collection/azuki"};
 
-    int[] imageViews = {R.id.stats_nft1, R.id.stats_nft2, R.id.stats_nft3,
+    int[] imageButtons = {R.id.stats_nft1, R.id.stats_nft2, R.id.stats_nft3,
             R.id.stats_nft4, R.id.stats_nft5};
 
     int[] textViews = {R.id.stats_nft1Text, R.id.stats_nft2Text, R.id.stats_nft3Text,
@@ -61,8 +61,12 @@ public class AnalyticsActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_analytics);
 
-        imageButton = findViewById(R.id.stats_nft1);
-        imageButton.setOnClickListener(new View.OnClickListener(){
+        for(int i = 0; i < urlArray.length; i++){
+            getData(urlArray[i], imageButtons[i], textViews[i], i);
+        }
+
+        imageView = findViewById(R.id.stats_nft1);
+        imageView.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View v){
@@ -127,8 +131,9 @@ public class AnalyticsActivity extends AppCompatActivity {
         });
     }
 
-    public void getData(String url, ImageView newivResult, TextView newivView){
+    public void getData(String url, int newivResult, int newivView, int position){
 
+        Log.d("URLS"+position, url);
         String[] titles = new String[5];
         String[] imageDetails = new String[5];
 
@@ -156,46 +161,49 @@ public class AnalyticsActivity extends AppCompatActivity {
 
                     //                    String jsonData = myResponse.body().string();
                     try {
-                        JSONObject json = new JSONObject(myResponse);
+                        JSONObject json = new JSONObject(myResponse).getJSONObject("collection");
 
-                        JSONArray arr = json.getJSONArray("assets");
+                        System.out.println("YOU2 "+ String.valueOf(json));
 
+                        String post_id = json.getString("image_url");
+                        String post_name = json.getString("name");
 
-                        for (int j = 0; j < arr.length(); j++) {
+                        titles[position] = post_name;
+                        imageDetails[position] = post_id;
 
-                            String post_id = arr.getJSONObject(j).getString("image_preview_url");
-                            String post_name = arr.getJSONObject(j).getString("name");
+                        ivResult = findViewById(imageButtons[position]);
+                        LoadImage newImage = new LoadImage(ivResult);
+                        newImage.execute(imageDetails[position]);
+                        String textValue = titles[position];
 
+                        runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
 
-                            titles[j] = post_name;
-                            imageDetails[j] = post_id;
+                                    TextView textView = findViewById(textViews[position]);
+                                    textView.setText(textValue);
 
+                                }
+                            });
 
-                        }
-
-                        Log.d("Details", Arrays.deepToString(imageDetails));
-                        Log.d("Titles", Arrays.deepToString(titles));
-                        for(int k =0; k<imageDetails.length; k++) {
-
-//                            int imageView = imageViews[index_position][k];
-//                            ivResult = findViewById(imageViews[index_position][k]);
-//                            String textValue = titles[k];
-//                            LoadImage newImage = new LoadImage(ivResult);
-//                            newImage.execute(imageDetails[k]);
-//                            int position = k;
+//                        Log.d("Details", Arrays.deepToString(imageDetails));
+//                        Log.d("Titles", Arrays.deepToString(titles));
+//                        for(int k =0; k<imageDetails.length; k++) {
 //
-//                            runOnUiThread(new Runnable() {
-//                                @Override
-//                                public void run() {
+////                            int imageView = imageViews[index_position][k];
+////                            ivResult = findViewById(imageViews[index_position][k]);
+////                            String textValue = titles[k];
+////                            LoadImage newImage = new LoadImage(ivResult);
+////                            newImage.execute(imageDetails[k]);
+////                            int position = k;
+////
+////
 //
-//                                    TextView textView = findViewById(textViews[index_position][position]);
-//                                    textView.setText(textValue);
 //
-//                                }
-//                            });
+//                        }
+//
 
 
-                        }
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
