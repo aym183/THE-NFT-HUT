@@ -1,29 +1,297 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/teal_200"
+    android:background="@color/dark_blue"
     tools:context=".AnalyticsActivity">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <ImageView
+        android:id="@+id/imageView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text = "Analytics"
-        android:textSize="50dp"
-        android:textStyle="bold"
-        />
-    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_marginTop="120dp"
+        android:gravity="center"
+        android:rotationX="0"
+        android:rotationY="0"
+        android:src="@android:drawable/status_bar_item_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:rotation="90"
+        android:rotationX="0"
+        android:rotationY="0"
+        android:src="@android:drawable/status_bar_item_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:rotation="90"
+        android:rotationX="0"
+        android:rotationY="0"
+        android:src="@android:drawable/status_bar_item_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.358"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:rotation="90"
+        android:rotationX="0"
+        android:rotationY="0"
+        android:src="@android:drawable/status_bar_item_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.646"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/home_textview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="STATS"
+        android:textColor="@color/white"
+        android:textSize="50dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
-        app:itemTextColor="@drawable/selector"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="675dp"
+        android:background="@color/teal_200"
         app:itemIconTint="@drawable/selector"
+        app:itemTextColor="@drawable/selector"
         app:labelVisibilityMode="unlabeled"
-        app:menu = "@menu/bottom_nav_menu"
-        android:layout_alignParentBottom = "true"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.923"
+        app:menu="@menu/bottom_nav_menu" />
+
+    <Button
+        android:id="@+id/button3"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="166dp"
+        android:layout_height="61dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="124dp"
+        android:layout_marginEnd="37dp"
+        android:backgroundTint="@color/teal_200"
+        android:text="RANKINGS"
+        android:textAlignment="center"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        app:itemIconTint="@drawable/selector"
+        app:itemTextColor="@drawable/selector"
+        app:layout_constraintEnd_toEndOf="@+id/imageView7"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button4"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="165dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="124dp"
+        android:layout_marginEnd="24dp"
+        android:backgroundTint="@color/teal_200"
+        android:text="ACTIVITY"
+        android:textAlignment="center"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        app:itemIconTint="@drawable/selector"
+        app:itemTextColor="@drawable/selector"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.965"
+        app:layout_constraintStart_toEndOf="@+id/imageView7"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/spent_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="228dp"
+        android:gravity="center"
+        android:text="SPENT: $300"
+        android:textColor="@color/white"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView"
+        android:layout_width="409dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="280dp"
+        android:background="@drawable/textview_border"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spent_textview">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:id="@+id/stats_nft1"
+                android:layout_width="120dp"
+                android:layout_height="110dp"
+                android:layout_marginStart="15dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/newnft" />
+
+            <TextView
+                android:id="@+id/stats_nft1Text"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:text="CRYPTOPUNKS"
+                android:textColor="@color/white"
+                android:textSize="12dp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/stats_nft1" />
+
+            <ImageButton
+                android:id="@+id/stats_nft2"
+                android:layout_width="120dp"
+                android:layout_height="110dp"
+                android:layout_marginStart="30dp"
+                app:layout_constraintStart_toEndOf="@+id/stats_nft1"
+                app:layout_constraintTop_toTopOf="@+id/stats_nft1"
+                app:srcCompat="@drawable/newnft" />
+
+            <TextView
+                android:id="@+id/stats_nft2Text"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="170dp"
+                android:layout_marginTop="8dp"
+                android:text="CRYPTOPUNKS"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="12dp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/stats_nft2" />
+
+            <ImageButton
+                android:id="@+id/stats_nft3"
+                android:layout_width="120dp"
+                android:layout_height="110dp"
+                android:layout_marginStart="30dp"
+                app:layout_constraintStart_toEndOf="@+id/stats_nft2"
+                app:layout_constraintTop_toTopOf="@+id/stats_nft2"
+                app:srcCompat="@drawable/newnft" />
+
+            <TextView
+                android:id="@+id/stats_nft3Text"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="320dp"
+                android:layout_marginTop="8dp"
+                android:text="CRYPTOPUNKS"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="12dp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/stats_nft3" />
+
+            <ImageButton
+                android:id="@+id/stats_nft4"
+                android:layout_width="120dp"
+                android:layout_height="110dp"
+                android:layout_marginStart="30dp"
+                app:layout_constraintStart_toEndOf="@+id/stats_nft3"
+                app:layout_constraintTop_toTopOf="@+id/stats_nft3"
+                app:srcCompat="@drawable/newnft" />
+
+            <TextView
+                android:id="@+id/stats_nft4Text"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="470dp"
+                android:layout_marginTop="8dp"
+                android:text="CRYPTOPUNKS"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="12dp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/stats_nft4" />
+
+            <ImageButton
+                android:id="@+id/stats_nft5"
+                android:layout_width="120dp"
+                android:layout_height="110dp"
+                android:layout_marginStart="30dp"
+                app:layout_constraintStart_toEndOf="@+id/stats_nft4"
+                app:layout_constraintTop_toTopOf="@+id/stats_nft4"
+                app:srcCompat="@drawable/newnft" />
+
+            <TextView
+                android:id="@+id/stats_nft5Text"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="620dp"
+                android:layout_marginTop="8dp"
+                android:text="CRYPTOPUNKS"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:textSize="12dp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/stats_nft5" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </HorizontalScrollView>
 
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
