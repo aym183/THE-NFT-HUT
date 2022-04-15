@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
@@ -20,6 +21,7 @@ public class AnalyticsActivity extends AppCompatActivity {
 
     BottomNavigationView bottomNavigationView;
     ImageButton imageButton;
+    Button rankingsButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +34,18 @@ public class AnalyticsActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v){
+
                 Toast.makeText(AnalyticsActivity.this, "YOU CLICKED IT!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        rankingsButton = findViewById(R.id.rankings_button);
+        rankingsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                rankingsButton.setPressed(true);
+                Toast.makeText(AnalyticsActivity.this, "YOU CLICKED RANKINGS!", Toast.LENGTH_SHORT).show();
+
             }
         });
 
