@@ -17,6 +17,7 @@
         android:gravity="center"
         android:rotationX="0"
         android:rotationY="0"
+        android:visibility="invisible"
         android:src="@android:drawable/status_bar_item_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -30,6 +31,7 @@
         android:layout_marginTop="596dp"
         android:gravity="center"
         android:rotationX="0"
+        android:visibility="invisible"
         android:rotationY="0"
         android:src="@android:drawable/status_bar_item_background"
         app:layout_constraintEnd_toEndOf="parent"
@@ -204,7 +206,7 @@
                 android:layout_width="120dp"
                 android:layout_height="110dp"
                 android:layout_marginStart="15dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="13dp"
                 android:adjustViewBounds="true"
                 android:maxWidth="120dp"
                 android:maxHeight="110dp"
@@ -294,6 +296,7 @@
         android:text="Total Sales"
         android:textColor="@color/white"
         android:textStyle="bold"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.164"
         app:layout_constraintStart_toStartOf="parent"
@@ -304,50 +307,55 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="485dp"
+        android:layout_marginEnd="10dp"
         android:text="FLOOR PRICE:"
         android:textColor="@color/white"
         android:textSize="18dp"
         android:textStyle="bold"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/sevenAverage"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="7 Day Average Price"
         android:textColor="@color/white"
         android:textStyle="bold"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.864"
+        app:layout_constraintHorizontal_bias="0.92"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/marketCap" />
 
     <TextView
         android:id="@+id/marketCap"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="Market Cap"
         android:textColor="@color/white"
         android:textStyle="bold"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.727"
+        app:layout_constraintHorizontal_bias="0.92"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/owners" />
 
     <TextView
         android:id="@+id/owners"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="550dp"
         android:text="No of Owners"
         android:textColor="@color/white"
         android:textStyle="bold"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.753"
+        app:layout_constraintHorizontal_bias="0.78"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -359,6 +367,7 @@
         android:text="30 Day Sales"
         android:textColor="@color/white"
         android:textStyle="bold"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.178"
         app:layout_constraintStart_toStartOf="parent"
@@ -366,16 +375,30 @@
 
     <TextView
         android:id="@+id/sevenSales"
-        android:layout_width="wrap_content"
+        android:layout_width="130dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="7 Day Sales"
         android:textColor="@color/white"
         android:textStyle="bold"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.174"
+        app:layout_constraintHorizontal_bias="0.19"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/totalSales" />
+
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="142dp"
+        android:layout_marginEnd="67dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.827"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spent_textview"
+        app:srcCompat="@drawable/eth" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
