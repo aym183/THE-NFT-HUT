@@ -45,6 +45,9 @@ public class AnalyticsActivity extends AppCompatActivity {
     private String url;
     private TextView ivView;
     int detailsValues[];
+    int Doodlecount = 0;
+    int BAYCcount = 0;
+    int MAYCcount = 0;
 
     String[] urlArray = {"https://opensea13.p.rapidapi.com/collection/doodles-official",
     "https://opensea13.p.rapidapi.com/collection/boredapeyachtclub",
@@ -79,8 +82,33 @@ public class AnalyticsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){
 
-                collectionData(urlArray[0]+"/stats");
                 Toast.makeText(AnalyticsActivity.this, "YOU CLICKED IT!", Toast.LENGTH_SHORT).show();
+                Doodlecount+=1;
+                if(Doodlecount % 2==0){
+
+                    Doodlecount = 0;
+                    BAYCcount = 0;
+                    MAYCcount = 0;
+
+                    ImageView ethView = findViewById(R.id.imageView11);
+                    ImageView verticalLine = findViewById(R.id.imageView9);
+                    ImageView verticalLine2 = findViewById(R.id.imageView10);
+                    ethView.setVisibility(View.INVISIBLE);
+                    verticalLine.setVisibility(View.INVISIBLE);
+                    verticalLine2.setVisibility(View.INVISIBLE);
+
+
+                    for (int i = 0; i < collectionDetailViews.length; i++) {
+                        TextView detailsSet = findViewById(collectionDetailViews[i]);
+                        detailsSet.setVisibility(View.INVISIBLE);
+                    }
+
+                }
+                else{
+                    collectionData(urlArray[0]+"/stats");
+                }
+
+
             }
         });
 
@@ -90,8 +118,32 @@ public class AnalyticsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){
 
-                collectionData(urlArray[1]+"/stats");
                 Toast.makeText(AnalyticsActivity.this, "YOU CLICKED IT!", Toast.LENGTH_SHORT).show();
+                BAYCcount+=1;
+                if(BAYCcount % 2==0){
+
+                    Doodlecount = 0;
+                    BAYCcount = 0;
+                    MAYCcount = 0;
+
+                    ImageView ethView = findViewById(R.id.imageView11);
+                    ImageView verticalLine = findViewById(R.id.imageView9);
+                    ImageView verticalLine2 = findViewById(R.id.imageView10);
+                    ethView.setVisibility(View.INVISIBLE);
+                    verticalLine.setVisibility(View.INVISIBLE);
+                    verticalLine2.setVisibility(View.INVISIBLE);
+
+
+                    for (int i = 0; i < collectionDetailViews.length; i++) {
+                        TextView detailsSet = findViewById(collectionDetailViews[i]);
+                        detailsSet.setVisibility(View.INVISIBLE);
+                    }
+
+                }
+                else{
+                    collectionData(urlArray[1]+"/stats");
+                }
+
             }
         });
 
@@ -101,8 +153,32 @@ public class AnalyticsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){
 
-                collectionData(urlArray[2]+"/stats");
                 Toast.makeText(AnalyticsActivity.this, "YOU CLICKED IT!", Toast.LENGTH_SHORT).show();
+                MAYCcount+=1;
+                if(MAYCcount % 2==0){
+
+                    Doodlecount = 0;
+                    BAYCcount = 0;
+                    MAYCcount = 0;
+
+                    ImageView ethView = findViewById(R.id.imageView11);
+                    ImageView verticalLine = findViewById(R.id.imageView9);
+                    ImageView verticalLine2 = findViewById(R.id.imageView10);
+                    ethView.setVisibility(View.INVISIBLE);
+                    verticalLine.setVisibility(View.INVISIBLE);
+                    verticalLine2.setVisibility(View.INVISIBLE);
+
+
+                    for (int i = 0; i < collectionDetailViews.length; i++) {
+                        TextView detailsSet = findViewById(collectionDetailViews[i]);
+                        detailsSet.setVisibility(View.INVISIBLE);
+                    }
+
+                }
+                else{
+                    collectionData(urlArray[2]+"/stats");
+                }
+
             }
         });
 
