@@ -44,16 +44,12 @@ public class AnalyticsActivity extends AppCompatActivity {
     private TextView ivView;
 
     String[] urlArray = {" https://opensea13.p.rapidapi.com/collection/doodles-official",
-    "https://opensea13.p.rapidapi.com/collection/cryptopunks",
-    "https://opensea13.p.rapidapi.com/collection/boredapeyachtclub",
     "https://opensea13.p.rapidapi.com/collection/mutant-ape-yacht-club",
-    "https://opensea13.p.rapidapi.com/collection/azuki"};
+    "https://opensea13.p.rapidapi.com/collection/boredapeyachtclub"};
 
-    int[] imageButtons = {R.id.stats_nft1, R.id.stats_nft2, R.id.stats_nft3,
-            R.id.stats_nft4, R.id.stats_nft5};
+    int[] imageButtons = {R.id.stats_nft1, R.id.stats_nft2, R.id.stats_nft3};
 
-    int[] textViews = {R.id.stats_nft1Text, R.id.stats_nft2Text, R.id.stats_nft3Text,
-            R.id.stats_nft4Text, R.id.stats_nft5Text};
+    int[] textViews = {R.id.stats_nft1Text, R.id.stats_nft2Text, R.id.stats_nft3Text};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +60,9 @@ public class AnalyticsActivity extends AppCompatActivity {
         for(int i = 0; i < urlArray.length; i++){
             getData(urlArray[i], imageButtons[i], textViews[i], i);
         }
+//        for(int i = 2; i < 5; i++){
+//            getData(urlArray[i], imageButtons[i], textViews[i], i);
+//        }
 
         imageView = findViewById(R.id.stats_nft1);
         imageView.setOnClickListener(new View.OnClickListener(){
@@ -168,13 +167,13 @@ public class AnalyticsActivity extends AppCompatActivity {
                         String post_id = json.getString("image_url");
                         String post_name = json.getString("name");
 
-                        titles[position] = post_name;
-                        imageDetails[position] = post_id;
+//                        titles[position] = post_name;
+//                        imageDetails[position] = post_id;
 
                         ivResult = findViewById(imageButtons[position]);
                         LoadImage newImage = new LoadImage(ivResult);
-                        newImage.execute(imageDetails[position]);
-                        String textValue = titles[position];
+                        newImage.execute(post_id);
+                        String textValue = post_name;
 
                         runOnUiThread(new Runnable() {
                                 @Override
@@ -185,23 +184,6 @@ public class AnalyticsActivity extends AppCompatActivity {
 
                                 }
                             });
-
-//                        Log.d("Details", Arrays.deepToString(imageDetails));
-//                        Log.d("Titles", Arrays.deepToString(titles));
-//                        for(int k =0; k<imageDetails.length; k++) {
-//
-////                            int imageView = imageViews[index_position][k];
-////                            ivResult = findViewById(imageViews[index_position][k]);
-////                            String textValue = titles[k];
-////                            LoadImage newImage = new LoadImage(ivResult);
-////                            newImage.execute(imageDetails[k]);
-////                            int position = k;
-////
-////
-//
-//
-//                        }
-//
 
 
                     } catch (JSONException e) {
