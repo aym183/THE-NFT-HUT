@@ -1,6 +1,8 @@
 package com.example.nftapp3;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
@@ -123,6 +125,10 @@ public class HomeActivity extends AppCompatActivity {
                         Log.d("titles", Arrays.deepToString(titles2));
                         Log.d("Details", Arrays.deepToString(imageDetails2));
                         TextView sales = findViewById(R.id.saleDetails);
+                        SharedPreferences sp = getSharedPreferences("Portfolio", Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sp.edit();
+                        editor.putString("value", String.valueOf(sale_details));
+                        editor.commit();
                         sales.setText("TOTAL VALUE:      " + sale_details);
 
 

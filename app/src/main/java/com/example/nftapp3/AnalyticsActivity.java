@@ -1,6 +1,8 @@
 package com.example.nftapp3;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -38,6 +40,7 @@ public class AnalyticsActivity extends AppCompatActivity {
 
     BottomNavigationView bottomNavigationView;
     ImageView doodleimageView;
+    TextView spentValue;
     ImageView BAYCimageView;
     ImageView MAYCimageView;
     Button rankingsButton;
@@ -72,9 +75,13 @@ public class AnalyticsActivity extends AppCompatActivity {
         for(int i = 0; i < urlArray.length; i++){
             getData(urlArray[i], imageButtons[i], textViews[i], i);
         }
-//        for(int i = 2; i < 5; i++){
-//            getData(urlArray[i], imageButtons[i], textViews[i], i);
-//        }
+
+        SharedPreferences sp = getApplicationContext().getSharedPreferences("Portfolio", Context.MODE_PRIVATE);
+        String value = sp.getString("value", "");
+        spentValue = findViewById(R.id.spent_textview);
+
+        // Multiplying with value of eth in dollars to get original dollar value
+        spentValue.setText("TOTAL SPENT: $" + (Integer.parseInt(value)*3050));
 
         doodleimageView = findViewById(R.id.stats_nft1);
         doodleimageView.setOnClickListener(new View.OnClickListener(){

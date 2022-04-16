@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 
 import android.widget.EditText;
 import android.util.Log;
@@ -34,11 +35,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void loginEvent(View view) {
 
-//        View myView = findViewById(R.id.loginButton);
-//        myView.setEnabled(false);
-
-
-
         EditText username = findViewById(R.id.usernameText);
         EditText password = findViewById(R.id.passwordText);
         String usernameInput = username.getText().toString();
@@ -58,8 +54,8 @@ public class MainActivity extends AppCompatActivity {
 //        dataBaseHelper.addOne(userDetails);
         if(loginCredentials.size() >= 1){
             System.out.println("RedirectNow");
-            Intent intent = new Intent(MainActivity.this, HomeActivity.class);
-            startActivity(intent);
+            String message = "You have logged in! Click to explore The NFT Hut :)";
+
         }
         else{
             System.out.println("Don't Redirect");
