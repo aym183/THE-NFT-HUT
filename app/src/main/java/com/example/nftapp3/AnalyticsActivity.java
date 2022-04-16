@@ -43,13 +43,16 @@ public class AnalyticsActivity extends AppCompatActivity {
     private String url;
     private TextView ivView;
 
-    String[] urlArray = {" https://opensea13.p.rapidapi.com/collection/doodles-official",
+    String[] urlArray = {"https://opensea13.p.rapidapi.com/collection/doodles-official",
     "https://opensea13.p.rapidapi.com/collection/mutant-ape-yacht-club",
     "https://opensea13.p.rapidapi.com/collection/boredapeyachtclub"};
 
     int[] imageButtons = {R.id.stats_nft1, R.id.stats_nft2, R.id.stats_nft3};
 
     int[] textViews = {R.id.stats_nft1Text, R.id.stats_nft2Text, R.id.stats_nft3Text};
+
+    int[] collectionDetailViews = {R.id.totalSales, R.id.floorPrice, R.id.sevenSales, R.id.sevenAverage,
+    R.id.thirtySales, R.id.marketCap, R.id.owners};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,7 +83,13 @@ public class AnalyticsActivity extends AppCompatActivity {
             public void onClick(View view) {
                 rankingsButton.setPressed(true);
 
-
+                CollectionDetails newDetails = new CollectionDetails(urlArray[0]+"/stats", collectionDetailViews);
+                newDetails.getCollectionDetails();
+                Log.d("DETS", String.valueOf(newDetails.detailsValues));
+                for(int i = 0; i< collectionDetailViews.length; i++){
+                    TextView detailsSet = findViewById(collectionDetailViews[i]);
+                    detailsSet.setText("VALUE" + newDetails.detailsValues[i]);
+                }
                 Toast.makeText(AnalyticsActivity.this, "YOU CLICKED RANKINGS!", Toast.LENGTH_SHORT).show();
 
             }
