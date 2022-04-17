@@ -20,6 +20,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.collection.ArraySet;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -50,6 +51,7 @@ import java.util.Set;
 
 public class AnalyticsActivity extends AppCompatActivity {
 
+
     BottomNavigationView bottomNavigationView;
     ImageView doodleimageView;
     TextView spentValue;
@@ -64,6 +66,7 @@ public class AnalyticsActivity extends AppCompatActivity {
     int Doodlecount = 0;
     int BAYCcount = 0;
     int MAYCcount = 0;
+
     String[] Collections = {"Doodles", "BAYC", "MAYC"};
     HashMap<String, Integer> floorRankings = new HashMap<String, Integer>();
     HashMap<String, Integer> MarketCap = new HashMap<String, Integer>();
@@ -79,9 +82,13 @@ public class AnalyticsActivity extends AppCompatActivity {
     int[] collectionDetailViews = {R.id.totalSales, R.id.floorPrice, R.id.sevenSales, R.id.sevenAverage,
     R.id.thirtySales, R.id.marketCap, R.id.owners};
 
+    int[] rankingsButtons = {R.id.rankingresult1, R.id.rankingResult2, R.id.rankingResult3,
+            R.id.rankingResult4, R.id.rankingResult5, R.id.rankingResult6};
+
     String[] textValues = {"Total Sales: ", "Floor Price      ", "7 Day Sales: ", "7 Day Average: ", "30 Day Sales: ", "Market Cap: ",
     "Owners: "};
 
+    ArrayList<Integer> rankingValues = new ArrayList<Integer>();;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -475,9 +482,26 @@ public class AnalyticsActivity extends AppCompatActivity {
                             if(floorRankings.size() == 3){
 
 
-                                sortByValue(floorRankings);
-                                sortByValue(MarketCap);
+                                sortByValue(floorRankings, "floor");
 
+                                sortByValue(MarketCap, "market");
+
+
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+
+                                        for(int i = 0; i<rankingsButtons.length; i++){
+
+                                            TextView textView = findViewById(rankingsButtons[i]);
+                                            textView.setText(String.valueOf(rankingValues.get(i)));
+                                        }
+
+
+                                    }
+                                });
+
+                                System.out.println("WORKK FOR ME" + rankingValues);
                                 System.out.println("Ready");
                             }
 
@@ -493,7 +517,7 @@ public class AnalyticsActivity extends AppCompatActivity {
 
     }
 
-    private static Map<String, Integer> sortByValue(Map<String, Integer> scores){
+    public Map<String, Integer> sortByValue(Map<String, Integer> scores, String value){
 
         Map<String, Integer> sortedbyValue = new LinkedHashMap<>();
 
@@ -507,8 +531,15 @@ public class AnalyticsActivity extends AppCompatActivity {
             sortedbyValue.put(e.getKey(), e.getValue());
         }
 
-        System.out.println(sortedbyValue);
+
+        for (String i : sortedbyValue.keySet()) {
+            System.out.println("key: " + i + " value: " + sortedbyValue.get(i));
+            rankingValues.add(sortedbyValue.get(i));
+        }
+
+        System.out.println("WORKK" + rankingValues);
         return sortedbyValue;
+
 
     }
 
