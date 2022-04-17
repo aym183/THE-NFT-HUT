@@ -3,6 +3,7 @@ package com.example.nftapp3;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -29,14 +30,23 @@ import org.json.JSONObject;
 import org.w3c.dom.Text;
 
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashMap;
 
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+
+import java.lang.Object;
+import java.util.Collections;
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public class AnalyticsActivity extends AppCompatActivity {
 
@@ -56,6 +66,7 @@ public class AnalyticsActivity extends AppCompatActivity {
     int MAYCcount = 0;
     String[] Collections = {"Doodles", "BAYC", "MAYC"};
     HashMap<String, Integer> floorRankings = new HashMap<String, Integer>();
+    HashMap<String, Integer> MarketCap = new HashMap<String, Integer>();
 
     String[] urlArray = {"https://opensea13.p.rapidapi.com/collection/doodles-official",
     "https://opensea13.p.rapidapi.com/collection/boredapeyachtclub",
@@ -209,6 +220,9 @@ public class AnalyticsActivity extends AppCompatActivity {
             public void onClick(View view) {
                 rankingsButton.setPressed(true);
 
+                for(int i =0; i< urlArray.length; i++) {
+                    rankingsData(urlArray[i], i);
+                }
                 HorizontalScrollView horizontalScrollView = findViewById(R.id.horizontalScrollView);
                 horizontalScrollView.setVisibility(View.INVISIBLE);
                 Toast.makeText(AnalyticsActivity.this, "YOU CLICKED RANKINGS!", Toast.LENGTH_SHORT).show();
@@ -410,20 +424,19 @@ public class AnalyticsActivity extends AppCompatActivity {
     }
 
 
-    public void rankingsData(String[] urls){
+    public void rankingsData(String urls, int position){
 
 
         String[] titles = new String[5];
         String[] imageDetails = new String[5];
 
 
-        for(int i = 0; i<urls.length; i++) {
 
-            int position = i;
+
             OkHttpClient client = new OkHttpClient();
 
             Request request = new Request.Builder()
-                    .url(urls[i])
+                    .url(urls+"/stats")
                     .get()
                     .addHeader("X-RapidAPI-Host", "opensea13.p.rapidapi.com")
                     .addHeader("X-RapidAPI-Key", "3b11ee2336msh5791c275fc5dbc6p11fa37jsn3cafb1ed4e82")
@@ -455,29 +468,18 @@ public class AnalyticsActivity extends AppCompatActivity {
                             detailsValues = new int[]{floorPrice, marketCap};
 
                             floorRankings.put(Collections[position], floorPrice);
+                            MarketCap.put(Collections[position], marketCap);
 
-                            System.out.println("YOU2 " + String.valueOf(detailsValues));
+                            System.out.println(floorRankings);
 
-                            runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    ImageView ethView = findViewById(R.id.imageView11);
-                                    ImageView verticalLine = findViewById(R.id.imageView9);
-                                    ImageView verticalLine2 = findViewById(R.id.imageView10);
-                                    ethView.setVisibility(View.VISIBLE);
-                                    verticalLine.setVisibility(View.VISIBLE);
-                                    verticalLine2.setVisibility(View.VISIBLE);
+                            if(floorRankings.size() == 3){
 
 
-                                    for (int i = 0; i < collectionDetailViews.length; i++) {
-                                        TextView detailsSet = findViewById(collectionDetailViews[i]);
-                                        detailsSet.setVisibility(View.VISIBLE);
-                                        detailsSet.setText(textValues[i] + " " + detailsValues[i]);
-                                    }
+                                sortByValue(floorRankings);
+                                sortByValue(MarketCap);
 
-                                }
-                            });
-
+                                System.out.println("Ready");
+                            }
 
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -488,7 +490,26 @@ public class AnalyticsActivity extends AppCompatActivity {
 
                 }
             });
+
+    }
+
+    private static Map<String, Integer> sortByValue(Map<String, Integer> scores){
+
+        Map<String, Integer> sortedbyValue = new LinkedHashMap<>();
+
+        Set<Map.Entry<String, Integer>> entrySet = scores.entrySet();
+        List<Map.Entry<String, Integer>> entryList = new ArrayList<>(entrySet);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            entryList.sort((x, y) -> x.getValue().compareTo(y.getValue()));
         }
+        for(Map.Entry<String, Integer> e: entryList){
+            sortedbyValue.put(e.getKey(), e.getValue());
+        }
+
+        System.out.println(sortedbyValue);
+        return sortedbyValue;
+
     }
 
 
