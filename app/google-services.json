@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "369119224809",
+    "firebase_url": "https://the-nft-hut-d2a38-default-rtdb.firebaseio.com",
+    "project_id": "the-nft-hut-d2a38",
+    "storage_bucket": "the-nft-hut-d2a38.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:369119224809:android:940ddf1fd92acfb67ee178",
+        "android_client_info": {
+          "package_name": "com.example.nftapp3"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "369119224809-3icjvqlvns2r37if2b7016nv0a8rg04t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8u_HehEop-0-jg0fFZYxFkxvs-K4lUiQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "369119224809-3icjvqlvns2r37if2b7016nv0a8rg04t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

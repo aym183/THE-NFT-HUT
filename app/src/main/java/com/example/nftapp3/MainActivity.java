@@ -82,6 +82,8 @@ public class MainActivity extends AppCompatActivity {
 
         }
         else{
+            FirebaseData newdets = new FirebaseData();
+            newdets.NodeDetails();
             System.out.println("Don't Redirect");
 
 
