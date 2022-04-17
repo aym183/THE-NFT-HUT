@@ -30,6 +30,7 @@ import org.w3c.dom.Text;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.HashMap;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -53,6 +54,8 @@ public class AnalyticsActivity extends AppCompatActivity {
     int Doodlecount = 0;
     int BAYCcount = 0;
     int MAYCcount = 0;
+    String[] Collections = {"Doodles", "BAYC", "MAYC"};
+    HashMap<String, Integer> floorRankings = new HashMap<String, Integer>();
 
     String[] urlArray = {"https://opensea13.p.rapidapi.com/collection/doodles-official",
     "https://opensea13.p.rapidapi.com/collection/boredapeyachtclub",
@@ -406,6 +409,87 @@ public class AnalyticsActivity extends AppCompatActivity {
         });
     }
 
+
+    public void rankingsData(String[] urls){
+
+
+        String[] titles = new String[5];
+        String[] imageDetails = new String[5];
+
+
+        for(int i = 0; i<urls.length; i++) {
+
+            int position = i;
+            OkHttpClient client = new OkHttpClient();
+
+            Request request = new Request.Builder()
+                    .url(urls[i])
+                    .get()
+                    .addHeader("X-RapidAPI-Host", "opensea13.p.rapidapi.com")
+                    .addHeader("X-RapidAPI-Key", "3b11ee2336msh5791c275fc5dbc6p11fa37jsn3cafb1ed4e82")
+                    .build();
+
+            // TextView imageView = findViewById(R.id.textView5);
+            //        String myResponse = "API";
+            client.newCall(request).enqueue(new Callback() {
+
+
+                @Override
+                public void onFailure(Call call, IOException e) {
+                    e.printStackTrace();
+                }
+
+                @Override
+                public void onResponse(Call call, Response response) throws IOException {
+                    if (response.isSuccessful()) {
+                        String myResponse = response.body().string();
+
+                        //                    String jsonData = myResponse.body().string();
+                        try {
+                            JSONObject json = new JSONObject(myResponse).getJSONObject("stats");
+
+
+                            int floorPrice = json.getInt("floor_price");
+                            int marketCap = json.getInt("market_cap");
+
+                            detailsValues = new int[]{floorPrice, marketCap};
+
+                            floorRankings.put(Collections[position], floorPrice);
+
+                            System.out.println("YOU2 " + String.valueOf(detailsValues));
+
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    ImageView ethView = findViewById(R.id.imageView11);
+                                    ImageView verticalLine = findViewById(R.id.imageView9);
+                                    ImageView verticalLine2 = findViewById(R.id.imageView10);
+                                    ethView.setVisibility(View.VISIBLE);
+                                    verticalLine.setVisibility(View.VISIBLE);
+                                    verticalLine2.setVisibility(View.VISIBLE);
+
+
+                                    for (int i = 0; i < collectionDetailViews.length; i++) {
+                                        TextView detailsSet = findViewById(collectionDetailViews[i]);
+                                        detailsSet.setVisibility(View.VISIBLE);
+                                        detailsSet.setText(textValues[i] + " " + detailsValues[i]);
+                                    }
+
+                                }
+                            });
+
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+
+                    }
+
+                }
+            });
+        }
+    }
 
 
 

@@ -9,6 +9,98 @@
 
     <!-- TODO: Update blank fragment layout -->
 
+    <TextView
+        android:id="@+id/rankingResult5"
+        android:layout_width="150dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="125dp"
+        android:text="2: MAYC"
+        android:textAlignment="viewStart"
+        android:textColor="@color/white"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/rankingResult2"
+        app:layout_constraintTop_toBottomOf="@+id/rankingResult4" />
+
+    <TextView
+        android:id="@+id/ranking_floor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="316dp"
+        android:text="Floor Price"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="32dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/rankingResult4"
+        android:layout_width="150dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="32dp"
+        android:text="1: BAYC"
+        android:textAlignment="viewStart"
+        android:textColor="@color/white"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/rankingresult1"
+        app:layout_constraintTop_toBottomOf="@+id/marketcap_ranking" />
+
+    <TextView
+        android:id="@+id/rankingResult6"
+        android:layout_width="150dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="9dp"
+        android:text="3: Doddles"
+        android:textAlignment="viewStart"
+        android:textColor="@color/white"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/rankingResult3"
+        app:layout_constraintTop_toBottomOf="@+id/rankingResult5" />
+
+    <TextView
+        android:id="@+id/rankingResult2"
+        android:layout_width="150dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="125dp"
+        android:text="2: MAYC"
+        android:textAlignment="viewStart"
+        android:textColor="@color/white"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.175"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rankingresult1" />
+
+    <TextView
+        android:id="@+id/rankingResult3"
+        android:layout_width="150dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="125dp"
+        android:text="3: Doodles"
+        android:textAlignment="viewStart"
+        android:textColor="@color/white"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.182"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rankingResult2" />
+
     <ImageView
         android:id="@+id/imageView10"
         android:layout_width="wrap_content"
@@ -17,8 +109,8 @@
         android:gravity="center"
         android:rotationX="0"
         android:rotationY="0"
-        android:visibility="invisible"
         android:src="@android:drawable/status_bar_item_background"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -31,9 +123,9 @@
         android:layout_marginTop="596dp"
         android:gravity="center"
         android:rotationX="0"
-        android:visibility="invisible"
         android:rotationY="0"
         android:src="@android:drawable/status_bar_item_background"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -139,17 +231,17 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="124dp"
         android:layout_marginEnd="37dp"
+        android:background="@drawable/button_bg_colour"
+        android:enabled="true"
         android:text="RANKINGS"
         android:textAlignment="center"
+        android:textColor="@drawable/button_text_colour"
         android:textSize="25dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/imageView7"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@drawable/button_bg_colour"
-        android:textColor="@drawable/button_text_colour"
-        android:enabled="true" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/activity_button"
@@ -159,11 +251,11 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="124dp"
         android:layout_marginEnd="24dp"
+        android:backgroundTint="@drawable/button_text_colour"
         android:text="ACTIVITY"
         android:textAlignment="center"
         android:textSize="25dp"
         android:textStyle="bold"
-        android:backgroundTint="@drawable/button_text_colour"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.965"
         app:layout_constraintStart_toEndOf="@+id/imageView7"
@@ -185,221 +277,254 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <HorizontalScrollView
-        android:id="@+id/horizontalScrollView"
-        android:layout_width="409dp"
-        android:layout_height="160dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="280dp"
-        android:background="@drawable/textview_border"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <TextView
+        android:id="@+id/rankingresult1"
+        android:layout_width="150dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="125dp"
+        android:text="1: BAYC"
+        android:textAlignment="viewStart"
+        android:textColor="@color/white"
+        android:textSize="30dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.175"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spent_textview">
+        app:layout_constraintTop_toBottomOf="@+id/ranking_floor" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+    <TextView
+        android:id="@+id/marketcap_ranking"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="316dp"
+        android:text="Floor Price"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="32dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/rankingResult4"
+        app:layout_constraintStart_toEndOf="@+id/ranking_floor"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+        <HorizontalScrollView
+            android:id="@+id/horizontalScrollView"
+            android:layout_width="409dp"
+            android:layout_height="160dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="280dp"
+            android:background="@drawable/textview_border"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spent_textview">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/stats_nft1"
+                    android:layout_width="120dp"
+                    android:layout_height="110dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="13dp"
+                    android:adjustViewBounds="true"
+                    android:maxWidth="120dp"
+                    android:maxHeight="110dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/newnft" />
+
+                <TextView
+                    android:id="@+id/stats_nft1Text"
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:text="CRYPTOPUNKS"
+                    android:textColor="@color/white"
+                    android:textSize="12dp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/stats_nft1" />
+
+                <ImageView
+                    android:id="@+id/stats_nft2"
+                    android:layout_width="120dp"
+                    android:layout_height="110dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="5dp"
+                    android:adjustViewBounds="true"
+                    android:maxWidth="120dp"
+                    android:maxHeight="110dp"
+                    app:layout_constraintStart_toEndOf="@+id/stats_nft1"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/newnft" />
+
+                <TextView
+                    android:id="@+id/stats_nft2Text"
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="170dp"
+                    android:layout_marginTop="8dp"
+                    android:text="CRYPTOPUNKS"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="12dp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/stats_nft2" />
+
+                <ImageView
+                    android:id="@+id/stats_nft3"
+                    android:layout_width="120dp"
+                    android:layout_height="110dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="5dp"
+                    android:adjustViewBounds="true"
+                    android:maxWidth="120dp"
+                    android:maxHeight="110dp"
+                    app:layout_constraintStart_toEndOf="@+id/stats_nft2"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/newnft" />
+
+                <TextView
+                    android:id="@+id/stats_nft3Text"
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="320dp"
+                    android:layout_marginTop="8dp"
+                    android:text="CRYPTOPUNKS"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="12dp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/stats_nft3" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </HorizontalScrollView>
+
+
+        <TextView
+            android:id="@+id/totalSales"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="550dp"
+            android:text="Total Sales"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.164"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
-                android:id="@+id/stats_nft1"
-                android:layout_width="120dp"
-                android:layout_height="110dp"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="13dp"
-                android:adjustViewBounds="true"
-                android:maxWidth="120dp"
-                android:maxHeight="110dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/newnft" />
+        <TextView
+            android:id="@+id/floorPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="485dp"
+            android:layout_marginEnd="10dp"
+            android:text="FLOOR PRICE:"
+            android:textColor="@color/white"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/stats_nft1Text"
-                android:layout_width="110dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="8dp"
-                android:gravity="center"
-                android:text="CRYPTOPUNKS"
-                android:textColor="@color/white"
-                android:textSize="12dp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/stats_nft1" />
+        <TextView
+            android:id="@+id/sevenAverage"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="7 Day Average Price"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.92"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/marketCap" />
 
-            <ImageView
-                android:id="@+id/stats_nft2"
-                android:layout_width="120dp"
-                android:layout_height="110dp"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="5dp"
-                android:adjustViewBounds="true"
-                android:maxWidth="120dp"
-                android:maxHeight="110dp"
-                app:layout_constraintStart_toEndOf="@+id/stats_nft1"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/newnft" />
+        <TextView
+            android:id="@+id/marketCap"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Market Cap"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.92"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/owners" />
 
-            <TextView
-                android:id="@+id/stats_nft2Text"
-                android:layout_width="110dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="170dp"
-                android:layout_marginTop="8dp"
-                android:text="CRYPTOPUNKS"
-                android:textAlignment="center"
-                android:textColor="@android:color/white"
-                android:textSize="12dp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/stats_nft2" />
+        <TextView
+            android:id="@+id/owners"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="550dp"
+            android:text="No of Owners"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.78"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
-                android:id="@+id/stats_nft3"
-                android:layout_width="120dp"
-                android:layout_height="110dp"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="5dp"
-                android:adjustViewBounds="true"
-                android:maxWidth="120dp"
-                android:maxHeight="110dp"
-                app:layout_constraintStart_toEndOf="@+id/stats_nft2"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/newnft" />
+        <TextView
+            android:id="@+id/thirtySales"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="30 Day Sales"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.178"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sevenSales" />
 
-            <TextView
-                android:id="@+id/stats_nft3Text"
-                android:layout_width="110dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="320dp"
-                android:layout_marginTop="8dp"
-                android:text="CRYPTOPUNKS"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="12dp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/stats_nft3" />
+        <TextView
+            android:id="@+id/sevenSales"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="7 Day Sales"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.19"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/totalSales" />
 
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </HorizontalScrollView>
-
-
-    <TextView
-        android:id="@+id/totalSales"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="550dp"
-        android:text="Total Sales"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.164"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/floorPrice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="485dp"
-        android:layout_marginEnd="10dp"
-        android:text="FLOOR PRICE:"
-        android:textColor="@color/white"
-        android:textSize="18dp"
-        android:textStyle="bold"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/sevenAverage"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="7 Day Average Price"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.92"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/marketCap" />
-
-    <TextView
-        android:id="@+id/marketCap"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Market Cap"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.92"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/owners" />
-
-    <TextView
-        android:id="@+id/owners"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="550dp"
-        android:text="No of Owners"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.78"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/thirtySales"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="30 Day Sales"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.178"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sevenSales" />
-
-    <TextView
-        android:id="@+id/sevenSales"
-        android:layout_width="130dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="7 Day Sales"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.19"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/totalSales" />
-
-    <ImageView
-        android:id="@+id/imageView11"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="147dp"
-        android:layout_marginEnd="69dp"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.827"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spent_textview"
-        app:srcCompat="@drawable/eth" />
+        <ImageView
+            android:id="@+id/imageView11"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="147dp"
+            android:layout_marginEnd="69dp"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.827"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spent_textview"
+            app:srcCompat="@drawable/eth" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
