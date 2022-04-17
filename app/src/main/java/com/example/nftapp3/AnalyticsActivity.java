@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.HorizontalScrollView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -44,6 +45,7 @@ public class AnalyticsActivity extends AppCompatActivity {
     ImageView BAYCimageView;
     ImageView MAYCimageView;
     Button rankingsButton;
+    Button activityButton;
     private ImageView ivResult;
     private String url;
     private TextView ivView;
@@ -189,7 +191,14 @@ public class AnalyticsActivity extends AppCompatActivity {
             }
         });
 
-
+        activityButton = findViewById(R.id.activity_button);
+        activityButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                HorizontalScrollView horizontalScrollView = findViewById(R.id.horizontalScrollView);
+                horizontalScrollView.setVisibility(View.VISIBLE);
+            }
+        });
 
         rankingsButton = findViewById(R.id.rankings_button);
         rankingsButton.setOnClickListener(new View.OnClickListener() {
@@ -197,10 +206,13 @@ public class AnalyticsActivity extends AppCompatActivity {
             public void onClick(View view) {
                 rankingsButton.setPressed(true);
 
-
+                HorizontalScrollView horizontalScrollView = findViewById(R.id.horizontalScrollView);
+                horizontalScrollView.setVisibility(View.INVISIBLE);
                 Toast.makeText(AnalyticsActivity.this, "YOU CLICKED RANKINGS!", Toast.LENGTH_SHORT).show();
 
             }
+
+
         });
 
 
