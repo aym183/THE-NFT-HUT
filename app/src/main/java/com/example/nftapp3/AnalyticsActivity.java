@@ -67,7 +67,7 @@ public class AnalyticsActivity extends AppCompatActivity {
     int BAYCcount = 0;
     int MAYCcount = 0;
 
-    String[] Collections = {"Doodles", "BAYC", "MAYC"};
+    String[] collections = {"Doodles", "MAYC", "BAYC" };
     HashMap<String, Integer> floorRankings = new HashMap<String, Integer>();
     HashMap<String, Integer> MarketCap = new HashMap<String, Integer>();
 
@@ -82,13 +82,15 @@ public class AnalyticsActivity extends AppCompatActivity {
     int[] collectionDetailViews = {R.id.totalSales, R.id.floorPrice, R.id.sevenSales, R.id.sevenAverage,
     R.id.thirtySales, R.id.marketCap, R.id.owners};
 
-    int[] rankingsButtons = {R.id.rankingresult1, R.id.rankingResult2, R.id.rankingResult3,
-            R.id.rankingResult4, R.id.rankingResult5, R.id.rankingResult6};
+    int[] rankingsButtons = {R.id.rankingResult3, R.id.rankingResult2, R.id.rankingresult1,
+            R.id.rankingResult6, R.id.rankingResult5, R.id.rankingResult4};
 
     String[] textValues = {"Total Sales: ", "Floor Price      ", "7 Day Sales: ", "7 Day Average: ", "30 Day Sales: ", "Market Cap: ",
     "Owners: "};
 
-    ArrayList<Integer> rankingValues = new ArrayList<Integer>();;
+    ArrayList<Integer> rankingValues = new ArrayList<Integer>();
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -474,8 +476,8 @@ public class AnalyticsActivity extends AppCompatActivity {
 
                             detailsValues = new int[]{floorPrice, marketCap};
 
-                            floorRankings.put(Collections[position], floorPrice);
-                            MarketCap.put(Collections[position], marketCap);
+                            floorRankings.put(collections[position], floorPrice);
+                            MarketCap.put(collections[position], marketCap);
 
                             System.out.println(floorRankings);
 
@@ -491,10 +493,16 @@ public class AnalyticsActivity extends AppCompatActivity {
                                     @Override
                                     public void run() {
 
-                                        for(int i = 0; i<rankingsButtons.length; i++){
+                                        for(int i = 0; i<3; i++){
 
                                             TextView textView = findViewById(rankingsButtons[i]);
-                                            textView.setText(String.valueOf(rankingValues.get(i)));
+                                            textView.setText(String.valueOf(i+1 + ". "+ collections[i] + ":     " +  rankingValues.get(i)));
+                                        }
+
+                                        for(int i = 3; i<6; i++){
+
+                                            TextView textView = findViewById(rankingsButtons[i]);
+                                            textView.setText(String.valueOf(i-2 + ". "+ collections[i-3] + ": " + rankingValues.get(i)));
                                         }
 
 
