@@ -9,121 +9,6 @@
 
     <!-- TODO: Update blank fragment layout -->
 
-    <ImageView
-        android:id="@+id/first_rankingicon"
-        android:layout_width="131dp"
-        android:layout_height="121dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="196dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.257"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spent_textview"
-        app:srcCompat="@drawable/eth" />
-
-    <ImageView
-        android:id="@+id/second_rankingicon"
-        android:layout_width="131dp"
-        android:layout_height="121dp"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="134dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.178"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spent_textview"
-        app:srcCompat="@drawable/eth" />
-
-    <TextView
-        android:id="@+id/rankingResult5"
-        android:layout_width="180dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="47dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="125dp"
-        android:text="2: MAYC"
-        android:textAlignment="viewStart"
-        android:textColor="@color/white"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/rankingResult2"
-        app:layout_constraintTop_toBottomOf="@+id/rankingResult4" />
-
-    <TextView
-        android:id="@+id/ranking_floor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="316dp"
-        android:text="Floor Price"
-        android:textAlignment="center"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:textSize="32dp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/rankingResult4"
-        android:layout_width="180dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="47dp"
-        android:layout_marginTop="32dp"
-        android:text="1: BAYC"
-        android:textAlignment="viewStart"
-        android:textColor="@color/white"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/rankingresult1"
-        app:layout_constraintTop_toBottomOf="@+id/marketcap_ranking" />
-
-    <TextView
-        android:id="@+id/rankingResult6"
-        android:layout_width="180dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="47dp"
-        android:layout_marginTop="9dp"
-        android:text="3: Doddles"
-        android:textAlignment="viewStart"
-        android:textColor="@color/white"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/rankingResult3"
-        app:layout_constraintTop_toBottomOf="@+id/rankingResult5" />
-
-    <TextView
-        android:id="@+id/rankingResult2"
-        android:layout_width="150dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="9dp"
-        android:layout_marginEnd="125dp"
-        android:text="2: MAYC"
-        android:textAlignment="viewStart"
-        android:textColor="@color/white"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.175"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rankingresult1" />
-
-    <TextView
-        android:id="@+id/rankingResult3"
-        android:layout_width="150dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="9dp"
-        android:layout_marginEnd="125dp"
-        android:text="3: Doodles"
-        android:textAlignment="viewStart"
-        android:textColor="@color/white"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.182"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rankingResult2" />
 
     <ImageView
         android:id= "@+id/imageView10"
@@ -295,54 +180,12 @@
         android:text="SPENT: $300"
         android:textColor="@color/white"
         android:textSize="35dp"
+
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/rankingresult1"
-        android:layout_width="150dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="125dp"
-        android:text="1: BAYC"
-        android:textAlignment="viewStart"
-        android:textColor="@color/white"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.175"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ranking_floor" />
-
-    <TextView
-        android:id="@+id/marketcap_ranking"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="43dp"
-        android:layout_marginTop="316dp"
-        android:text="Market Cap"
-        android:textAlignment="center"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:textSize="32dp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/rankingResult4"
-        app:layout_constraintStart_toEndOf="@+id/ranking_floor"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/third_rankicon"
-        android:layout_width="131dp"
-        android:layout_height="121dp"
-        android:layout_marginTop="68dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.178"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spent_textview"
-        app:srcCompat="@drawable/eth" />
 
 
             <HorizontalScrollView
@@ -561,5 +404,175 @@
             app:layout_constraintTop_toBottomOf="@+id/spent_textview"
             app:srcCompat="@drawable/eth" />
 
+
+    <ImageView
+        android:id="@+id/first_rankingicon"
+        android:layout_width="131dp"
+        android:layout_height="121dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="196dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.257"
+        app:layout_constraintStart_toStartOf="parent"
+        android:visibility="invisible"
+        app:layout_constraintTop_toBottomOf="@+id/spent_textview"
+        app:srcCompat="@drawable/eth" />
+
+    <ImageView
+        android:id="@+id/second_rankingicon"
+        android:layout_width="131dp"
+        android:layout_height="121dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="134dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.178"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spent_textview"
+        app:srcCompat="@drawable/eth" />
+
+    <TextView
+        android:id="@+id/rankingResult5"
+        android:layout_width="180dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="47dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="125dp"
+        android:text="2: MAYC"
+        android:textAlignment="viewStart"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/rankingResult2"
+        app:layout_constraintTop_toBottomOf="@+id/rankingResult4" />
+
+    <TextView
+        android:id="@+id/ranking_floor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="316dp"
+        android:text="Floor Price"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="32dp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/rankingResult4"
+        android:layout_width="180dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="47dp"
+        android:layout_marginTop="32dp"
+        android:text="1: BAYC"
+        android:textAlignment="viewStart"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintStart_toEndOf="@+id/rankingresult1"
+        app:layout_constraintTop_toBottomOf="@+id/marketcap_ranking" />
+
+    <TextView
+        android:id="@+id/rankingResult6"
+        android:layout_width="180dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="47dp"
+        android:layout_marginTop="9dp"
+        android:text="3: Doddles"
+        android:textAlignment="viewStart"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintStart_toEndOf="@+id/rankingResult3"
+        app:layout_constraintTop_toBottomOf="@+id/rankingResult5" />
+
+    <TextView
+        android:id="@+id/rankingResult2"
+        android:layout_width="150dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="125dp"
+        android:text="2: MAYC"
+        android:textAlignment="viewStart"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.175"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rankingresult1" />
+
+    <TextView
+        android:id="@+id/rankingResult3"
+        android:layout_width="150dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="125dp"
+        android:text="3: Doodles"
+        android:textAlignment="viewStart"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.182"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rankingResult2" />
+
+    <TextView
+        android:id="@+id/rankingresult1"
+        android:layout_width="150dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="125dp"
+        android:text="1: BAYC"
+        android:textAlignment="viewStart"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.175"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ranking_floor" />
+
+    <TextView
+        android:id="@+id/marketcap_ranking"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="43dp"
+        android:layout_marginTop="316dp"
+        android:text="Market Cap"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="32dp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/rankingResult4"
+        app:layout_constraintStart_toEndOf="@+id/ranking_floor"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/third_rankicon"
+        android:layout_width="131dp"
+        android:layout_height="121dp"
+        android:layout_marginTop="68dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="invisible"
+        app:layout_constraintHorizontal_bias="0.178"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spent_textview"
+        app:srcCompat="@drawable/eth" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -228,6 +228,22 @@ public class AnalyticsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 rankingsButton.setPressed(true);
+                TextView floor_text = findViewById(R.id.ranking_floor);
+                TextView marketcap = findViewById(R.id.marketcap_ranking);
+                ImageView eth1 = findViewById(R.id.third_rankicon);
+                ImageView eth2 = findViewById(R.id.second_rankingicon);
+                ImageView eth3 = findViewById(R.id.first_rankingicon);
+                floor_text.setVisibility(View.VISIBLE);
+                marketcap.setVisibility(View.VISIBLE);
+                eth1.setVisibility(View.VISIBLE);
+                eth2.setVisibility(View.VISIBLE);
+                eth3.setVisibility(View.VISIBLE);
+
+                for(int i = 0; i< rankingsButtons.length; i++){
+
+                    TextView visibilityView = findViewById(rankingsButtons[i]);
+                    visibilityView.setVisibility(View.VISIBLE);
+                }
 
                 for(int i =0; i< urlArray.length; i++) {
                     rankingsData(urlArray[i], i);
