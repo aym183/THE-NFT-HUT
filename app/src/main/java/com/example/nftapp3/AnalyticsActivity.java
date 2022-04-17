@@ -63,9 +63,8 @@ public class AnalyticsActivity extends AppCompatActivity {
     private String url;
     private TextView ivView;
     int detailsValues[];
-    int Doodlecount = 0;
-    int BAYCcount = 0;
-    int MAYCcount = 0;
+    int Doodlecount , BAYCcount, MAYCcount = 0;
+    int ranking_count = 0;
 
     String[] collections = {"Doodles", "MAYC", "BAYC" };
     HashMap<String, Integer> floorRankings = new HashMap<String, Integer>();
@@ -228,22 +227,46 @@ public class AnalyticsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 rankingsButton.setPressed(true);
+                ranking_count+=1;
+
                 TextView floor_text = findViewById(R.id.ranking_floor);
                 TextView marketcap = findViewById(R.id.marketcap_ranking);
                 ImageView eth1 = findViewById(R.id.third_rankicon);
                 ImageView eth2 = findViewById(R.id.second_rankingicon);
                 ImageView eth3 = findViewById(R.id.first_rankingicon);
-                floor_text.setVisibility(View.VISIBLE);
-                marketcap.setVisibility(View.VISIBLE);
-                eth1.setVisibility(View.VISIBLE);
-                eth2.setVisibility(View.VISIBLE);
-                eth3.setVisibility(View.VISIBLE);
 
-                for(int i = 0; i< rankingsButtons.length; i++){
+                if(ranking_count%2 ==0){
 
-                    TextView visibilityView = findViewById(rankingsButtons[i]);
-                    visibilityView.setVisibility(View.VISIBLE);
+                    floor_text.setVisibility(View.INVISIBLE);
+                    marketcap.setVisibility(View.INVISIBLE);
+                    eth1.setVisibility(View.INVISIBLE);
+                    eth2.setVisibility(View.INVISIBLE);
+                    eth3.setVisibility(View.INVISIBLE);
+
+                    for(int i = 0; i< rankingsButtons.length; i++){
+
+                        TextView visibilityView = findViewById(rankingsButtons[i]);
+                        visibilityView.setVisibility(View.INVISIBLE);
+                    }
+
                 }
+
+                else{
+                    floor_text.setVisibility(View.VISIBLE);
+                    marketcap.setVisibility(View.VISIBLE);
+                    eth1.setVisibility(View.VISIBLE);
+                    eth2.setVisibility(View.VISIBLE);
+                    eth3.setVisibility(View.VISIBLE);
+
+                    for(int i = 0; i< rankingsButtons.length; i++){
+
+                        TextView visibilityView = findViewById(rankingsButtons[i]);
+                        visibilityView.setVisibility(View.VISIBLE);
+                    }
+
+                }
+
+
 
                 for(int i =0; i< urlArray.length; i++) {
                     rankingsData(urlArray[i], i);
