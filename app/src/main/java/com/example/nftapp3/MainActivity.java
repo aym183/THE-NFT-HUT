@@ -1,10 +1,17 @@
 package com.example.nftapp3;
 
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
 import android.widget.EditText;
 import android.util.Log;
@@ -26,10 +33,14 @@ import okhttp3.ResponseBody;
 public class MainActivity extends AppCompatActivity {
 
 
+    private NotificationManagerCompat notificationManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
 
     }
 
@@ -54,11 +65,26 @@ public class MainActivity extends AppCompatActivity {
 //        dataBaseHelper.addOne(userDetails);
         if(loginCredentials.size() >= 1){
             System.out.println("RedirectNow");
-            String message = "You have logged in! Click to explore The NFT Hut :)";
+
+            notificationManager = NotificationManagerCompat.from(this);
+            Notification notification = new NotificationCompat.Builder(this, App.channel1_ID)
+                    .setSmallIcon(R.drawable.nfthutlogo)
+                    .setContentTitle("THE NFT HUT")
+                    .setContentText("You have logged in!")
+                    .setPriority(NotificationCompat.PRIORITY_HIGH)
+                    .setCategory(NotificationCompat.CATEGORY_MESSAGE)
+                    .build();
+            notificationManager.notify(1, notification);
+
+            Intent login_intent = new Intent(MainActivity.this, HomeActivity.class);
+            startActivity(login_intent);
+
 
         }
         else{
             System.out.println("Don't Redirect");
+
+
         }
 
         Log.d("success", loginCredentials.toString());
