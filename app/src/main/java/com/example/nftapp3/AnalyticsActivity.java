@@ -65,6 +65,7 @@ public class AnalyticsActivity extends AppCompatActivity {
     int detailsValues[];
     int Doodlecount , BAYCcount, MAYCcount = 0;
     int ranking_count = 0;
+    int activity_count = 0;
 
     String[] collections = {"Doodles", "MAYC", "BAYC" };
     HashMap<String, Integer> floorRankings = new HashMap<String, Integer>();
@@ -217,8 +218,36 @@ public class AnalyticsActivity extends AppCompatActivity {
         activityButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                activity_count+=1;
                 HorizontalScrollView horizontalScrollView = findViewById(R.id.horizontalScrollView);
-                horizontalScrollView.setVisibility(View.VISIBLE);
+                ImageView ethView = findViewById(R.id.imageView11);
+                ImageView verticalLine = findViewById(R.id.imageView9);
+                ImageView verticalLine2 = findViewById(R.id.imageView10);
+
+                if(activity_count%2==0){
+
+                    if (ethView.getVisibility() == View.VISIBLE){
+                        ethView.setVisibility(View.INVISIBLE);
+                        verticalLine.setVisibility(View.INVISIBLE);
+                        verticalLine2.setVisibility(View.INVISIBLE);
+
+
+                        for (int i = 0; i < collectionDetailViews.length; i++) {
+                            TextView detailsSet = findViewById(collectionDetailViews[i]);
+                            detailsSet.setVisibility(View.INVISIBLE);
+                            detailsSet.setText(textValues[i] + " " + detailsValues[i]);
+                        }
+
+                    }
+
+                    horizontalScrollView.setVisibility(View.INVISIBLE);
+
+                }
+
+                else{
+                    horizontalScrollView.setVisibility(View.VISIBLE);
+                }
+
             }
         });
 
