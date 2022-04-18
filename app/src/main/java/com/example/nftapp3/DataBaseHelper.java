@@ -27,7 +27,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db){
-        String createTableStatement = "CREATE TABLE " + userTable + " (" + userid_column + " INTEGER PRIMARY KEY, " + username_column + " VARCHAR(50) NOT NULL UNIQUE," + password_column + " VARCHAR(50) NOT NULL)";
+        String createTableStatement = "CREATE TABLE " + userTable + " (" + userid_column + " INTEGER PRIMARY KEY AUTOINCREMENT, " + username_column + " VARCHAR(50) NOT NULL UNIQUE," + password_column + " VARCHAR(50) NOT NULL)";
         db.execSQL(createTableStatement);
     }
 
@@ -61,9 +61,10 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
         if(cursor.moveToFirst()){
             do{
+                int userid = cursor.getInt(0);
                 String userUsername = cursor.getString(1);
                 String userPassword = cursor.getString(2);
-                UserDetails newUser = new UserDetails(userUsername, userPassword);
+                UserDetails newUser = new UserDetails(userid, userUsername, userPassword);
                 returnList.add(newUser);
             }while(cursor.moveToNext());
 
