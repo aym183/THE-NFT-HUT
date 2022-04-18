@@ -135,6 +135,7 @@ public class MainActivity extends AppCompatActivity {
         dataBaseHelper.addOne(userDetails);
 
         FirebaseData newdets = new FirebaseData();
+
         newdets.userDetails(newUser, firstnameText, lastnameText);
 
         notificationManager = NotificationManagerCompat.from(this);
