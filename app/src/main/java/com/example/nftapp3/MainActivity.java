@@ -98,6 +98,21 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(MainActivity.this, "Success = " + loginCredentials.size(), Toast.LENGTH_LONG).show();
     }
 
+    public void registerEvent(View v){
+
+        TextView firstN = findViewById(R.id.firstNameText);
+        TextView lastN = findViewById(R.id.lastNameText);
+        TextView usern = findViewById(R.id.newusernameText);
+        TextView passw = findViewById(R.id.newpasswordText);
+        Button signup = findViewById(R.id.SignupButton);
+
+        firstN.setVisibility(View.VISIBLE);
+        lastN.setVisibility(View.VISIBLE);
+        usern.setVisibility(View.VISIBLE);
+        passw.setVisibility(View.VISIBLE);
+        signup.setVisibility(View.VISIBLE);
+
+    }
     public void signupEvent(View view){
 
         EditText first_name = findViewById(R.id.firstNameText);
