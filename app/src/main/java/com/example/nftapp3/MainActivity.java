@@ -6,6 +6,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 
@@ -137,7 +138,11 @@ public class MainActivity extends AppCompatActivity {
         FirebaseData newdets = new FirebaseData();
 
 //        newdets.NodeDetails(newUser);
-        newdets.userDetails(newUser, firstnameText, lastnameText);
+        newdets.userDetails(newUser, firstnameText, lastnameText, newPw);
+        SharedPreferences sp = getSharedPreferences("Username", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sp.edit();
+        editor.putString("username_value", String.valueOf(newUser));
+        editor.commit();
 
         notificationManager = NotificationManagerCompat.from(this);
         Notification notification = new NotificationCompat.Builder(this, App.channel1_ID)

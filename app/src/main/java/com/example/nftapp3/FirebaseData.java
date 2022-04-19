@@ -32,10 +32,11 @@ public class FirebaseData{
 //        reference.child("username").push().setValue(user);
 //    }
 
-    public void userDetails(String username, String firstName, String lastName){
+    public void userDetails(String username, String firstName, String lastName, String password){
 
         databaseReference.child("Users").child(username).child("First Name").setValue(firstName);
         databaseReference.child("Users").child(username).child("Last Name").setValue(lastName);
+        databaseReference.child("Users").child(username).child("Password").setValue(password);
 
 
     }

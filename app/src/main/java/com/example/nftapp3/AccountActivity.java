@@ -1,6 +1,8 @@
 package com.example.nftapp3;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -25,13 +27,15 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import org.w3c.dom.Text;
+
 import java.util.Arrays;
 import java.util.HashMap;
 
 public class AccountActivity extends AppCompatActivity {
 
     BottomNavigationView bottomNavigationView;
-    int[] textViews = {R.id.username, R.id.firstName, R.id.lastName};
+    int[] textViews = {R.id.firstName, R.id.lastName};
 
 
     @Override
@@ -47,30 +51,37 @@ public class AccountActivity extends AppCompatActivity {
         DatabaseReference reference;
         String[] values = new String[3];
 
-        rootNode = FirebaseDatabase.getInstance();
-        reference = rootNode.getReference("Users");
+        //rootNode = FirebaseDatabase.getInstance();
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://the-nft-hut-d2a38-default-rtdb.firebaseio.com/");
 
-        String[] text_data = {"username", "First Name", "Last Name"};
+        SharedPreferences sp = getApplicationContext().getSharedPreferences("Username", Context.MODE_PRIVATE);
+        String value = sp.getString("username_value", "");
+        TextView username = findViewById(R.id.username);
+        username.setText(value);
 
-        for(int i = 0; i<text_data.length; i++) {
+        String[] text_data = {"First Name", "Last Name"};
+
+        for(int i = 0; i<textViews.length; i++) {
 
             int position = i;
-            rootNode = FirebaseDatabase.getInstance();
-            reference = rootNode.getReference("Users").child(text_data[i]);
 
-            reference.addValueEventListener(new ValueEventListener() {
+
+
+            databaseReference.child("Users").child(value).child(text_data[i]).addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     if (snapshot.exists()) {
                         String data = snapshot.getValue().toString();
+
                         values[position] = data;
                         TextView textView = findViewById(textViews[position]);
-                        if(text_data[position] != "username"){
-                            textView.setText(text_data[position] + ":        " + data);
-                        }
-                        else{
-                            textView.setText(data);
-                        }
+                        textView.setText(text_data[position] + ":        " + data);
+//                        if(text_data[position] != "username"){
+//
+//                        }
+//                        else{
+//                            textView.setText(data);
+//                        }
 
 
                     }
