@@ -28,6 +28,7 @@
         android:id="@+id/imageView12"
         android:layout_width="89dp"
         android:layout_height="56dp"
+        android:onClick="backArrowEvent"
         app:srcCompat="?attr/homeAsUpIndicator" />
 
 
