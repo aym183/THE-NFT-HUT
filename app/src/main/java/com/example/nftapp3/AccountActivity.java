@@ -3,6 +3,7 @@ package com.example.nftapp3;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -142,6 +143,12 @@ public class AccountActivity extends AppCompatActivity {
         startActivity(new Intent(getApplicationContext(), MainActivity.class));
         overridePendingTransition(0, 0);
 
+    }
+
+    public void learnMoreEvent(View v){
+        Uri webpage = Uri.parse("https://thenfthut.live");
+        Intent webIntent = new Intent(Intent.ACTION_VIEW, webpage);
+        startActivity(webIntent);
     }
 
 
