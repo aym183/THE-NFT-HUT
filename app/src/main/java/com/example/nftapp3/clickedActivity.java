@@ -73,19 +73,13 @@ public class clickedActivity extends AppCompatActivity {
                     Log.d("Response", myResponse);
 //                    String jsonData = myResponse.body().string();
                     try {
+                        int[] attributes = {R.id.attributeText1, R.id.attributeText2 ,R.id.attributeText3,
+                                R.id.attributeText4, R.id.attributeText5, R.id.attributeText6};
                         JSONObject json = new JSONObject(myResponse);
 
                         String external_url = json.getString("external_link");
 
                         JSONArray traits = json.getJSONArray("traits");
-
-                        for(int i = 0; i<6; i++){
-                            String attribute = traits.getJSONObject(i).getString("value");
-                            Log.d("attribute", attribute);
-                        }
-
-
-//                        Log.d("external_url", external_url);
 
                         Button extButton = findViewById(R.id.externalButton);
                         extButton.setOnClickListener(new View.OnClickListener(){
@@ -98,6 +92,36 @@ public class clickedActivity extends AppCompatActivity {
                             }
 
                         });
+
+                        for(int i = 0; i<6; i++){
+                            int position = i;
+                            String attribute = traits.getJSONObject(i).getString("value");
+                            Log.d("attribute", attribute);
+
+                            if(attribute.contains("attributes")){
+                                ;
+                            }
+                            else{
+
+                                runOnUiThread(new Runnable() {
+
+                                    @Override
+                                    public void run() {
+                                        TextView attrValue = findViewById(attributes[position]);
+                                        attrValue.setText(attribute);
+
+
+                                    }
+                                });
+
+                            }
+
+                        }
+
+
+//                        Log.d("external_url", external_url);
+
+
 
 //                        JSONArray arr = json.getJSONArray("assets");
 //                        int sale_details = 0;
@@ -112,14 +136,7 @@ public class clickedActivity extends AppCompatActivity {
                         e.printStackTrace();
                     }
 
-                    runOnUiThread(new Runnable() {
 
-                        @Override
-                        public void run() {
-
-
-                        }
-                    });
 
 
 
