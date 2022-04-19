@@ -3,10 +3,12 @@ package com.example.nftapp3;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -73,8 +75,37 @@ public class clickedActivity extends AppCompatActivity {
                     try {
                         JSONObject json = new JSONObject(myResponse);
 
+                        String external_url = json.getString("external_link");
+
+                        JSONArray traits = json.getJSONArray("traits");
+
+                        for(int i = 0; i<6; i++){
+                            String attribute = traits.getJSONObject(i).getString("value");
+                            Log.d("attribute", attribute);
+                        }
+
+
+//                        Log.d("external_url", external_url);
+
+                        Button extButton = findViewById(R.id.externalButton);
+                        extButton.setOnClickListener(new View.OnClickListener(){
+                            public void onClick(View v) {
+
+                                Uri webpage = Uri.parse(external_url);
+                                Intent webIntent = new Intent(Intent.ACTION_VIEW, webpage);
+                                startActivity(webIntent);
+
+                            }
+
+                        });
+
 //                        JSONArray arr = json.getJSONArray("assets");
 //                        int sale_details = 0;
+
+                        // Take link to show on open sea with external intent (permalink)
+                        // external link (external_link)
+                        // traits
+
 
 
                     } catch (JSONException e) {
