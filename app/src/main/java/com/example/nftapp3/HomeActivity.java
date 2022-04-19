@@ -59,6 +59,8 @@ public class HomeActivity extends AppCompatActivity {
 
         String[] titles2 = new String[10];
         String[] imageDetails2 = new String[10];
+        String[] tokens = new String[10];
+        String[] address = new String[10];
 
 
 
@@ -98,6 +100,9 @@ public class HomeActivity extends AppCompatActivity {
                             String post_id = arr.getJSONObject(i).getString("image_preview_url");
                             String post_name = arr.getJSONObject(i).getString("name");
                             String sale_name = arr.getJSONObject(i).getString("last_sale");
+                            String token_id = arr.getJSONObject(i).getString("token_id");
+                            String asset_contract = arr.getJSONObject(i).getJSONObject("asset_contract").getString("address");
+
 
 
                             if(sale_name.length() == 4){
@@ -115,6 +120,8 @@ public class HomeActivity extends AppCompatActivity {
 
                             titles2[i-3] = post_name;
                             imageDetails2[i-3] = post_id;
+                            tokens[i-3] = token_id;
+                            address[i-3] = asset_contract;
 
 //                            Log.d("DATAbyme"+i, post_id);
 //                            Log.d("DATAbyme"+i, post_name);
@@ -153,6 +160,14 @@ public class HomeActivity extends AppCompatActivity {
                                     Toast.makeText(getApplicationContext(), "You clicked " + titles2[position],
                                             Toast.LENGTH_SHORT).show();
 
+                                    SharedPreferences sp = getSharedPreferences("ClickedDetails", Context.MODE_PRIVATE);
+                                    SharedPreferences.Editor editor = sp.edit();
+                                    editor.putString("title", titles2[position]);
+                                    editor.putString("image", imageDetails2[position]);
+                                    editor.putString("token_id", tokens[position]);
+                                    editor.putString("address", address[position]);
+                                    editor.commit();
+
                                     startActivity(new Intent(getApplicationContext(), clickedActivity.class));
                                     overridePendingTransition(0, 0);
                                 }
@@ -169,34 +184,6 @@ public class HomeActivity extends AppCompatActivity {
         });
 
 
-
-
-
-
-
-//        String urlLink = "https://lh3.googleusercontent.com/I5rFdPt-FPsGsjF7oaoPGhdLq22jW6JCOTMUB5yvdF7JK9xdUQZxZp1_fwlZGApBjEploJXkr_k4b0nc_hWDeEqqrQ=s250";
-
-
-//        Button btnFetch = findViewById(R.id.fetch_image);
-//
-
-//        btnFetch.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v){
-//
-//            }
-//
-//        });
-
-//        ivResult = findViewById(R.id.imageView5);
-//        String urlLink = "https://lh3.googleusercontent.com/I5rFdPt-FPsGsjF7oaoPGhdLq22jW6JCOTMUB5yvdF7JK9xdUQZxZp1_fwlZGApBjEploJXkr_k4b0nc_hWDeEqqrQ=s250";
-//        LoadImage newImage = new LoadImage(ivResult);
-//        newImage.execute(urlLink);
-
-
-
-
-       // System.out.println(Arrays.deepToString);
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setSelectedItemId(R.id.home);
 
