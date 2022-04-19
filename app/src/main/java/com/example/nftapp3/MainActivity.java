@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
             System.out.println("RedirectNow");
 
             FirebaseData newdets = new FirebaseData();
-            newdets.NodeDetails(usernameInput);
+//            newdets.NodeDetails(usernameInput);
 
             notificationManager = NotificationManagerCompat.from(this);
             Notification notification = new NotificationCompat.Builder(this, App.channel1_ID)
@@ -136,6 +136,7 @@ public class MainActivity extends AppCompatActivity {
 
         FirebaseData newdets = new FirebaseData();
 
+//        newdets.NodeDetails(newUser);
         newdets.userDetails(newUser, firstnameText, lastnameText);
 
         notificationManager = NotificationManagerCompat.from(this);
