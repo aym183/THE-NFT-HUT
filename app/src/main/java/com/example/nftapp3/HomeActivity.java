@@ -152,6 +152,9 @@ public class HomeActivity extends AppCompatActivity {
                                 public void onItemClick(AdapterView<?> parent, View view, int position, long id){
                                     Toast.makeText(getApplicationContext(), "You clicked " + titles2[position],
                                             Toast.LENGTH_SHORT).show();
+
+                                    startActivity(new Intent(getApplicationContext(), clickedActivity.class));
+                                    overridePendingTransition(0, 0);
                                 }
                             });
 
