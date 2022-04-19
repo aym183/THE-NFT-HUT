@@ -129,20 +129,21 @@ public class MainActivity extends AppCompatActivity {
         newUsername.setText("");
         newPassword.setText("");
 
+        SharedPreferences sp = getSharedPreferences("Username", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sp.edit();
+        editor.putString("username_value", String.valueOf(newUser));
+        editor.commit();
 
+
+        // Synced sqlite and firebase
         UserDetails userDetails;
         userDetails = new UserDetails(getRandomNumber(1000,9999), newUser, newPw);
         DataBaseHelper dataBaseHelper = new DataBaseHelper(MainActivity.this);
         dataBaseHelper.addOne(userDetails);
 
         FirebaseData newdets = new FirebaseData();
-
-//        newdets.NodeDetails(newUser);
         newdets.userDetails(newUser, firstnameText, lastnameText, newPw);
-        SharedPreferences sp = getSharedPreferences("Username", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sp.edit();
-        editor.putString("username_value", String.valueOf(newUser));
-        editor.commit();
+
 
         notificationManager = NotificationManagerCompat.from(this);
         Notification notification = new NotificationCompat.Builder(this, App.channel1_ID)
