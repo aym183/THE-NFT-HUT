@@ -94,14 +94,11 @@ public class GridAdapter extends BaseAdapter {
             convertView = inflater.inflate(R.layout.row_item, null);
         }
 
+
         ivResult = convertView.findViewById(R.id.imageViewGrid);
         TextView textView = convertView.findViewById(R.id.textViewGrid);
         LoadImage newImage = new LoadImage(ivResult);
         newImage.execute(numberImage[position]);
-//        Log.d("Titles"+position, String.valueOf(position));
-//        Log.d("Titles2"+position, numberImage[position]);
-
-       // ivResult.setImageResource(numberImage[position]);
         textView.setText(titles[position]);
 
         return convertView;

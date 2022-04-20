@@ -112,6 +112,7 @@ public class clickedActivity extends AppCompatActivity {
 
 
                                     }
+
                                 });
 
                             }

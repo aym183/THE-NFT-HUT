@@ -1,11 +1,16 @@
 package com.example.nftapp3;
 
 import android.content.Intent;
+import android.media.Image;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -53,8 +58,8 @@ public class ExploreActivity extends AppCompatActivity {
 //        Drawable res = getResources().getDrawable(imageResource);
 //        ivResult.setImageDrawable(res);
 
-        String[] titles = new String[5];
-        String[] imageDetails = new String[5];
+        String[][] titles = new String[3][5];
+        String[][] imageDetails = new String[3][5];
 
         OkHttpClient client = new OkHttpClient();
 
@@ -99,21 +104,22 @@ public class ExploreActivity extends AppCompatActivity {
                                 String post_name = arr.getJSONObject(j).getString("name");
 
 
-                                titles[j] = post_name;
-                                imageDetails[j] = post_id;
+                                titles[index_position][j] = post_name;
+                                imageDetails[index_position][j] = post_id;
 
 
                             }
 
                             Log.d("Details", Arrays.deepToString(imageDetails));
                             Log.d("Titles", Arrays.deepToString(titles));
-                            for(int k =0; k<imageDetails.length; k++) {
+                            for(int k =0; k<imageDetails[0].length; k++) {
 
                                 int imageView = imageViews[index_position][k];
                                 ivResult = findViewById(imageViews[index_position][k]);
-                                String textValue = titles[k];
+                                String textValue = titles[index_position][k];
+                                Log.d("Text Value", textValue);
                                 LoadImage newImage = new LoadImage(ivResult);
-                                newImage.execute(imageDetails[k]);
+                                newImage.execute(imageDetails[index_position][k]);
                                 int position = k;
 
                                 runOnUiThread(new Runnable() {
@@ -124,6 +130,7 @@ public class ExploreActivity extends AppCompatActivity {
                                             textView.setText(textValue);
 
                                     }
+
                                     });
 
                               
@@ -138,6 +145,41 @@ public class ExploreActivity extends AppCompatActivity {
                 }
             });
     }
+
+        for(int i = 0; i< imageViews.length;i++){
+            for(int j = 0; j< imageViews[0].length; j++){
+
+            }
+        }
+
+        ImageView Image = findViewById(R.id.nft1);
+        Image.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+
+
+                TextView value = findViewById(R.id.nft1Text);
+                Log.d("Title", String.valueOf(value.getText()));
+
+                Toast.makeText(getApplicationContext(), "You clicked " + String.valueOf(value.getText()),
+                        Toast.LENGTH_SHORT).show();
+                for(int i = 0; i<titles.length; i++){
+                    for(int j = 0; j< titles[0].length; j++){
+
+                        if(titles[i][j] == String.valueOf(value.getText())){
+                            String index1 = String.valueOf(i);
+                            String index2 = String.valueOf(j);
+                            Log.d("YOU NEED INDEX", index1 + " " + index2);
+
+                        }
+                    }
+
+                }
+
+
+            }
+
+        });
+
 
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
@@ -180,6 +222,7 @@ public class ExploreActivity extends AppCompatActivity {
                 return false;
             }
         });
+
     }
 
 }
