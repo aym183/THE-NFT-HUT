@@ -1,6 +1,8 @@
 package com.example.nftapp3;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
@@ -60,6 +62,8 @@ public class ExploreActivity extends AppCompatActivity {
 
         String[][] titles = new String[3][5];
         String[][] imageDetails = new String[3][5];
+        String[][] tokens = new String[3][5];
+        String[][] address = new String[3][5];
 
         OkHttpClient client = new OkHttpClient();
 
@@ -102,10 +106,14 @@ public class ExploreActivity extends AppCompatActivity {
 
                                 String post_id = arr.getJSONObject(j).getString("image_preview_url");
                                 String post_name = arr.getJSONObject(j).getString("name");
+                                String token_id = arr.getJSONObject(j).getString("token_id");
+                                String asset_contract = arr.getJSONObject(j).getJSONObject("asset_contract").getString("address");
 
 
                                 titles[index_position][j] = post_name;
                                 imageDetails[index_position][j] = post_id;
+                                tokens[index_position][j] = token_id;
+                                address[index_position][j] = asset_contract;
 
 
                             }
@@ -167,6 +175,18 @@ public class ExploreActivity extends AppCompatActivity {
                                     String index1 = String.valueOf(i);
                                     String index2 = String.valueOf(j);
                                     Log.d("YOU NEED INDEX", index1 + " " + index2);
+
+                                    SharedPreferences sp = getSharedPreferences("ClickedDetails", Context.MODE_PRIVATE);
+                                    SharedPreferences.Editor editor = sp.edit();
+                                    editor.putString("title", titles[i][j]);
+                                    editor.putString("image", imageDetails[i][j]);
+                                    editor.putString("token_id", tokens[i][j]);
+                                    editor.putString("address", address[i][j]);
+                                    editor.commit();
+
+                                    startActivity(new Intent(getApplicationContext(), clickedActivityExplore.class));
+                                    overridePendingTransition(0, 0);
+
 
                                 }
                             }

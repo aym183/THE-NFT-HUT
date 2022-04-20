@@ -7,11 +7,9 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -20,7 +18,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
-import java.util.Arrays;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -28,12 +25,12 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class clickedActivity extends AppCompatActivity {
+public class clickedActivityExplore extends AppCompatActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_clicked);
+        setContentView(R.layout.activity_clicked_explore);
         SharedPreferences sp = getApplicationContext().getSharedPreferences("ClickedDetails", Context.MODE_PRIVATE);
         String titleValue = sp.getString("title", "");
         String imageValue = sp.getString("image", "");
@@ -77,7 +74,7 @@ public class clickedActivity extends AppCompatActivity {
                                 R.id.attributeText4, R.id.attributeText5, R.id.attributeText6};
                         JSONObject json = new JSONObject(myResponse);
 
-                        String external_url = json.getString("external_url");
+                        String external_url = json.getString("permalink");
 
                         JSONArray traits = json.getJSONArray("traits");
 
@@ -150,7 +147,8 @@ public class clickedActivity extends AppCompatActivity {
     }
 
     public void backArrowEvent(View v){
-        startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+        startActivity(new Intent(getApplicationContext(), ExploreActivity.class));
         overridePendingTransition(0, 0);
     }
+
 }
