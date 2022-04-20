@@ -83,6 +83,10 @@ public class clickedActivity extends AppCompatActivity {
                         JSONObject json = new JSONObject(myResponse);
 
                         String external_url = json.getString("external_link");
+                        SharedPreferences sp = getSharedPreferences("externalURL", Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sp.edit();
+                        editor.putString("external_url",external_url);
+                        editor.commit();
                        // urlShare = String.valueOf(external_url);
 
                         JSONArray traits = json.getJSONArray("traits");
@@ -168,11 +172,14 @@ public class clickedActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item){
         int id = item.getItemId();
         if(id == R.id.share){
+            SharedPreferences sp = getApplicationContext().getSharedPreferences("externalURL", Context.MODE_PRIVATE);
+            String externalShare = sp.getString("external_url", "");
             ApplicationInfo api =  getApplicationContext().getApplicationInfo();
             String apkpath = api.sourceDir;
             Intent intent = new Intent(Intent.ACTION_SEND);
             intent.setType("text/plain");
-            intent.putExtra(Intent.EXTRA_TEXT, "Check this out! ");
+
+            intent.putExtra(Intent.EXTRA_TEXT, "Check this NFT out! " + externalShare);
             startActivity(Intent.createChooser(intent, "ShareVia"));
         }
         return true;
