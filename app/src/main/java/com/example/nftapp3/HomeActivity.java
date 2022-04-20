@@ -57,6 +57,11 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         gridView = findViewById(R.id.gridView);
 
+        SharedPreferences sp = getApplicationContext().getSharedPreferences("Username", Context.MODE_PRIVATE);
+        String value = sp.getString("username_value", "");
+        TextView username = findViewById(R.id.home_textview);
+        username.setText(value);
+
         String[] titles2 = new String[10];
         String[] imageDetails2 = new String[10];
         String[] tokens = new String[10];
