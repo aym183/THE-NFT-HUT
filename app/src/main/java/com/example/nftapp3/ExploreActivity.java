@@ -148,37 +148,40 @@ public class ExploreActivity extends AppCompatActivity {
 
         for(int i = 0; i< imageViews.length;i++){
             for(int j = 0; j< imageViews[0].length; j++){
+                int positioni = i;
+                int positionj = j;
+
+                ImageView Image = findViewById(imageViews[i][j]);
+                Image.setOnClickListener(new View.OnClickListener(){
+                    public void onClick(View v) {
+
+                        TextView value = findViewById(textViews[positioni][positionj]);
+                        Log.d("Title", String.valueOf(value.getText()));
+
+                        Toast.makeText(getApplicationContext(), "You clicked " + String.valueOf(value.getText()),
+                                Toast.LENGTH_SHORT).show();
+                        for(int i = 0; i<titles.length; i++){
+                            for(int j = 0; j< titles[0].length; j++){
+
+                                if(titles[i][j] == String.valueOf(value.getText())){
+                                    String index1 = String.valueOf(i);
+                                    String index2 = String.valueOf(j);
+                                    Log.d("YOU NEED INDEX", index1 + " " + index2);
+
+                                }
+                            }
+
+                        }
+
+
+                    }
+
+                });
 
             }
         }
 
-        ImageView Image = findViewById(R.id.nft1);
-        Image.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v) {
 
-
-                TextView value = findViewById(R.id.nft1Text);
-                Log.d("Title", String.valueOf(value.getText()));
-
-                Toast.makeText(getApplicationContext(), "You clicked " + String.valueOf(value.getText()),
-                        Toast.LENGTH_SHORT).show();
-                for(int i = 0; i<titles.length; i++){
-                    for(int j = 0; j< titles[0].length; j++){
-
-                        if(titles[i][j] == String.valueOf(value.getText())){
-                            String index1 = String.valueOf(i);
-                            String index2 = String.valueOf(j);
-                            Log.d("YOU NEED INDEX", index1 + " " + index2);
-
-                        }
-                    }
-
-                }
-
-
-            }
-
-        });
 
 
 
