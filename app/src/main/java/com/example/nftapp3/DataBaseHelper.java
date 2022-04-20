@@ -17,23 +17,22 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public static final String userid_column = "user_id";
     public static final String username_column = "username";
     public static final String password_column = "password";
+    public static final String DATABASE_NAME = "nftDB";
+    public static final int DATABASE_VERSION = 1;
 
     public DataBaseHelper(@Nullable Context context) {
-        super(context, "nftDB", null, 1);
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
-
-
 
 
     @Override
     public void onCreate(SQLiteDatabase db){
-        String createTableStatement = "CREATE TABLE " + userTable + " (" + userid_column + " INTEGER PRIMARY KEY AUTOINCREMENT, " + username_column + " VARCHAR(50) NOT NULL UNIQUE," + password_column + " VARCHAR(50) NOT NULL)";
-        db.execSQL(createTableStatement);
+        LoginDB.onCreate(db);
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        LoginDB.onUpgrade(db, oldVersion, newVersion);
     }
 
     public boolean addOne(UserDetails userDetails){

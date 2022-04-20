@@ -3,9 +3,12 @@ package com.example.nftapp3;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.ApplicationInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -149,6 +152,27 @@ public class clickedActivityExplore extends AppCompatActivity {
     public void backArrowEvent(View v){
         startActivity(new Intent(getApplicationContext(), ExploreActivity.class));
         overridePendingTransition(0, 0);
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.share_menu, menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item){
+        int id = item.getItemId();
+        if(id == R.id.share){
+            SharedPreferences sp = getApplicationContext().getSharedPreferences("externalURL", Context.MODE_PRIVATE);
+            String externalShare = sp.getString("external_url", "");
+            ApplicationInfo api =  getApplicationContext().getApplicationInfo();
+            String apkpath = api.sourceDir;
+            Intent intent = new Intent(Intent.ACTION_SEND);
+            intent.setType("text/plain");
+
+            intent.putExtra(Intent.EXTRA_TEXT, "Check this NFT out! " + externalShare);
+            startActivity(Intent.createChooser(intent, "ShareVia"));
+        }
+        return true;
     }
 
 }
