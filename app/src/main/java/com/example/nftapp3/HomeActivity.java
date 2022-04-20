@@ -175,6 +175,7 @@ public class HomeActivity extends AppCompatActivity {
 
                                     startActivity(new Intent(getApplicationContext(), clickedActivity.class));
                                     overridePendingTransition(0, 0);
+
                                 }
                             });
 

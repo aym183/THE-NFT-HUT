@@ -134,7 +134,6 @@ public class MainActivity extends AppCompatActivity {
         editor.putString("username_value", String.valueOf(newUser));
         editor.commit();
 
-
         // Synced sqlite and firebase
         UserDetails userDetails;
         userDetails = new UserDetails(getRandomNumber(1000,9999), newUser, newPw);

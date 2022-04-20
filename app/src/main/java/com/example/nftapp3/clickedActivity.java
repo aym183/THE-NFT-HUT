@@ -3,9 +3,12 @@ package com.example.nftapp3;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.ApplicationInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -19,6 +22,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -47,6 +51,7 @@ public class clickedActivity extends AppCompatActivity {
         ImageView ivResult = findViewById(R.id.clickedImageView);
         LoadImage setImage = new LoadImage(ivResult);
         setImage.execute(imageValue);
+        String urlShare;
 
         OkHttpClient client = new OkHttpClient();
 
@@ -77,7 +82,8 @@ public class clickedActivity extends AppCompatActivity {
                                 R.id.attributeText4, R.id.attributeText5, R.id.attributeText6};
                         JSONObject json = new JSONObject(myResponse);
 
-                        String external_url = json.getString("external_url");
+                        String external_url = json.getString("external_link");
+                       // urlShare = String.valueOf(external_url);
 
                         JSONArray traits = json.getJSONArray("traits");
 
@@ -152,5 +158,23 @@ public class clickedActivity extends AppCompatActivity {
     public void backArrowEvent(View v){
         startActivity(new Intent(getApplicationContext(), HomeActivity.class));
         overridePendingTransition(0, 0);
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.share_menu, menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item){
+        int id = item.getItemId();
+        if(id == R.id.share){
+            ApplicationInfo api =  getApplicationContext().getApplicationInfo();
+            String apkpath = api.sourceDir;
+            Intent intent = new Intent(Intent.ACTION_SEND);
+            intent.setType("text/plain");
+            intent.putExtra(Intent.EXTRA_TEXT, "Check this out! ");
+            startActivity(Intent.createChooser(intent, "ShareVia"));
+        }
+        return true;
     }
 }
