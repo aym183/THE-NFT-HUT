@@ -130,25 +130,9 @@ public class clickedActivity extends AppCompatActivity {
                         }
 
 
-//                        Log.d("external_url", external_url);
-
-
-
-//                        JSONArray arr = json.getJSONArray("assets");
-//                        int sale_details = 0;
-
-                        // Take link to show on open sea with external intent (permalink)
-                        // external link (external_link)
-                        // traits
-
-
-
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-
-
-
 
 
                 }

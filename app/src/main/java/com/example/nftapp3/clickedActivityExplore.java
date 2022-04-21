@@ -78,6 +78,10 @@ public class clickedActivityExplore extends AppCompatActivity {
                         JSONObject json = new JSONObject(myResponse);
 
                         String external_url = json.getString("permalink");
+                        SharedPreferences sp = getSharedPreferences("externalURL", Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sp.edit();
+                        editor.putString("external_url",external_url);
+                        editor.commit();
 
                         JSONArray traits = json.getJSONArray("traits");
 
