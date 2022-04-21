@@ -4,9 +4,12 @@ import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 
@@ -36,6 +39,9 @@ public class MainActivity extends AppCompatActivity {
 
 
     private NotificationManagerCompat notificationManager;
+    private String mode;
+    private String id;
+    int correctVal = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,16 +63,39 @@ public class MainActivity extends AppCompatActivity {
 
         userDetails = new UserDetails(getRandomNumber(1000,9999), usernameInput, passwordInput);
         Toast.makeText(MainActivity.this, userDetails.toString(), Toast.LENGTH_SHORT).show();
-        Log.d("success", usernameInput);
-        Log.d("success", passwordInput);
+//        Log.d("success", usernameInput);
+//        Log.d("success", passwordInput);
         username.setText("");
         password.setText("");
-        DataBaseHelper dataBaseHelper = new DataBaseHelper(MainActivity.this);
-        List<UserDetails> loginCredentials = dataBaseHelper.getEveryone(usernameInput, passwordInput);
+        String URL = "content://com.example.nftapp3.MyContentProvider";
+        Uri users = Uri.parse(URL);
+        Cursor c = getContentResolver().query(users, null, null, null, null);
+        String myUsers = null;
+
+
+        //Toast.makeText(this, myUsers, Toast.LENGTH_SHORT);
+
+
+        //DataBaseHelper dataBaseHelper = new DataBaseHelper(MainActivity.this);
+       // List<UserDetails> loginCredentials = dataBaseHelper.getEveryone(usernameInput, passwordInput);
 
         // user1, password1
 //        dataBaseHelper.addOne(userDetails);
-        if(loginCredentials.size() >= 1){
+        for(c.moveToFirst(); !c.isAfterLast(); c.moveToNext()){
+            String userVal = c.getString(c.getColumnIndexOrThrow(DataBaseHelper.username_column));
+            String passVal = c.getString(c.getColumnIndexOrThrow(DataBaseHelper.password_column));
+//            System.out.println(userVal);
+//            System.out.println(passVal);
+            if(usernameInput == userVal.trim() && passwordInput == passVal.trim()){
+                System.out.println(userVal);
+                System.out.println(passVal);
+                correctVal += 1;
+            }
+
+        }
+        System.out.println(correctVal);
+
+        if(correctVal == 1){
             System.out.println("RedirectNow");
 
             FirebaseData newdets = new FirebaseData();
@@ -95,8 +124,8 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
-        Log.d("success", loginCredentials.toString());
-        Toast.makeText(MainActivity.this, "Success = " + loginCredentials.size(), Toast.LENGTH_LONG).show();
+//        Log.d("success", loginCredentials.toString());
+//        Toast.makeText(MainActivity.this, "Success = " + loginCredentials.size(), Toast.LENGTH_LONG).show();
     }
 
     public void registerEvent(View v){
@@ -137,8 +166,14 @@ public class MainActivity extends AppCompatActivity {
         // Synced sqlite and firebase
         UserDetails userDetails;
         userDetails = new UserDetails(getRandomNumber(1000,9999), newUser, newPw);
-        DataBaseHelper dataBaseHelper = new DataBaseHelper(MainActivity.this);
-        dataBaseHelper.addOne(userDetails);
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(DataBaseHelper.username_column, newUser);
+        contentValues.put(DataBaseHelper.password_column, newPw);
+        Uri uri = getContentResolver(). insert(MyContentProvider.CONTENT_URI, contentValues);
+        Toast.makeText(getBaseContext(), uri.toString(), Toast.LENGTH_LONG).show();
+
+//        DataBaseHelper dataBaseHelper = new DataBaseHelper(MainActivity.this);
+//        dataBaseHelper.addOne(userDetails);
 
         FirebaseData newdets = new FirebaseData();
         newdets.userDetails(newUser, firstnameText, lastnameText, newPw);
@@ -167,12 +202,13 @@ public class MainActivity extends AppCompatActivity {
         signup.setVisibility(View.INVISIBLE);
 
 
-
     }
 
     public int getRandomNumber(int min, int max) {
         return (int) ((Math.random() * (max - min)) + min);
     }
+
+
 
 
 
