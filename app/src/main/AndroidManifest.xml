@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
         android:name=".App"
@@ -14,6 +15,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Nftapp3">
+
+<!--        <receiver android:name=".MyBroadcastReciever"-->
+<!--            android:enabled="true"-->
+<!--            android:exported="true">-->
+
+<!--            <intent-filter>-->
+<!--                <action android:name="com.nftapp3.MyBroadcastReciever"/>-->
+
+<!--            </intent-filter>-->
+<!--        </receiver>-->
 
         <activity
             android:name=".MainActivity"
@@ -108,15 +119,6 @@
             android:writePermission="true"
             android:authorities="com.example.nftapp3.MyContentProvider"/>
 
-        <receiver android:name=".MyBroadcastReciever"
-            android:enabled="true"
-            android:exported="true">
-
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
-            </intent-filter>
-        </receiver>
     </application>
 
 </manifest>

@@ -7,6 +7,7 @@ import android.app.PendingIntent;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
@@ -42,13 +43,16 @@ public class MainActivity extends AppCompatActivity {
     private String mode;
     private String id;
     int correctVal = 0;
+    MyBroadcastReciever airplaneModeChangeReceiver = new MyBroadcastReciever();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
+        IntentFilter filter = new IntentFilter(Intent.ACTION_AIRPLANE_MODE_CHANGED);
+        registerReceiver(airplaneModeChangeReceiver, filter);
+        
 
     }
 
