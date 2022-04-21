@@ -85,15 +85,16 @@ public class MainActivity extends AppCompatActivity {
             String userVal = c.getString(c.getColumnIndexOrThrow(DataBaseHelper.username_column));
             String passVal = c.getString(c.getColumnIndexOrThrow(DataBaseHelper.password_column));
 //            System.out.println(userVal);
+
 //            System.out.println(passVal);
-            if(usernameInput == userVal.trim() && passwordInput == passVal.trim()){
+            if(usernameInput.equals(userVal) && passwordInput.equals(passVal)){
                 System.out.println(userVal);
                 System.out.println(passVal);
                 correctVal += 1;
             }
 
         }
-        System.out.println(correctVal);
+
 
         if(correctVal == 1){
             System.out.println("RedirectNow");
