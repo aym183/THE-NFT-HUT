@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class GridAdapter extends BaseAdapter {
@@ -23,6 +24,7 @@ public class GridAdapter extends BaseAdapter {
     private LayoutInflater inflater;
     private String[] titles;
     private String[] numberImage;
+    ArrayList<Bitmap> bitmapArray = new ArrayList<Bitmap>();
 
     public GridAdapter(Context c, String[] titles, String[] numberImage){
         context = c;
@@ -51,25 +53,20 @@ public class GridAdapter extends BaseAdapter {
 
             }
             Log.d("BIT", String.valueOf(bitmap));
+            Log.d("Type", bitmap.getClass().getName());
+
             return bitmap;
         }
 
         @Override
         protected void onPostExecute(Bitmap bitmap){
 
+            bitmapArray.add(bitmap);
+            //Log.d("BITMAP", String.valueOf(bitmapArray.get(0)));
             ivResult.setImageBitmap(bitmap);
         }
     }
 
-
-//    public void titleGet(String[] titles){
-//
-//        ImageDetails newIm =new ImageDetails("WALLET");
-//
-//        System.out.println("SUCCESS " + Arrays.deepToString(newIm.titles2));
-//        System.out.println("SUCCESS 2" + Arrays.deepToString(newIm.imageDetails2));
-//
-//    }
     @Override
     public int getCount() {
         return titles.length;
@@ -99,6 +96,14 @@ public class GridAdapter extends BaseAdapter {
         TextView textView = convertView.findViewById(R.id.textViewGrid);
         LoadImage newImage = new LoadImage(ivResult);
         newImage.execute(numberImage[position]);
+
+//        for(int i = 0; i<bitmapArray.size(); i++){
+//
+//            Log.d("BITMAP", String.valueOf(bitmapArray.get(i)));
+//        }
+
+
+        //ivResult.setImageBitmap(bitmapArray.get(0));
         textView.setText(titles[position]);
 
         return convertView;

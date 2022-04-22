@@ -119,11 +119,11 @@
     <GridView
         android:id="@+id/gridView"
         android:layout_width="413dp"
-        android:layout_height="411dp"
+        android:layout_height="470dp"
         android:numColumns="2"
         app:layout_constraintBottom_toBottomOf="@+id/bottomNavigationView"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.83"
+        app:layout_constraintVertical_bias="0.785"
         tools:layout_editor_absoluteX="-2dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

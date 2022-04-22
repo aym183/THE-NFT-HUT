@@ -69,7 +69,7 @@ public class ExploreActivity extends AppCompatActivity {
 
         String recently_addedurl = "https://opensea13.p.rapidapi.com/assets?collection_slug=cryptopunks&order_direction=asc&limit=5&include_orders=false";
         String most_viewedurl = "https://opensea13.p.rapidapi.com/assets?owner=0x276CD56089E7576Fb80d39a763aA0d213B98E948&order_direction=desc&limit=5&include_orders=false";
-        String hot_new_itemsurl = "https://opensea13.p.rapidapi.com/assets?owner=0x30d58a2e004170f839295c3f37D7E7dfd0ef2310&order_direction=desc&limit=5&include_orders=false";
+        String hot_new_itemsurl = "https://opensea13.p.rapidapi.com/assets?owner=0xd7c318E9F9129239F6bA4E10994137113dcF6244&order_direction=desc&limit=5&include_orders=false";
 
         String[] urlLists = {recently_addedurl, most_viewedurl, hot_new_itemsurl};
         for(int i = 0; i<urlLists.length; i++){
