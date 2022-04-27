@@ -66,6 +66,8 @@ public class AnalyticsActivity extends AppCompatActivity {
     int Doodlecount , BAYCcount, MAYCcount = 0;
     int ranking_count = 0;
     int activity_count = 0;
+    int ranking_floor = 3;
+    int second_ranking_floor = 6;
 
     String[] collections = {"Doodles", "MAYC", "BAYC" };
     HashMap<String, Integer> floorRankings = new HashMap<String, Integer>();
@@ -564,13 +566,13 @@ public class AnalyticsActivity extends AppCompatActivity {
                                         for(int i = 0; i<3; i++){
 
                                             TextView textView = findViewById(rankingsButtons[i]);
-                                            textView.setText(String.valueOf(i+1 + ". "+ collections[i] + ":     " +  rankingValues.get(i)));
+                                            textView.setText(String.valueOf(ranking_floor-i + ". "+ collections[i] + ":     " +  rankingValues.get(i)));
                                         }
 
                                         for(int i = 3; i<6; i++){
 
                                             TextView textView = findViewById(rankingsButtons[i]);
-                                            textView.setText(String.valueOf(i-2 + ". "+ collections[i-3] + ": " + rankingValues.get(i)));
+                                            textView.setText(String.valueOf(second_ranking_floor-i + ". "+ collections[i-3] + ": " + rankingValues.get(i)));
                                         }
 
 
