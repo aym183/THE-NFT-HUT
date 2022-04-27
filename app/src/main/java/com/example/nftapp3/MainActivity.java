@@ -80,76 +80,72 @@ public class MainActivity extends AppCompatActivity {
 
         EditText username = findViewById(R.id.usernameText);
         EditText password = findViewById(R.id.passwordText);
-        String usernameInput = username.getText().toString();
-        String passwordInput = password.getText().toString();
-
-        UserDetails userDetails;
-
-        userDetails = new UserDetails(getRandomNumber(1000,9999), usernameInput, passwordInput);
-        Toast.makeText(MainActivity.this, userDetails.toString(), Toast.LENGTH_SHORT).show();
-//        Log.d("success", usernameInput);
-//        Log.d("success", passwordInput);
-        username.setText("");
-        password.setText("");
-        String URL = "content://com.example.nftapp3.MyContentProvider";
-        Uri users = Uri.parse(URL);
-        Cursor c = getContentResolver().query(users, null, null, null, null);
-        String myUsers = null;
 
 
-        //Toast.makeText(this, myUsers, Toast.LENGTH_SHORT);
+        if( TextUtils.isEmpty(username.getText()) || TextUtils.isEmpty(password.getText())) {
+
+            Toast.makeText(getBaseContext(), "Enter all fields!", Toast.LENGTH_SHORT).show();
+
+        }
+        else {
 
 
-        //DataBaseHelper dataBaseHelper = new DataBaseHelper(MainActivity.this);
-       // List<UserDetails> loginCredentials = dataBaseHelper.getEveryone(usernameInput, passwordInput);
+            String usernameInput = username.getText().toString().trim();
+            String passwordInput = password.getText().toString().trim();
 
-        // user1, password1
+            UserDetails userDetails;
+
+            userDetails = new UserDetails(getRandomNumber(1000, 9999), usernameInput, passwordInput);
+
+            username.setText("");
+            password.setText("");
+            String URL = "content://com.example.nftapp3.MyContentProvider";
+            Uri users = Uri.parse(URL);
+            Cursor c = getContentResolver().query(users, null, null, null, null);
+            String myUsers = null;
+
 //        dataBaseHelper.addOne(userDetails);
-        for(c.moveToFirst(); !c.isAfterLast(); c.moveToNext()){
-            String userVal = c.getString(c.getColumnIndexOrThrow(DataBaseHelper.username_column));
-            String passVal = c.getString(c.getColumnIndexOrThrow(DataBaseHelper.password_column));
-            System.out.println(userVal);
+            for (c.moveToFirst(); !c.isAfterLast(); c.moveToNext()) {
+                String userVal = c.getString(c.getColumnIndexOrThrow(DataBaseHelper.username_column));
+                String passVal = c.getString(c.getColumnIndexOrThrow(DataBaseHelper.password_column));
 
-            System.out.println(passVal);
-            if(usernameInput.equals(userVal) && passwordInput.equals(passVal)){
-                System.out.println("I AM HERE");
-                System.out.println(userVal);
                 System.out.println(passVal);
-                correctVal += 1;
+                if (usernameInput.equals(userVal) && passwordInput.equals(passVal)) {
+
+                    correctVal += 1;
+                }
+
             }
 
-        }
 
+            if (correctVal == 1) {
+                System.out.println("RedirectNow");
 
-        if(correctVal == 1){
-            System.out.println("RedirectNow");
-
-            FirebaseData newdets = new FirebaseData();
+                FirebaseData newdets = new FirebaseData();
 //            newdets.NodeDetails(usernameInput);
 
-            notificationManager = NotificationManagerCompat.from(this);
-            Notification notification = new NotificationCompat.Builder(this, App.channel1_ID)
-                    .setSmallIcon(R.drawable.nfthutlogo)
-                    .setContentTitle("THE NFT HUT")
-                    .setContentText("You have logged in!")
-                    .setPriority(NotificationCompat.PRIORITY_HIGH)
-                    .setCategory(NotificationCompat.CATEGORY_MESSAGE)
-                    .build();
-            notificationManager.notify(1, notification);
+                notificationManager = NotificationManagerCompat.from(this);
+                Notification notification = new NotificationCompat.Builder(this, App.channel1_ID)
+                        .setSmallIcon(R.drawable.nfthutlogo)
+                        .setContentTitle("THE NFT HUT")
+                        .setContentText("You have logged in!")
+                        .setPriority(NotificationCompat.PRIORITY_HIGH)
+                        .setCategory(NotificationCompat.CATEGORY_MESSAGE)
+                        .build();
+                notificationManager.notify(1, notification);
 
 
-            Intent login_intent = new Intent(MainActivity.this, HomeActivity.class);
-            startActivity(login_intent);
+                Intent login_intent = new Intent(MainActivity.this, HomeActivity.class);
+                startActivity(login_intent);
 
 
+            } else {
+
+                Toast.makeText(MainActivity.this, "Incorrect Details!", Toast.LENGTH_LONG).show();
+
+
+            }
         }
-        else{
-
-            System.out.println("Don't Redirect");
-
-
-        }
-
 //        Log.d("success", loginCredentials.toString());
 //        Toast.makeText(MainActivity.this, "Success = " + loginCredentials.size(), Toast.LENGTH_LONG).show();
     }
@@ -186,10 +182,10 @@ public class MainActivity extends AppCompatActivity {
         }
         else{
 
-            String firstnameText = first_name.getText().toString();
-            String lastnameText = last_name.getText().toString();
-            String newUser = newUsername.getText().toString();
-            String newPw = newPassword.getText().toString();
+            String firstnameText = first_name.getText().toString().trim();
+            String lastnameText = last_name.getText().toString().trim();
+            String newUser = newUsername.getText().toString().trim();
+            String newPw = newPassword.getText().toString().trim();
             first_name.setText("");
             last_name.setText("");
             newUsername.setText("");
