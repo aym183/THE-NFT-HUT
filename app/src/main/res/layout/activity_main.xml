@@ -78,6 +78,8 @@
         android:hint="First Name"
         android:inputType="textPersonName"
         android:minHeight="48dp"
+        android:textColorHint="@color/white"
+        android:textColor="@color/white"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -93,6 +95,8 @@
         android:hint="Last Name"
         android:inputType="textPersonName"
         android:minHeight="48dp"
+        android:textColorHint="@color/white"
+        android:textColor="@color/white"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -107,6 +111,8 @@
         android:layout_marginTop="496dp"
         android:ems="10"
         android:hint="Username"
+        android:textColorHint="@color/white"
+        android:textColor="@color/white"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:visibility="invisible"
@@ -124,6 +130,8 @@
         android:hint="Password"
         android:inputType="textPersonName"
         android:minHeight="48dp"
+        android:textColorHint="@color/white"
+        android:textColor="@color/white"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -155,5 +163,17 @@
         app:srcCompat="@drawable/newlogo"
         tools:layout_editor_absoluteX="-2dp"
         tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/cancel_Btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginBottom="340dp"
+        android:onClick="cancelEvent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_baseline_cancel_24"
+        android:visibility="invisible"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

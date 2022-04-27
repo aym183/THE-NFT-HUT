@@ -18,10 +18,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
+import android.text.TextUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -53,6 +55,24 @@ public class MainActivity extends AppCompatActivity {
         IntentFilter filter = new IntentFilter(Intent.ACTION_AIRPLANE_MODE_CHANGED);
         registerReceiver(airplaneModeChangeReceiver, filter);
         
+
+    }
+
+    public void cancelEvent(View view){
+
+        ImageView cancelBtn = findViewById(R.id.cancel_Btn);
+        TextView firstN = findViewById(R.id.firstNameText);
+        TextView lastN = findViewById(R.id.lastNameText);
+        TextView usern = findViewById(R.id.newusernameText);
+        TextView passw = findViewById(R.id.newpasswordText);
+        Button signup = findViewById(R.id.SignupButton);
+
+        cancelBtn.setVisibility(View.INVISIBLE);
+        firstN.setVisibility(View.INVISIBLE);
+        lastN.setVisibility(View.INVISIBLE);
+        usern.setVisibility(View.INVISIBLE);
+        passw.setVisibility(View.INVISIBLE);
+        signup.setVisibility(View.INVISIBLE);
 
     }
 
@@ -136,12 +156,14 @@ public class MainActivity extends AppCompatActivity {
 
     public void registerEvent(View v){
 
+        ImageView cancelBtn = findViewById(R.id.cancel_Btn);
         TextView firstN = findViewById(R.id.firstNameText);
         TextView lastN = findViewById(R.id.lastNameText);
         TextView usern = findViewById(R.id.newusernameText);
         TextView passw = findViewById(R.id.newpasswordText);
         Button signup = findViewById(R.id.SignupButton);
 
+        cancelBtn.setVisibility(View.VISIBLE);
         firstN.setVisibility(View.VISIBLE);
         lastN.setVisibility(View.VISIBLE);
         usern.setVisibility(View.VISIBLE);
@@ -155,58 +177,70 @@ public class MainActivity extends AppCompatActivity {
         EditText last_name = findViewById(R.id.lastNameText);
         EditText newUsername = findViewById(R.id.newusernameText);
         EditText newPassword = findViewById(R.id.newpasswordText);
-        String firstnameText = first_name.getText().toString();
-        String lastnameText = last_name.getText().toString();
-        String newUser = newUsername.getText().toString();
-        String newPw = newPassword.getText().toString();
-        first_name.setText("");
-        last_name.setText("");
-        newUsername.setText("");
-        newPassword.setText("");
 
-        SharedPreferences sp = getSharedPreferences("Username", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sp.edit();
-        editor.putString("username_value", String.valueOf(newUser));
-        editor.commit();
+        if( TextUtils.isEmpty(newUsername.getText()) || TextUtils.isEmpty(newPassword.getText()) || TextUtils.isEmpty(first_name.getText()) ||
+                TextUtils.isEmpty(last_name.getText())) {
 
-        // Synced sqlite and firebase
-        UserDetails userDetails;
-        userDetails = new UserDetails(getRandomNumber(1000,9999), newUser, newPw);
-        ContentValues contentValues = new ContentValues();
-        contentValues.put(DataBaseHelper.username_column, newUser);
-        contentValues.put(DataBaseHelper.password_column, newPw);
-        Uri uri = getContentResolver(). insert(MyContentProvider.CONTENT_URI, contentValues);
-        Toast.makeText(getBaseContext(), uri.toString(), Toast.LENGTH_LONG).show();
+            Toast.makeText(getBaseContext(), "Enter all fields!", Toast.LENGTH_SHORT).show();
+
+        }
+        else{
+
+            String firstnameText = first_name.getText().toString();
+            String lastnameText = last_name.getText().toString();
+            String newUser = newUsername.getText().toString();
+            String newPw = newPassword.getText().toString();
+            first_name.setText("");
+            last_name.setText("");
+            newUsername.setText("");
+            newPassword.setText("");
+
+            SharedPreferences sp = getSharedPreferences("Username", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = sp.edit();
+            editor.putString("username_value", String.valueOf(newUser));
+            editor.commit();
+
+            // Synced sqlite and firebase
+            UserDetails userDetails;
+            userDetails = new UserDetails(getRandomNumber(1000, 9999), newUser, newPw);
+            ContentValues contentValues = new ContentValues();
+            contentValues.put(DataBaseHelper.username_column, newUser);
+            contentValues.put(DataBaseHelper.password_column, newPw);
+            Uri uri = getContentResolver().insert(MyContentProvider.CONTENT_URI, contentValues);
+            Toast.makeText(getBaseContext(), uri.toString(), Toast.LENGTH_LONG).show();
 
 //        DataBaseHelper dataBaseHelper = new DataBaseHelper(MainActivity.this);
 //        dataBaseHelper.addOne(userDetails);
 
-        FirebaseData newdets = new FirebaseData();
-        newdets.userDetails(newUser, firstnameText, lastnameText, newPw);
+            FirebaseData newdets = new FirebaseData();
+            newdets.userDetails(newUser, firstnameText, lastnameText, newPw);
 
 
-        notificationManager = NotificationManagerCompat.from(this);
-        Notification notification = new NotificationCompat.Builder(this, App.channel1_ID)
-                .setSmallIcon(R.drawable.nfthutlogo)
-                .setContentTitle("THE NFT HUT")
-                .setContentText("Account Created!")
-                .setPriority(NotificationCompat.PRIORITY_HIGH)
-                .setCategory(NotificationCompat.CATEGORY_MESSAGE)
-                .build();
-        notificationManager.notify(1, notification);
+            notificationManager = NotificationManagerCompat.from(this);
+            Notification notification = new NotificationCompat.Builder(this, App.channel1_ID)
+                    .setSmallIcon(R.drawable.nfthutlogo)
+                    .setContentTitle("THE NFT HUT")
+                    .setContentText("Account Created!")
+                    .setPriority(NotificationCompat.PRIORITY_HIGH)
+                    .setCategory(NotificationCompat.CATEGORY_MESSAGE)
+                    .build();
+            notificationManager.notify(1, notification);
 
-        TextView firstN = findViewById(R.id.firstNameText);
-        TextView lastN = findViewById(R.id.lastNameText);
-        TextView usern = findViewById(R.id.newusernameText);
-        TextView passw = findViewById(R.id.newpasswordText);
-        Button signup = findViewById(R.id.SignupButton);
+            ImageView cancelBtn = findViewById(R.id.cancel_Btn);
+            TextView firstN = findViewById(R.id.firstNameText);
+            TextView lastN = findViewById(R.id.lastNameText);
+            TextView usern = findViewById(R.id.newusernameText);
+            TextView passw = findViewById(R.id.newpasswordText);
+            Button signup = findViewById(R.id.SignupButton);
 
-        firstN.setVisibility(View.INVISIBLE);
-        lastN.setVisibility(View.INVISIBLE);
-        usern.setVisibility(View.INVISIBLE);
-        passw.setVisibility(View.INVISIBLE);
-        signup.setVisibility(View.INVISIBLE);
+            cancelBtn.setVisibility(View.INVISIBLE);
+            firstN.setVisibility(View.INVISIBLE);
+            lastN.setVisibility(View.INVISIBLE);
+            usern.setVisibility(View.INVISIBLE);
+            passw.setVisibility(View.INVISIBLE);
+            signup.setVisibility(View.INVISIBLE);
 
+        }
 
     }
 
