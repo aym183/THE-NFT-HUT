@@ -174,13 +174,20 @@ public class MainActivity extends AppCompatActivity {
         EditText newUsername = findViewById(R.id.newusernameText);
         EditText newPassword = findViewById(R.id.newpasswordText);
 
-        if( TextUtils.isEmpty(newUsername.getText()) || TextUtils.isEmpty(newPassword.getText()) || TextUtils.isEmpty(first_name.getText()) ||
+        if(TextUtils.isEmpty(newUsername.getText()) || TextUtils.isEmpty(newPassword.getText()) || TextUtils.isEmpty(first_name.getText()) ||
                 TextUtils.isEmpty(last_name.getText())) {
 
             Toast.makeText(getBaseContext(), "Enter all fields!", Toast.LENGTH_SHORT).show();
 
         }
+        else if((!TextUtils.isEmpty(newUsername.getText()) || !TextUtils.isEmpty(newPassword.getText()) || !TextUtils.isEmpty(first_name.getText()) ||
+                !TextUtils.isEmpty(last_name.getText())) && newPassword.length() < 8){
+
+            System.out.println( newPassword.length());
+            Toast.makeText(getBaseContext(), "Password should be greater than 8 characters!", Toast.LENGTH_LONG).show();
+        }
         else{
+
 
             String firstnameText = first_name.getText().toString().trim();
             String lastnameText = last_name.getText().toString().trim();
