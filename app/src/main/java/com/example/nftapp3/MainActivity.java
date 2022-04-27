@@ -88,10 +88,11 @@ public class MainActivity extends AppCompatActivity {
         for(c.moveToFirst(); !c.isAfterLast(); c.moveToNext()){
             String userVal = c.getString(c.getColumnIndexOrThrow(DataBaseHelper.username_column));
             String passVal = c.getString(c.getColumnIndexOrThrow(DataBaseHelper.password_column));
-//            System.out.println(userVal);
+            System.out.println(userVal);
 
-//            System.out.println(passVal);
+            System.out.println(passVal);
             if(usernameInput.equals(userVal) && passwordInput.equals(passVal)){
+                System.out.println("I AM HERE");
                 System.out.println(userVal);
                 System.out.println(passVal);
                 correctVal += 1;

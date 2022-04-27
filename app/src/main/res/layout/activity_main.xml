@@ -5,21 +5,9 @@
     android:id="@+id/main_activity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/teal_200"
+    android:background="@color/dark_blue"
     tools:context=".MainActivity">
 
-
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="415dp"
-        android:layout_height="293dp"
-        android:layout_marginBottom="650dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.391"
-        app:srcCompat="@drawable/nfthutlogo" />
 
     <EditText
         android:id="@+id/passwordText"
@@ -28,6 +16,8 @@
         android:layout_marginTop="208dp"
         android:ems="10"
         android:hint="Password"
+        android:textColorHint="@color/white"
+        android:textColor="@color/white"
         android:inputType="textPassword"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -70,7 +60,9 @@
         android:layout_marginTop="152dp"
         android:ems="10"
         android:hint="Username"
+        android:textColorHint="@color/white"
         android:inputType="textPersonName"
+        android:textColor="@color/white"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -153,5 +145,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.91" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="415dp"
+        android:layout_height="358dp"
+        android:layout_marginBottom="488dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:srcCompat="@drawable/newlogo"
+        tools:layout_editor_absoluteX="-2dp"
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
