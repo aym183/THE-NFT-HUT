@@ -117,8 +117,6 @@ public class clickedActivity extends AppCompatActivity {
                         for(int i = 0; i<6; i++){
                             int position = i;
                             String attribute = traits.getJSONObject(i).getString("value");
-                            Log.d("attribute", attribute);
-
                             if(attribute.contains("attributes")){
                                 ;
                             }
