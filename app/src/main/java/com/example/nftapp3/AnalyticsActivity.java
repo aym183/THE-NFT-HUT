@@ -49,9 +49,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * The AnalyticsActivity class handles all the operations related to the Analytics pagh
+ */
 public class AnalyticsActivity extends AppCompatActivity {
 
-
+    /* All the declared variables required for the operations */
     BottomNavigationView bottomNavigationView;
     ImageView doodleimageView;
     TextView spentValue;
@@ -64,8 +67,7 @@ public class AnalyticsActivity extends AppCompatActivity {
     private TextView ivView;
     int detailsValues[];
     int Doodlecount , BAYCcount, MAYCcount = 0;
-    int ranking_count = 0;
-    int activity_count = 0;
+    int ranking_count, activity_count = 0;
     int ranking_floor = 3;
     int second_ranking_floor = 6;
 
@@ -73,10 +75,12 @@ public class AnalyticsActivity extends AppCompatActivity {
     HashMap<String, Integer> floorRankings = new HashMap<String, Integer>();
     HashMap<String, Integer> MarketCap = new HashMap<String, Integer>();
 
+    /* All the individual API calls to individual collections to get their data */
     String[] urlArray = {"https://opensea13.p.rapidapi.com/collection/doodles-official",
     "https://opensea13.p.rapidapi.com/collection/boredapeyachtclub",
     "https://opensea13.p.rapidapi.com/collection/mutant-ape-yacht-club"};
 
+    /* The arrays containing the views/text areas that have to be overwritten */
     int[] imageButtons = {R.id.stats_nft1, R.id.stats_nft2, R.id.stats_nft3};
 
     int[] textViews = {R.id.stats_nft1Text, R.id.stats_nft2Text, R.id.stats_nft3Text};
@@ -100,7 +104,7 @@ public class AnalyticsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_analytics);
 
         for(int i = 0; i < urlArray.length; i++){
-            getData(urlArray[i], imageButtons[i], textViews[i], i);
+            getData(urlArray[i], i);
         }
 
         SharedPreferences sp = getApplicationContext().getSharedPreferences("Portfolio", Context.MODE_PRIVATE);
@@ -297,8 +301,6 @@ public class AnalyticsActivity extends AppCompatActivity {
 
                 }
 
-
-
                 for(int i =0; i< urlArray.length; i++) {
                     rankingsData(urlArray[i], i);
                 }
@@ -307,8 +309,6 @@ public class AnalyticsActivity extends AppCompatActivity {
                 Toast.makeText(AnalyticsActivity.this, "YOU CLICKED RANKINGS!", Toast.LENGTH_SHORT).show();
 
             }
-
-
         });
 
 
@@ -316,6 +316,11 @@ public class AnalyticsActivity extends AppCompatActivity {
         bottomNavigationView.setSelectedItemId(R.id.chart);
 
 
+        /**
+         * This method handles click on the bottom navbar and where to redirect the user
+         * @param item This is the item in the navbar that the user clicks
+         * @return 'true' is returned once user clicks a particular item and is redirected correctly
+         */
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -355,12 +360,16 @@ public class AnalyticsActivity extends AppCompatActivity {
         });
     }
 
-    public void getData(String url, int newivResult, int newivView, int position){
 
-        Log.d("URLS"+position, url);
+    /**
+     * This method is used to get data for all of the individual collections and display them
+     * @param url This is the URL passed to make the API call
+     * @param position This is the index of the loop when calling this method
+     */
+    public void getData(String url, int position){
+
         String[] titles = new String[5];
         String[] imageDetails = new String[5];
-
         OkHttpClient client = new OkHttpClient();
 
         Request request = new Request.Builder()
@@ -370,31 +379,33 @@ public class AnalyticsActivity extends AppCompatActivity {
                 .addHeader("X-RapidAPI-Key", "3b11ee2336msh5791c275fc5dbc6p11fa37jsn3cafb1ed4e82")
                 .build();
 
-        // TextView imageView = findViewById(R.id.textView5);
-        //        String myResponse = "API";
         client.newCall(request).enqueue(new Callback() {
+            /**
+             * This method is used to handle the API failure event.
+             * @param call This is the call made to the API
+             * @param e The exception that has occurred on failure
+             */
             @Override
             public void onFailure(Call call, IOException e) {
                 e.printStackTrace();
             }
 
+            /**
+             * This method is used to handle the API success event.
+             * @param call This is the call made to the API
+             * @param response This is the response received from the API call containing the data
+             */
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 if (response.isSuccessful()) {
                     String myResponse = response.body().string();
 
-                    //                    String jsonData = myResponse.body().string();
                     try {
                         JSONObject json = new JSONObject(myResponse).getJSONObject("collection");
 
-                        System.out.println("YOU2 "+ String.valueOf(json));
-
+                        /* After receiving the data, the image and titles of each collection is displayed */
                         String post_id = json.getString("image_url");
                         String post_name = json.getString("name");
-
-//                        titles[position] = post_name;
-//                        imageDetails[position] = post_id;
-
                         ivResult = findViewById(imageButtons[position]);
                         LoadImage newImage = new LoadImage(ivResult);
                         newImage.execute(post_id);
@@ -410,20 +421,18 @@ public class AnalyticsActivity extends AppCompatActivity {
                                 }
                             });
 
-
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-
-
                 }
-
             }
         });
-
     }
 
-
+    /**
+     * This method is used to get and display data for a particular collection on click
+     * @param url This is the URL passed to make the API call
+     */
     public void collectionData(String url){
         String[] titles = new String[5];
         String[] imageDetails = new String[5];
@@ -437,27 +446,30 @@ public class AnalyticsActivity extends AppCompatActivity {
                 .addHeader("X-RapidAPI-Key", "3b11ee2336msh5791c275fc5dbc6p11fa37jsn3cafb1ed4e82")
                 .build();
 
-        // TextView imageView = findViewById(R.id.textView5);
-        //        String myResponse = "API";
         client.newCall(request).enqueue(new Callback() {
 
+            /** This method is used to handle the API failure event.
+             * @param call This is the call made to the API
+             * @param e The exception that has occurred on failure */
 
             @Override
             public void onFailure(Call call, IOException e) {
                 e.printStackTrace();
             }
 
+            /** This method is used to handle the API success event.
+             * @param call This is the call made to the API *
+             * @param response This is the response received from the API call containing the data */
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 if (response.isSuccessful()) {
                     String myResponse = response.body().string();
 
-                    //                    String jsonData = myResponse.body().string();
                     try {
+
+                        /* Operation that displays all the data received from API CALL
+                        * for each collection */
                         JSONObject json = new JSONObject(myResponse).getJSONObject("stats");
-
-
-
                         int floorPrice = json.getInt("floor_price");
                         int sevenDay = json.getInt("seven_day_sales");
                         int thirtyDay = json.getInt("thirty_day_sales");
@@ -467,8 +479,6 @@ public class AnalyticsActivity extends AppCompatActivity {
                         int totalSales = json.getInt("total_sales");
 
                         detailsValues = new int[]{totalSales, floorPrice, sevenDay, sevenDayAvg, thirtyDay, marketCap, noOwners};
-
-                        System.out.println("YOU2 " + String.valueOf(detailsValues));
 
                         runOnUiThread(new Runnable() {
                             @Override
@@ -486,31 +496,26 @@ public class AnalyticsActivity extends AppCompatActivity {
                                     detailsSet.setVisibility(View.VISIBLE);
                                     detailsSet.setText(textValues[i] + " " + detailsValues[i]);
                                 }
-
                             }
                         });
-
-
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-
-
                 }
-
             }
         });
     }
 
-
+    /**
+     * This method is used to display rankings of each collections on click
+     * @param urls This is the URL passed to make the API call
+     * @param position This is the index of the loop when calling this method
+     */
     public void rankingsData(String urls, int position){
 
 
         String[] titles = new String[5];
         String[] imageDetails = new String[5];
-
-
-
 
             OkHttpClient client = new OkHttpClient();
 
@@ -521,84 +526,71 @@ public class AnalyticsActivity extends AppCompatActivity {
                     .addHeader("X-RapidAPI-Key", "3b11ee2336msh5791c275fc5dbc6p11fa37jsn3cafb1ed4e82")
                     .build();
 
-            // TextView imageView = findViewById(R.id.textView5);
-            //        String myResponse = "API";
             client.newCall(request).enqueue(new Callback() {
 
-
+                /** This method is used to handle the API failure event.
+                 * @param call This is the call made to the API
+                 * @param e The exception that has occurred on failure */
                 @Override
                 public void onFailure(Call call, IOException e) {
                     e.printStackTrace();
                 }
 
+                /** This method is used to handle the API success event.
+                 * @param call This is the call made to the API *
+                 * @param response This is the response received from the API call containing the data */
                 @Override
                 public void onResponse(Call call, Response response) throws IOException {
                     if (response.isSuccessful()) {
                         String myResponse = response.body().string();
 
-                        //                    String jsonData = myResponse.body().string();
                         try {
+
+                            /* After data is received, it is sorted and then displayed in correct order */
                             JSONObject json = new JSONObject(myResponse).getJSONObject("stats");
-
-
                             int floorPrice = json.getInt("floor_price");
                             int marketCap = json.getInt("market_cap");
-
                             detailsValues = new int[]{floorPrice, marketCap};
-
                             floorRankings.put(collections[position], floorPrice);
                             MarketCap.put(collections[position], marketCap);
 
-                            System.out.println(floorRankings);
-
                             if(floorRankings.size() == 3){
 
-
-                                sortByValue(floorRankings, "floor");
-
-                                sortByValue(MarketCap, "market");
-
+                                /*  Method call to sort rankings data */
+                                sortByValue(floorRankings);
+                                sortByValue(MarketCap);
 
                                 runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {
 
                                         for(int i = 0; i<3; i++){
-
                                             TextView textView = findViewById(rankingsButtons[i]);
                                             textView.setText(String.valueOf(ranking_floor-i + ". "+ collections[i] + ":     " +  rankingValues.get(i)));
                                         }
 
-                                        for(int i = 3; i<6; i++){
-
+                                        for(int i = 3; i<6; i++) {
                                             TextView textView = findViewById(rankingsButtons[i]);
-                                            textView.setText(String.valueOf(second_ranking_floor-i + ". "+ collections[i-3] + ": " + rankingValues.get(i)));
+                                            textView.setText(String.valueOf(second_ranking_floor - i + ". " + collections[i - 3] + ": " + rankingValues.get(i)));
                                         }
-
-
                                     }
                                 });
-
-                                System.out.println("WORKK FOR ME" + rankingValues);
-                                System.out.println("Ready");
                             }
-
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
-
-
                     }
-
                 }
             });
-
     }
 
-    public Map<String, Integer> sortByValue(Map<String, Integer> scores, String value){
+    /** This method is used to sort arrays in descending order
+     * @params scores This is the array containing the unsorted values
+     * @return Map It returns an array containing the sorted values*/
+
+    public Map<String, Integer> sortByValue(Map<String, Integer> scores){
 
         Map<String, Integer> sortedbyValue = new LinkedHashMap<>();
-
         Set<Map.Entry<String, Integer>> entrySet = scores.entrySet();
         List<Map.Entry<String, Integer>> entryList = new ArrayList<>(entrySet);
 
@@ -609,19 +601,12 @@ public class AnalyticsActivity extends AppCompatActivity {
             sortedbyValue.put(e.getKey(), e.getValue());
         }
 
-
         for (String i : sortedbyValue.keySet()) {
-            System.out.println("key: " + i + " value: " + sortedbyValue.get(i));
             rankingValues.add(sortedbyValue.get(i));
         }
 
-        System.out.println("WORKK" + rankingValues);
         return sortedbyValue;
-
-
     }
-
-
 
 }
 

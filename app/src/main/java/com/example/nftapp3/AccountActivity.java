@@ -97,12 +97,12 @@ public class AccountActivity extends AppCompatActivity {
 
         }
 
+        /**
+         * This method handles click on the bottom navbar and where to redirect the user
+         * @param item This is the item in the navbar that the user clicks
+         * @return 'true' is returned once user clicks a particular item and is redirected correctly
+         */
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            /**
-             * This method handles click on the bottom navbar and where to redirect the user
-             * @param item This is the item in the navbar that the user clicks
-             * @return 'true' is returned once user clicks a particular item and is redirected correctly
-             */
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 Fragment fragment = null;
