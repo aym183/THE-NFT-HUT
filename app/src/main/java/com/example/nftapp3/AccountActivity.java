@@ -77,12 +77,6 @@ public class AccountActivity extends AppCompatActivity {
                         values[position] = data;
                         TextView textView = findViewById(textViews[position]);
                         textView.setText(text_data[position] + ":        " + data);
-//                        if(text_data[position] != "username"){
-//
-//                        }
-//                        else{
-//                            textView.setText(data);
-//                        }
 
 
                     }

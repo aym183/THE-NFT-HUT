@@ -14,6 +14,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
@@ -26,6 +27,12 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.io.IOException;
 import java.util.List;
@@ -44,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
     private NotificationManagerCompat notificationManager;
     private String mode;
     private String id;
+    String data;
     int correctVal = 0;
     MyBroadcastReciever airplaneModeChangeReceiver = new MyBroadcastReciever();
 
@@ -105,50 +113,56 @@ public class MainActivity extends AppCompatActivity {
             String myUsers = null;
 
 //        dataBaseHelper.addOne(userDetails);
-            for (c.moveToFirst(); !c.isAfterLast(); c.moveToNext()) {
-                String userVal = c.getString(c.getColumnIndexOrThrow(DataBaseHelper.username_column));
-                String passVal = c.getString(c.getColumnIndexOrThrow(DataBaseHelper.password_column));
+//            for (c.moveToFirst(); !c.isAfterLast(); c.moveToNext()) {
+//                String userVal = c.getString(c.getColumnIndexOrThrow(DataBaseHelper.username_column));
+//                String passVal = c.getString(c.getColumnIndexOrThrow(DataBaseHelper.password_column));
+//
+//                System.out.println(passVal);
+//                if (usernameInput.equals(userVal) && passwordInput.equals(passVal)) {
+//
+//                    correctVal += 1;
+//                }
+//
+//            }
 
-                System.out.println(passVal);
-                if (usernameInput.equals(userVal) && passwordInput.equals(passVal)) {
+            DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://the-nft-hut-d2a38-default-rtdb.firebaseio.com/");
+            databaseReference.child("Users").child(usernameInput).child("Password").addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    if (snapshot.exists()) {
+                        data = snapshot.getValue().toString();
+                        FirebaseData newdets = new FirebaseData();
+                        System.out.println("RedirectNow");
 
-                    correctVal += 1;
+
+                        notificationManager = NotificationManagerCompat.from(MainActivity.this);
+                        Notification notification = new NotificationCompat.Builder(MainActivity.this, App.channel1_ID)
+                                .setSmallIcon(R.drawable.nfthutlogo)
+                                .setContentTitle("THE NFT HUT")
+                                .setContentText("You have logged in!")
+                                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                                .setCategory(NotificationCompat.CATEGORY_MESSAGE)
+                                .build();
+                        notificationManager.notify(1, notification);
+
+
+                        Intent login_intent = new Intent(MainActivity.this, HomeActivity.class);
+                        startActivity(login_intent);
+
+
+                    }
                 }
 
-            }
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+                    Toast.makeText(MainActivity.this, "Incorrect Details!", Toast.LENGTH_LONG).show();
+                }
+            });
 
-
-            if (correctVal == 1) {
-                System.out.println("RedirectNow");
-
-                FirebaseData newdets = new FirebaseData();
-//            newdets.NodeDetails(usernameInput);
-
-                notificationManager = NotificationManagerCompat.from(this);
-                Notification notification = new NotificationCompat.Builder(this, App.channel1_ID)
-                        .setSmallIcon(R.drawable.nfthutlogo)
-                        .setContentTitle("THE NFT HUT")
-                        .setContentText("You have logged in!")
-                        .setPriority(NotificationCompat.PRIORITY_HIGH)
-                        .setCategory(NotificationCompat.CATEGORY_MESSAGE)
-                        .build();
-                notificationManager.notify(1, notification);
-
-
-                Intent login_intent = new Intent(MainActivity.this, HomeActivity.class);
-                startActivity(login_intent);
-
-
-            } else {
-
-                Toast.makeText(MainActivity.this, "Incorrect Details!", Toast.LENGTH_LONG).show();
-
-
-            }
         }
-//        Log.d("success", loginCredentials.toString());
-//        Toast.makeText(MainActivity.this, "Success = " + loginCredentials.size(), Toast.LENGTH_LONG).show();
-    }
+        }
+
+
 
     public void registerEvent(View v){
 
@@ -250,9 +264,4 @@ public class MainActivity extends AppCompatActivity {
     public int getRandomNumber(int min, int max) {
         return (int) ((Math.random() * (max - min)) + min);
     }
-
-
-
-
-
 }
