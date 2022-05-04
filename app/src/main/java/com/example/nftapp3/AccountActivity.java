@@ -52,7 +52,6 @@ public class AccountActivity extends AppCompatActivity {
         DatabaseReference reference;
         String[] values = new String[3];
 
-        //rootNode = FirebaseDatabase.getInstance();
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://the-nft-hut-d2a38-default-rtdb.firebaseio.com/");
 
         SharedPreferences sp = getApplicationContext().getSharedPreferences("Username", Context.MODE_PRIVATE);
@@ -66,19 +65,14 @@ public class AccountActivity extends AppCompatActivity {
 
             int position = i;
 
-
-
             databaseReference.child("Users").child(value).child(text_data[i]).addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     if (snapshot.exists()) {
                         String data = snapshot.getValue().toString();
-
                         values[position] = data;
                         TextView textView = findViewById(textViews[position]);
                         textView.setText(text_data[position] + ":        " + data);
-
-
                     }
                 }
 
@@ -90,8 +84,6 @@ public class AccountActivity extends AppCompatActivity {
 
 
         }
-
-
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
