@@ -17,6 +17,9 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+/**
+ * The GridAdapter class is used to display images with text in the Grid View for home page
+ */
 public class GridAdapter extends BaseAdapter {
 
     ImageView ivResult;
@@ -26,19 +29,31 @@ public class GridAdapter extends BaseAdapter {
     private String[] numberImage;
     ArrayList<Bitmap> bitmapArray = new ArrayList<Bitmap>();
 
+    /**
+     * This constructor stores all the data required for the methods.
+     * @param c This is the context of the system
+     * @param titles The titles that are overwitten in the Grid View
+     * @param numberImage The image views that are overwritten in the Grid View
+     */
     public GridAdapter(Context c, String[] titles, String[] numberImage){
         context = c;
         this.titles = titles;
         this.numberImage = numberImage;
     }
 
-
+    /**
+     * This method is used to Load the images in the respective views
+     */
     private class LoadImage extends AsyncTask<String, Void, Bitmap> {
         ImageView imageView;
         public LoadImage(ImageView ivResult){
             this.imageView = ivResult;
         }
 
+        /**
+         * This method is used to get bit value of the image taken from the URL
+         * @param strings This is the URL passed
+         */
         @Override
         protected Bitmap doInBackground(String... strings) {
             String urlLink = strings[0];
@@ -47,22 +62,19 @@ public class GridAdapter extends BaseAdapter {
                 InputStream inputStream = new java.net.URL(urlLink).openStream();
                 bitmap = BitmapFactory.decodeStream(inputStream);
 
-
             } catch(IOException e) {
                 e.printStackTrace();
-
             }
-            Log.d("BIT", String.valueOf(bitmap));
-            Log.d("Type", bitmap.getClass().getName());
-
             return bitmap;
         }
 
+        /**
+         * This method is used to display the images.
+         * @param bitmap The bit value of each image
+         */
         @Override
         protected void onPostExecute(Bitmap bitmap){
-
             bitmapArray.add(bitmap);
-            //Log.d("BITMAP", String.valueOf(bitmapArray.get(0)));
             ivResult.setImageBitmap(bitmap);
         }
     }
@@ -82,6 +94,13 @@ public class GridAdapter extends BaseAdapter {
         return 0;
     }
 
+    /**
+     * This method handles the operations of adding values to textViews and Imageviews
+     * @param position This is the call made to the API
+     * @param convertView The exception that has occurred on failure
+     * @param parent The exception that has occurred on failure
+     *
+     */
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if(inflater == null){
@@ -90,20 +109,10 @@ public class GridAdapter extends BaseAdapter {
         if(convertView == null){
             convertView = inflater.inflate(R.layout.row_item, null);
         }
-
-
         ivResult = convertView.findViewById(R.id.imageViewGrid);
         TextView textView = convertView.findViewById(R.id.textViewGrid);
         LoadImage newImage = new LoadImage(ivResult);
         newImage.execute(numberImage[position]);
-
-//        for(int i = 0; i<bitmapArray.size(); i++){
-//
-//            Log.d("BITMAP", String.valueOf(bitmapArray.get(i)));
-//        }
-
-
-        //ivResult.setImageBitmap(bitmapArray.get(0));
         textView.setText(titles[position]);
 
         return convertView;
