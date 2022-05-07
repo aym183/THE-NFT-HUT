@@ -42,7 +42,7 @@ public class GridAdapter extends BaseAdapter {
     }
 
     /**
-     * This method is used to Load the images in the respective views
+     * This class is used to Load the images in the respective views
      */
     private class LoadImage extends AsyncTask<String, Void, Bitmap> {
         ImageView imageView;
