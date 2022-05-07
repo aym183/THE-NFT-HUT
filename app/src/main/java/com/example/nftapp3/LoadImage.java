@@ -1,21 +1,15 @@
 package com.example.nftapp3;
 
-import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.TextView;
-
 import java.io.IOException;
 import java.io.InputStream;
 
-
+/**
+ * This class is used to Load the images in the respective views
+ */
 public class LoadImage extends AsyncTask<String, Void, Bitmap> {
 
         ImageView ivResult;
@@ -24,33 +18,29 @@ public class LoadImage extends AsyncTask<String, Void, Bitmap> {
             this.imageView = ivResult;
         }
 
+        /**
+         * This method is used to get bit value of the image taken from the URL
+         * @param strings This is the URL passed
+         */
         @Override
         protected Bitmap doInBackground(String... strings) {
-            Log.d("ImageView", String.valueOf(this.imageView));
-
-
             String urlLink = strings[0];
-
-
             Bitmap bitmap = null;
             try{
                 InputStream inputStream = new java.net.URL(urlLink).openStream();
                 bitmap = BitmapFactory.decodeStream(inputStream);
-
-
             } catch(IOException e) {
                 e.printStackTrace();
-
             }
-
             return bitmap;
         }
 
+        /**
+         * This method is used to display the images.
+         * @param bitmap The bit value of each image
+         */
         @Override
         protected void onPostExecute(Bitmap bitmap){
-
-            Log.d("Test ImageView", String.valueOf(this.imageView));
-            Log.d("Test ImageView2", String.valueOf(ivResult));
             this.imageView.setImageBitmap(bitmap);
         }
     }
