@@ -50,7 +50,7 @@ public class HomeActivity extends AppCompatActivity {
         gridView = findViewById(R.id.gridView);
 
         /**
-         * Adding of username to SharedPreferences to be used later
+         * Getting username from SharedPreferences to display
          */
         SharedPreferences sp = getApplicationContext().getSharedPreferences("Username", Context.MODE_PRIVATE);
         String value = sp.getString("username_value", "");

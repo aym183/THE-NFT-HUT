@@ -47,14 +47,12 @@ import okhttp3.ResponseBody;
 
 public class MainActivity extends AppCompatActivity {
 
-
     private NotificationManagerCompat notificationManager;
     private String mode;
     private String id;
     String data;
     int correctVal = 0;
     MyBroadcastReciever airplaneModeChangeReceiver = new MyBroadcastReciever();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +64,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * This method is used to handle the click of cancel button during registration
+     * @param view The image view that registers the click event
+     */
     public void cancelEvent(View view){
 
         ImageView cancelBtn = findViewById(R.id.cancel_Btn);
@@ -84,25 +86,27 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * This method handles the login event by taking username and password.
+     * Error handling also done
+     * Use of Notifications and Toast Messages to display messages
+     * @param view The view that registers the click event
+     */
     public void loginEvent(View view) {
 
         EditText username = findViewById(R.id.usernameText);
         EditText password = findViewById(R.id.passwordText);
 
-
+        /* Error checking for empty input fields */
         if( TextUtils.isEmpty(username.getText()) || TextUtils.isEmpty(password.getText())) {
-
             Toast.makeText(getBaseContext(), "Enter all fields!", Toast.LENGTH_SHORT).show();
-
         }
+
         else {
-
-
             String usernameInput = username.getText().toString().trim();
             String passwordInput = password.getText().toString().trim();
 
             UserDetails userDetails;
-
             userDetails = new UserDetails(getRandomNumber(1000, 9999), usernameInput, passwordInput);
 
             username.setText("");
@@ -112,29 +116,15 @@ public class MainActivity extends AppCompatActivity {
             Cursor c = getContentResolver().query(users, null, null, null, null);
             String myUsers = null;
 
-//        dataBaseHelper.addOne(userDetails);
-//            for (c.moveToFirst(); !c.isAfterLast(); c.moveToNext()) {
-//                String userVal = c.getString(c.getColumnIndexOrThrow(DataBaseHelper.username_column));
-//                String passVal = c.getString(c.getColumnIndexOrThrow(DataBaseHelper.password_column));
-//
-//                System.out.println(passVal);
-//                if (usernameInput.equals(userVal) && passwordInput.equals(passVal)) {
-//
-//                    correctVal += 1;
-//                }
-//
-//            }
-
             DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://the-nft-hut-d2a38-default-rtdb.firebaseio.com/");
             databaseReference.child("Users").child(usernameInput).child("Password").addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                    /* On successful login, user is notified and redirected to the home page */
                     if (snapshot.exists()) {
                         data = snapshot.getValue().toString();
                         FirebaseData newdets = new FirebaseData();
-                        System.out.println("RedirectNow");
-
-
                         notificationManager = NotificationManagerCompat.from(MainActivity.this);
                         Notification notification = new NotificationCompat.Builder(MainActivity.this, App.channel1_ID)
                                 .setSmallIcon(R.drawable.nfthutlogo)
@@ -145,11 +135,8 @@ public class MainActivity extends AppCompatActivity {
                                 .build();
                         notificationManager.notify(1, notification);
 
-
                         Intent login_intent = new Intent(MainActivity.this, HomeActivity.class);
                         startActivity(login_intent);
-
-
                     }
                 }
 
@@ -162,8 +149,11 @@ public class MainActivity extends AppCompatActivity {
         }
         }
 
-
-
+    /**
+     * This method handles the registration button click event
+     * by displaying the registration fields
+     * @param v The view that registers the click event
+    */
     public void registerEvent(View v){
 
         ImageView cancelBtn = findViewById(R.id.cancel_Btn);
@@ -181,6 +171,14 @@ public class MainActivity extends AppCompatActivity {
         signup.setVisibility(View.VISIBLE);
 
     }
+
+    /**
+     * This method handles the signup event
+     * the fields displayed are First Name, Last Name, username and password
+     * Error handling also done
+     * Use of Notifications and Toast Messages to display messages
+     * @param view The view that registers the click event
+     */
     public void signupEvent(View view){
 
         EditText first_name = findViewById(R.id.firstNameText);
@@ -188,20 +186,20 @@ public class MainActivity extends AppCompatActivity {
         EditText newUsername = findViewById(R.id.newusernameText);
         EditText newPassword = findViewById(R.id.newpasswordText);
 
+        /* Error handling to check whether all fields has an input */
         if(TextUtils.isEmpty(newUsername.getText()) || TextUtils.isEmpty(newPassword.getText()) || TextUtils.isEmpty(first_name.getText()) ||
                 TextUtils.isEmpty(last_name.getText())) {
 
             Toast.makeText(getBaseContext(), "Enter all fields!", Toast.LENGTH_SHORT).show();
 
         }
+
+        /* Error handling to check is password length less than 8 */
         else if((!TextUtils.isEmpty(newUsername.getText()) || !TextUtils.isEmpty(newPassword.getText()) || !TextUtils.isEmpty(first_name.getText()) ||
                 !TextUtils.isEmpty(last_name.getText())) && newPassword.length() < 8){
-
-            System.out.println( newPassword.length());
             Toast.makeText(getBaseContext(), "Password should be greater than 8 characters!", Toast.LENGTH_LONG).show();
         }
-        else{
-
+        else {
 
             String firstnameText = first_name.getText().toString().trim();
             String lastnameText = last_name.getText().toString().trim();
@@ -212,12 +210,14 @@ public class MainActivity extends AppCompatActivity {
             newUsername.setText("");
             newPassword.setText("");
 
+            /* Adding of username to SharedPreferences to be used later */
             SharedPreferences sp = getSharedPreferences("Username", Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = sp.edit();
             editor.putString("username_value", String.valueOf(newUser));
             editor.commit();
 
-            // Synced sqlite and firebase
+            /* Syncing sqllite and Fiebase insert operationsfor new users which can only be
+             * done once internet connection is available */
             UserDetails userDetails;
             userDetails = new UserDetails(getRandomNumber(1000, 9999), newUser, newPw);
             ContentValues contentValues = new ContentValues();
@@ -225,14 +225,11 @@ public class MainActivity extends AppCompatActivity {
             contentValues.put(DataBaseHelper.password_column, newPw);
             Uri uri = getContentResolver().insert(MyContentProvider.CONTENT_URI, contentValues);
             Toast.makeText(getBaseContext(), uri.toString(), Toast.LENGTH_LONG).show();
-
-//        DataBaseHelper dataBaseHelper = new DataBaseHelper(MainActivity.this);
-//        dataBaseHelper.addOne(userDetails);
-
             FirebaseData newdets = new FirebaseData();
             newdets.userDetails(newUser, firstnameText, lastnameText, newPw);
 
 
+            /* USE OF NOTIFICATIONS TO DISPLAY SUCCESSFUL REGISTRATION */
             notificationManager = NotificationManagerCompat.from(this);
             Notification notification = new NotificationCompat.Builder(this, App.channel1_ID)
                     .setSmallIcon(R.drawable.nfthutlogo)
@@ -256,11 +253,15 @@ public class MainActivity extends AppCompatActivity {
             usern.setVisibility(View.INVISIBLE);
             passw.setVisibility(View.INVISIBLE);
             signup.setVisibility(View.INVISIBLE);
-
         }
-
     }
 
+    /**
+     * This method is used to get a random integer
+     * @param min The min value limit
+     * @param min The max value limit
+     * @return int The random number
+     */
     public int getRandomNumber(int min, int max) {
         return (int) ((Math.random() * (max - min)) + min);
     }
