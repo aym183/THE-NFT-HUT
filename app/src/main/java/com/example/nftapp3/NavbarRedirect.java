@@ -25,6 +25,9 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
+/**
+ * This method co
+ */
 public class NavbarRedirect extends AppCompatActivity {
 
     BottomNavigationView bottomNavigationView;

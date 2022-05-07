@@ -44,7 +44,9 @@ import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
 
-
+/**
+ * The MainActivity class handles the Registration and Login events
+ */
 public class MainActivity extends AppCompatActivity {
 
     private NotificationManagerCompat notificationManager;
@@ -60,8 +62,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         IntentFilter filter = new IntentFilter(Intent.ACTION_AIRPLANE_MODE_CHANGED);
         registerReceiver(airplaneModeChangeReceiver, filter);
-        
-
     }
 
     /**

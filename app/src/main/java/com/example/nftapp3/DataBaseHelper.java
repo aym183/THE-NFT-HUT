@@ -24,6 +24,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public static final int DATABASE_VERSION = 1;
     private SQLiteDatabase db;
 
+    /* Query that creates db table */
     static final String CREATE_DB_TABLE =
             " CREATE TABLE " + userTable +
                     " (user_id INTEGER PRIMARY KEY, " +
@@ -39,6 +40,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         db.execSQL(CREATE_DB_TABLE);
     }
 
+    /* Query that deletes db table */
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + userTable);
