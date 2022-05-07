@@ -54,20 +54,3 @@ public class LoadImage extends AsyncTask<String, Void, Bitmap> {
             this.imageView.setImageBitmap(bitmap);
         }
     }
-
-
-
-//        ivResult = convertView.findViewById(R.id.imageViewGrid);
-//        TextView textView = convertView.findViewById(R.id.textViewGrid);
-//        HorizontalViewAdapter.LoadImage newImage = new HorizontalViewAdapter.LoadImage(ivResult);
-//        newImage.execute(numberImage[position]);
-////        Log.d("Titles"+position, String.valueOf(position));
-////        Log.d("Titles2"+position, numberImage[position]);
-//
-//        // ivResult.setImageResource(numberImage[position]);
-//        textView.setText(titles[position]);
-//
-//        return convertView;
-//
-
-
