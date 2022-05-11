@@ -135,6 +135,11 @@ public class MainActivity extends AppCompatActivity {
                                 .build();
                         notificationManager.notify(1, notification);
 
+                        SharedPreferences sp = getSharedPreferences("Username", Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sp.edit();
+                        editor.putString("username_value", usernameInput);
+                        editor.commit();
+
                         Intent login_intent = new Intent(MainActivity.this, HomeActivity.class);
                         startActivity(login_intent);
                     }
