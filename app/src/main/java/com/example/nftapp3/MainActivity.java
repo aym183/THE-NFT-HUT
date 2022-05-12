@@ -143,6 +143,9 @@ public class MainActivity extends AppCompatActivity {
                         Intent login_intent = new Intent(MainActivity.this, HomeActivity.class);
                         startActivity(login_intent);
                     }
+                    else{
+                        Toast.makeText(MainActivity.this, "Incorrect Details!", Toast.LENGTH_LONG).show();
+                    }
                 }
 
                 @Override

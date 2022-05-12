@@ -6,6 +6,7 @@ import android.media.MediaPlayer;
 import android.os.IBinder;
 import android.provider.MediaStore;
 import android.provider.Settings;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 
@@ -22,6 +23,7 @@ public class AndroidService extends Service {
         // creating a media player which
         // will play the audio of Default
         // ringtone in android device
+        Log.d("Success", "I AM A SERVICE");
         player = MediaPlayer.create( this, Settings.System.DEFAULT_RINGTONE_URI );
 
         // providing the boolean

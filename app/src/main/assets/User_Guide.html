@@ -1,0 +1,203 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type = 'text/css' href="User_Guide.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" >
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+    <title>User Guide</title>
+</head>
+<body>
+    
+    
+    <section class = "bg-dark text-light p-5 text-center">
+        <div class = "container">
+            <div class = "d-sm-flex">
+                <div class="text-center">
+                    
+                </div>
+                <img class="title_image" src="newLogo.png" alt="Italian Trulli">
+            </div>
+        </div>
+    </section>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script> -->
+    
+    <div class="main_section">
+        <h1>Introduction</h1>
+        <br>
+
+
+        <p>Welcome to the User Guide for the next revolutionary app, THE NFT HUT! This app allows you to
+            manage your NFT collection, analyze it and explore new ones that could be added to your collection.
+            This website allows users to understand how to use the app with the help of the guide and make their 
+            experience a satisfying one! The device that we reccomend using with this app is the "Pixel 2 XL"
+        </p>
+
+        <br>
+
+        <h1>Login Page</h1>
+        <!-- <br> -->
+
+        <!-- <p>
+            In this page, we go through the structure of the login and registration process and how its managed.
+            
+        </p> -->
+
+        <br>
+        <div class="img_span">
+                <img id="SSImg" class="LoginImage" src="newLogin.png" alt="Italian Trulli">
+                <img id="SSImg" class="RegisterImage" src="newRegister.png" alt="Italian Trulli">
+         
+            <table>
+                <tr>
+                    <td id="login_text">a. Login Event</td>
+                    <td id="register_text">b. Register Event<td>
+                </tr>
+            </table>
+        </div>
+
+        <h2>a. Login Event</h2>
+        <p>The picture shows the display on login to the user. The user is required to input a 
+            valid username and password. On successful login, a notification is shown to indicate successful
+            and the user is redirected to the home page. If the details are incorrect, the error is handled and displayed appropriately.
+            To Login, the details are: Username - "steph_curry" and Password - "stephPW"
+        </p>
+
+        <br>
+
+        <h2>b. Register Event</h2>
+        <p>When the user clicks the "Register" button, the form for creating a new account becomes visible. The user is required to input
+            First Name, Last Name, Username and Password. On succesful inputs, the user is informed with a notification that the account has been created.
+            Upon the creation of the account, the data is stored in the local sqlite database and Firebase database simultaneously.
+        </p>
+
+        <br>
+
+        <h1>Home Page</h1>
+        <br>
+
+        <p>Upon successful login, the user is redirected to the home page. The home page displays a dashboard containing all the NFTs owned by the user and
+            the total value of the user's collection. The collection of the user is displayed in a gridview which enables the user to scroll through vertically 
+            and check their entire collection! Ps: Sometimes not all the assets might show up, to fix this just scroll up and down rapidly
+            and all the assets will appear
+        </p>
+
+
+        <br>
+
+
+        <div class="img_span">
+            <img id="SSImg" class="LoginImage" src="HomeSS.png" alt="Italian Trulli">
+            <img id="SSImg" class="RegisterImage" src="clickedHomeSS.png" alt="Italian Trulli">
+     
+            <table>
+                <tr>
+                    <td id="login_text">a. Home Page</td>
+                    <td id="clicked_text">b. Clicked Event<td>
+                </tr>
+            </table>
+        </div>
+
+        <h2>b. Clicked Event</h2>
+        <p> Once the user clicks on any of the NFT's, it displays more details about the asset such as it's unique attributes. If the user wants to learn more
+            about the particular asset, they can just click on the "Learn More" button to be redirected to the external link containing in-depth information 
+            about the particular asset. If the user wants to share the NFT, they can just click on the share button on the top toolbar to do so.
+        </p>
+
+        <br>
+
+        <h1>Explore Page</h1>
+
+        <br>
+        <p>When the user clicks the respective logo in the bottom navbar, they are redirected to the explore page. This page displays all the latest/in-deman
+            collections for the user to explore. There are 3 rows:<br><br>
+
+            Recently Added: This row shows the user the assets they've recently acquired.<br><br>
+            Most Viewed: This row shows the user the Most Viewed assets.<br><br>
+            Hot New Items: This row shares with users the most in-demand items that they could be interested in.<br><br>
+        </p>
+
+
+        <div class="img_span">
+            <img id="SSImg" class="LoginImage" src="ExploreSS.png" alt="Italian Trulli">
+            <img id="SSImg" class="RegisterImage" src="clickedExploreSS.png" alt="Italian Trulli">
+     
+            <table>
+                <tr>
+                    <td id="login_text">a. Explore Page</td>
+                    <td id="explore_clicked_text">b. Clicked Event<td>
+                </tr>
+            </table>
+        </div>
+
+        <h2>b. Clicked Event</h2>
+        <p> Once the user clicks on any of the NFT's they are interested in, they are shown the asset in detail with its attributes. It is almost identical
+            to the previous clicked event, but here the user can buy these assets as it is not yet added to the user's collection. On click of the "Buy Now" button,
+            the user is redirected to the OpenSea page where the user can buy the particular asset.
+        </p>
+
+        <br>
+        <h1>Analytics Page</h1>
+        <br>
+        <p>Once the user clicks the analytics logo, they are redirected to the analytics page which first shows a Rankings and Activity button. Both are described in detail
+            below: <br><br>
+            1. Rankings Button<br><br>
+            2. Activity Button<br><br>
+            These features will be talked about in detail below. With these features, the user is also able to see how much they have spent totally on their assets. (ETH price as of 20th April converted to USD)
+        </p>
+
+        <br>
+
+        <div class="img_span">
+            <img id="SSImg" class="LoginImage" src="newRankings.png" alt="Italian Trulli">
+            <img id="SSImg" class="RegisterImage" src="newActivity.png" alt="Italian Trulli">
+     
+            <table>
+                <tr>
+                    <td id="ranking_text">a. Rankings</td>
+                    <td id="activity_clicked_text">b. Activity<td>
+                </tr>
+            </table>
+        </div>
+
+        <h2>a. Rankings</h2>
+        <p> Upon click, the rankings for the collections of the assets show up. Only the floor price and market cap is displayed.
+        </p>
+
+        <br>
+
+        <h2>b. Activity</h2>
+        <p> Upon click, the respective collections show up. Once the user clicks any of the collections, the details for the collections shows up.
+            Some of the details include: Floor Price, 7 Day Price, Total Sales etc.
+        </p>
+
+        <br>
+
+        <h1>Account Page</h1>
+        <br>
+        <p>Once the user clicks the accounts logo, they are redirected to the account page which displays the details of the user.
+            Along with that, the user can logout by clicking the "LOGOUT" button. To know more about THE NFT HUT and what it stands for,
+            please click the "ABOUT US" button to be redirected to its website.
+        </p>
+
+        <div class="accimg_span">
+            <img class="AccSS" id="SSImg" src="AccountSS.png" alt="Italian Trulli">
+     
+            <table>
+                <tr>
+                    <td id="acc_text">a. Account</td>
+                </tr>
+            </table>
+        </div>
+
+        <footer>
+            <p class="center">&#169; 2022 THE NFT HUT</p>
+        </footer>
+    </div> 
+    
+</body>
+
+</html>
