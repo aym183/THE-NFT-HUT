@@ -2,10 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.nftapp3">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:name=".App"
@@ -15,17 +15,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Nftapp3">
-
-<!--        <receiver android:name=".MyBroadcastReciever"-->
-<!--            android:enabled="true"-->
-<!--            android:exported="true">-->
-
-<!--            <intent-filter>-->
-<!--                <action android:name="com.nftapp3.MyBroadcastReciever"/>-->
-
-<!--            </intent-filter>-->
-<!--        </receiver>-->
-
+        <activity
+            android:name=".user_guide"
+            android:exported="true" />
+        <!-- <receiver android:name=".MyBroadcastReciever" -->
+        <!-- android:enabled="true" -->
+        <!-- android:exported="true"> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="com.nftapp3.MyBroadcastReciever"/> -->
+        <!-- </intent-filter> -->
+        <!-- </receiver> -->
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -37,7 +36,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".HomeActivity"
             android:exported="true"
@@ -49,7 +47,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".AnalyticsActivity"
             android:exported="true"
@@ -61,7 +58,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".ExploreActivity"
             android:exported="true"
@@ -73,7 +69,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".AccountActivity"
             android:exported="true"
@@ -85,8 +80,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
         <activity
             android:name=".clickedActivity"
             android:exported="true"
@@ -97,7 +90,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".clickedActivityExplore"
             android:exported="true"
@@ -111,11 +103,10 @@
 
         <provider
             android:name=".MyContentProvider"
+            android:authorities="com.example.nftapp3.MyContentProvider"
             android:exported="true"
             android:readPermission="true"
-            android:writePermission="true"
-            android:authorities="com.example.nftapp3.MyContentProvider"/>
-
+            android:writePermission="true" />
     </application>
 
 </manifest>

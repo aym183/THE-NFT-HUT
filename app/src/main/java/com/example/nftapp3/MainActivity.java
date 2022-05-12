@@ -20,6 +20,8 @@ import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
 import android.text.TextUtils;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.util.Log;
@@ -266,6 +268,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public void UserGuide(View view){
+
+    }
     /**
      * This method is used to get a random integer
      * @param min The min value limit
