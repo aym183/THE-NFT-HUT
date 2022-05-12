@@ -175,6 +175,9 @@ public class MainActivity extends AppCompatActivity {
         passw.setVisibility(View.VISIBLE);
         signup.setVisibility(View.VISIBLE);
 
+        /* Use of service to execute background actions after successful registration */
+        startService(new Intent(this, AndroidService.class));
+
     }
 
     /**
@@ -232,7 +235,6 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(getBaseContext(), uri.toString(), Toast.LENGTH_LONG).show();
             FirebaseData newdets = new FirebaseData();
             newdets.userDetails(newUser, firstnameText, lastnameText, newPw);
-
 
             /* USE OF NOTIFICATIONS TO DISPLAY SUCCESSFUL REGISTRATION */
             notificationManager = NotificationManagerCompat.from(this);
