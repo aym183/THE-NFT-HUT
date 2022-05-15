@@ -1,37 +1,26 @@
 package com.example.nftapp3;
 
+import android.app.Notification;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.TextView;
-
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
-
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
-
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
-import org.w3c.dom.Text;
-
-import java.util.Arrays;
-import java.util.HashMap;
 
 /**
  * The AccountActivity class handles all the operations for the account page
@@ -90,7 +79,7 @@ public class AccountActivity extends AppCompatActivity {
                  */
                 @Override
                 public void onCancelled(@NonNull DatabaseError error) {
-                    Log.d("VALUE FROM FIRE", "you dont work");
+
                 }
             });
 
@@ -147,6 +136,15 @@ public class AccountActivity extends AppCompatActivity {
      */
     public void LogoutEvent(View v){
 
+        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(AccountActivity.this);
+        Notification notification = new NotificationCompat.Builder(AccountActivity.this, App.channel1_ID)
+                .setSmallIcon(R.drawable.nfthutlogo)
+                .setContentTitle("THE NFT HUT")
+                .setContentText("You have logged in!")
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .setCategory(NotificationCompat.CATEGORY_MESSAGE)
+                .build();
+        notificationManager.notify(1, notification);
         startActivity(new Intent(getApplicationContext(), MainActivity.class));
         overridePendingTransition(0, 0);
 

@@ -1,15 +1,10 @@
 package com.example.nftapp3;
 
-import android.content.ContentValues;
 import android.content.Context;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteDatabase;
-
 import androidx.annotation.Nullable;
 
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * This DatabaseHelper class is used to create and delete db tables
