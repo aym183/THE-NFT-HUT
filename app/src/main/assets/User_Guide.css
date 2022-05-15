@@ -31,11 +31,16 @@ p{
 }
 
 .LoginImage{
-    padding-left: 25px;
+
+    padding-top: 10px;
+    padding-bottom: 10px;
+
 }
 
 .RegisterImage{
-    padding-left: 150px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
 }
 
 .AccSS{
@@ -52,12 +57,10 @@ p{
 }
 
 .img_span{
-    width: 300px;
-    height: 1000px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 50px;
+    width: 200px;
+     height: 1000px;
+     display: block;
+     margin-top: 50px;
 }
 
 .accimg_span{
