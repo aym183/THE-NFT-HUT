@@ -136,7 +136,6 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Incorrect Details!", Toast.LENGTH_LONG).show();
                 }
             });
-
         }
         }
 
@@ -250,6 +249,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void UserGuide(View view){
+        Intent guide_intent = new Intent(getApplicationContext(), User_Guide.class);
+        startActivity(guide_intent);
 
     }
     /**

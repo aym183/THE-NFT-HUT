@@ -16,6 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Nftapp3">
         <activity
+            android:name=".User_Guide"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
