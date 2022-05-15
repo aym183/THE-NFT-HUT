@@ -43,10 +43,6 @@ p{
 
 }
 
-.AccSS{
-    padding-left:230px;
-}
-
 .acc_SSImg{
     
     height:400px;
@@ -74,44 +70,43 @@ p{
 }
 
 #login_text{
+    font-weight: bold;
     padding-left: 50px;
     padding-top: 20px;
-    font-weight: bold;
     font-size: 20px;
 }
 
 #register_text{
+    font-weight: bold;
     padding-left: 215px;
     padding-top: 20px;
-    font-weight: bold;
     font-size: 20px;
 }
 
 #acc_text{
-    padding-left: 275px;
-    padding-top: 20px;
     font-weight: bold;
+    padding-top: 10px;
     font-size: 20px;
 }
 
 #clicked_text{
+    font-weight: bold;
     padding-left: 225px;
     padding-top: 20px;
-    font-weight: bold;
     font-size: 20px;
 }
 
 #explore_clicked_text{
+    font-weight: bold;
     padding-left: 205px;
     padding-top: 20px;
-    font-weight: bold;
     font-size: 20px;
 }
 
 #ranking_text{
+    font-weight: bold;
     padding-left: 70px;
     padding-top: 20px;
-    font-weight: bold;
     font-size: 20px;
 }
 
