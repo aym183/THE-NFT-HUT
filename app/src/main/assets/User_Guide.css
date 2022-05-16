@@ -18,7 +18,6 @@ hr{
 
 .main_section{
     margin: 100px;
-    margin-left: 120px;
 }
 
 p{
@@ -52,15 +51,14 @@ p{
 }
 
 .img_span{
-    width: 200px;
-     height: 1000px;
+     width: 200px;
+     height: 950px;
      display: block;
      margin-top: 50px;
 }
 
 .accimg_span{
     width: 650px;
-    height: 550px;
     display: block;
     margin-left: auto;
     margin-right: auto;

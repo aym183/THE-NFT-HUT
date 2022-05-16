@@ -15,9 +15,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Nftapp3">
+
         <activity
             android:name=".User_Guide"
-            android:exported="true" />
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.Nftapp3.NoActionBar">
+        </activity>
         <activity
             android:name=".MainActivity"
             android:exported="true"
