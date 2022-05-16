@@ -140,7 +140,7 @@ public class AccountActivity extends AppCompatActivity {
         Notification notification = new NotificationCompat.Builder(AccountActivity.this, App.channel1_ID)
                 .setSmallIcon(R.drawable.nfthutlogo)
                 .setContentTitle("THE NFT HUT")
-                .setContentText("You have logged in!")
+                .setContentText("You have logged out!")
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
                 .setCategory(NotificationCompat.CATEGORY_MESSAGE)
                 .build();
@@ -159,6 +159,4 @@ public class AccountActivity extends AppCompatActivity {
         Intent webIntent = new Intent(Intent.ACTION_VIEW, webpage);
         startActivity(webIntent);
     }
-
-
 }
