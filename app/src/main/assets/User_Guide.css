@@ -19,7 +19,6 @@ hr{
 .main_section{
     margin: 100px;
     margin-left: 120px;
-    height: 50vh;
 }
 
 p{
@@ -71,49 +70,50 @@ p{
 
 #login_text{
     font-weight: bold;
-    padding-left: 50px;
     padding-top: 20px;
+    padding-bottom: 20px;
     font-size: 20px;
 }
 
 #register_text{
     font-weight: bold;
-    padding-left: 215px;
     padding-top: 20px;
+    padding-bottom: 20px;
     font-size: 20px;
 }
 
 #acc_text{
     font-weight: bold;
-    padding-top: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
     font-size: 20px;
 }
 
 #clicked_text{
     font-weight: bold;
-    padding-left: 225px;
     padding-top: 20px;
+    padding-bottom: 20px;
     font-size: 20px;
 }
 
 #explore_clicked_text{
     font-weight: bold;
-    padding-left: 205px;
     padding-top: 20px;
+    padding-bottom: 20px;
     font-size: 20px;
 }
 
 #ranking_text{
     font-weight: bold;
-    padding-left: 70px;
     padding-top: 20px;
+    padding-bottom: 20px;
     font-size: 20px;
 }
 
 #activity_clicked_text{
-    padding-left: 250px;
-    padding-top: 20px;
     font-weight: bold;
+    padding-top: 20px;
+    padding-bottom: 20px;
     font-size: 20px;
 }
 
@@ -122,14 +122,13 @@ p{
     text-align: center;
 }
 
-footer {
-    grid-row: 2;
-    grid-column: 1 / span 2;
+.footer_section{
+
     display: flex;
     align-items: center;
     flex-shrink: 0;
     justify-content: center;
-    height: 80px;
-    background-color: black;
+    height: 120px;
+    background-color: #212529;
     color: white;
  }
